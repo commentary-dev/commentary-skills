@@ -1,0 +1,10 @@
+skills:
+  - name: commentary-draft-review
+    displayName: Commentary Draft Review
+    category: review
+    source: skills/commentary-draft-review
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Use the Commentary CLI for live collaborative review of local text artifacts.
+    slug: commentary-draft-review
+

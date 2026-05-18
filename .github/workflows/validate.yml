@@ -1,0 +1,28 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run verify
+      - name: Copilot skill publish dry run
+        run: |
+          if gh skill --help >/dev/null 2>&1; then
+            gh skill publish --dry-run
+          else
+            echo "gh skill is not available; skipping dry run"
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
+

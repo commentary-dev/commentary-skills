@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Draft Review"
+  short_description: "Live Commentary reviews for docs"
+  default_prompt: "Use $commentary-draft-review to draft a Markdown artifact and review it with Commentary."

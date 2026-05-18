@@ -1,0 +1,10 @@
+plugins:
+  - name: commentary-review
+    displayName: Commentary Review
+    target: claude-code
+    version: 0.1.0
+    description: Adds the Commentary draft review skill for Claude Code.
+    category: review
+    tags: [commentary, review, markdown]
+    skills: [commentary-draft-review]
+

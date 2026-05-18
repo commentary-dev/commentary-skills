@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run verify
+      - name: Publish Copilot skills
+        run: |
+          if gh skill --help >/dev/null 2>&1; then
+            gh skill publish
+          else
+            echo "gh skill is not available; skipping publish"
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Publish OpenClaw skill
+        run: |
+          if command -v clawhub >/dev/null 2>&1; then
+            clawhub skill publish skills/commentary-draft-review
+          else
+            echo "clawhub is not available; skipping publish"
+          fi
+

@@ -1,0 +1,9 @@
+node_modules/
+.commentary/
+.env
+.env.*
+coverage/
+.nyc_output/
+npm-debug.log*
+*.tgz
+

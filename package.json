@@ -1,0 +1,23 @@
+{
+  "name": "@commentary-dev/commentary-skills",
+  "version": "0.1.0",
+  "description": "Marketplace and canonical source for Commentary agent skills.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "generate": "node scripts/generate-catalog.mjs && node scripts/generate-claude-plugins.mjs",
+    "validate": "node scripts/validate-skills.mjs",
+    "check:generated": "node scripts/check-generated.mjs",
+    "public:check": "node scripts/public-readiness-check.mjs",
+    "format:check": "node scripts/check-format.mjs",
+    "verify": "npm run generate && npm run validate && npm run check:generated && npm run public:check && npm run format:check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/commentary-dev/commentary-skills.git"
+  }
+}

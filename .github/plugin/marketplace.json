@@ -1,0 +1,30 @@
+{
+  "name": "commentary-skills",
+  "owner": {
+    "name": "Commentary"
+  },
+  "metadata": {
+    "description": "Commentary agent skills and platform plugins.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "commentary-review",
+      "source": "./plugins/commentary-review",
+      "description": "Adds the Commentary draft review skill for Claude Code.",
+      "version": "0.1.0",
+      "category": "review",
+      "tags": [
+        "commentary",
+        "review",
+        "markdown"
+      ],
+      "author": {
+        "name": "Commentary"
+      },
+      "homepage": "https://github.com/commentary-dev/commentary-skills",
+      "repository": "https://github.com/commentary-dev/commentary-skills",
+      "license": "MIT"
+    }
+  ]
+}

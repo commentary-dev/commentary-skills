@@ -1,0 +1,47 @@
+{
+  "name": "commentary-skills",
+  "version": "0.1.0",
+  "repository": "https://github.com/commentary-dev/commentary-skills",
+  "license": "MIT",
+  "skills": [
+    {
+      "name": "commentary-draft-review",
+      "displayName": "Commentary Draft Review",
+      "category": "review",
+      "source": "skills/commentary-draft-review",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Use the Commentary CLI for live collaborative review of local text artifacts.",
+      "slug": "commentary-draft-review",
+      "description": "Use Commentary draft reviews from an agent via the Commentary CLI for live collaborative review of Markdown, MDX, HTML, and plain text artifacts. Trigger this skill when a user asks to create, draft, edit, revise, or review a blog post, spec, proposal, report, documentation page, or other text artifact with Commentary; when they mention Commentary draft reviews, live comments, watch-comment, review it with commentary, or using an agent and human reviewer together; and when the agent needs to set up authentication, create/sync/watch a review, read or wait for comments, reply to comments, resolve threads, or decide whether to use the CLI or an already-installed Commentary MCP server.",
+      "interface": {
+        "display_name": "Commentary Draft Review",
+        "short_description": "Live Commentary reviews for docs",
+        "default_prompt": "Use $commentary-draft-review to draft a Markdown artifact and review it with Commentary."
+      }
+    }
+  ],
+  "plugins": [
+    {
+      "name": "commentary-review",
+      "displayName": "Commentary Review",
+      "target": "claude-code",
+      "version": "0.1.0",
+      "description": "Adds the Commentary draft review skill for Claude Code.",
+      "category": "review",
+      "tags": [
+        "commentary",
+        "review",
+        "markdown"
+      ],
+      "skills": [
+        "commentary-draft-review"
+      ]
+    }
+  ]
+}

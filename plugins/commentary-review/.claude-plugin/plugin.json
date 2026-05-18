@@ -1,0 +1,23 @@
+{
+  "name": "commentary-review",
+  "description": "Adds the Commentary draft review skill for Claude Code.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Commentary"
+  },
+  "homepage": "https://github.com/commentary-dev/commentary-skills",
+  "repository": "https://github.com/commentary-dev/commentary-skills",
+  "license": "MIT",
+  "keywords": [
+    "commentary",
+    "review",
+    "markdown"
+  ],
+  "category": "review",
+  "tags": [
+    "commentary",
+    "review",
+    "markdown"
+  ],
+  "skills": "./skills"
+}
