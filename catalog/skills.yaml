@@ -1,4 +1,12 @@
 skills:
+  - name: commentary-brainstorm-review
+    displayName: Commentary Brainstorm Review
+    category: review
+    source: skills/commentary-brainstorm-review
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Apply accepted consensus changes from Commentary Brainstorming Reviews.
+    slug: commentary-brainstorm-review
   - name: commentary-draft-review
     displayName: Commentary Draft Review
     category: review
@@ -7,4 +15,3 @@ skills:
     version: 0.1.0
     summary: Use the Commentary CLI for live collaborative review of local text artifacts.
     slug: commentary-draft-review
-

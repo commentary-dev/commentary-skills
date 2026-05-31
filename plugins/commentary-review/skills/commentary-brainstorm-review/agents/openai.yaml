@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Brainstorm Review"
+  short_description: "Apply accepted Commentary consensus changes"
+  default_prompt: "Use $commentary-brainstorm-review to apply accepted consensus changes from a Commentary Brainstorming Review."

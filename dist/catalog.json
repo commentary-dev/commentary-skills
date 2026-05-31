@@ -1,9 +1,30 @@
 {
   "name": "commentary-skills",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": "https://github.com/commentary-dev/commentary-skills",
   "license": "MIT",
   "skills": [
+    {
+      "name": "commentary-brainstorm-review",
+      "displayName": "Commentary Brainstorm Review",
+      "category": "review",
+      "source": "skills/commentary-brainstorm-review",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Apply accepted consensus changes from Commentary Brainstorming Reviews.",
+      "slug": "commentary-brainstorm-review",
+      "description": "Use Commentary Brainstorming Reviews from an agent to monitor multi-user consensus, apply accepted changes to reviewed pages, and mark brainstorming threads addressed. Trigger this skill when a user mentions Commentary brainstorming, consensus review, voting on draft changes, accepted consensus, brainstorm status, brainstorm next, applying agreed changes, or when an agent must choose between a remote MCP-only Commentary review and a local file-backed Commentary review using the CLI.",
+      "interface": {
+        "display_name": "Commentary Brainstorm Review",
+        "short_description": "Apply accepted Commentary consensus changes",
+        "default_prompt": "Use $commentary-brainstorm-review to apply accepted consensus changes from a Commentary Brainstorming Review."
+      }
+    },
     {
       "name": "commentary-draft-review",
       "displayName": "Commentary Draft Review",
@@ -31,8 +52,8 @@
       "name": "commentary-review",
       "displayName": "Commentary Review",
       "target": "claude-code",
-      "version": "0.1.0",
-      "description": "Adds the Commentary draft review skill for Claude Code.",
+      "version": "0.2.0",
+      "description": "Adds Commentary review skills for Claude Code.",
       "category": "review",
       "tags": [
         "commentary",
@@ -40,6 +61,7 @@
         "markdown"
       ],
       "skills": [
+        "commentary-brainstorm-review",
         "commentary-draft-review"
       ]
     }

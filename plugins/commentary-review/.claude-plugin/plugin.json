@@ -1,7 +1,7 @@
 {
   "name": "commentary-review",
-  "description": "Adds the Commentary draft review skill for Claude Code.",
-  "version": "0.1.0",
+  "description": "Adds Commentary review skills for Claude Code.",
+  "version": "0.2.0",
   "author": {
     "name": "Commentary"
   },

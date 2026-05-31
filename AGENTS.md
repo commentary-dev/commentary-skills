@@ -2,7 +2,7 @@
 
 ## Repo Intent
 
-This repository is the public marketplace and canonical source for Commentary agent skills. It currently ships one skill: `commentary-draft-review`.
+This repository is the public marketplace and canonical source for Commentary agent skills.
 
 ## Product Boundaries
 
@@ -20,4 +20,3 @@ This repository is the public marketplace and canonical source for Commentary ag
 - Prefer validation that fails loudly over silent best-effort generation.
 - Preserve `SKILL.md` portability across Codex, Copilot, Claude Code, OpenClaw, and other Agent Skills-compatible tools.
 - Run `npm run verify` before handoff.
-

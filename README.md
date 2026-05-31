@@ -2,7 +2,7 @@
 
 Portable agent skills and marketplace metadata for Commentary.
 
-This repository is the canonical source for the `commentary-draft-review` skill. The skill teaches agents how to use the Commentary CLI for live collaborative review of Markdown, MDX, HTML, and plain text artifacts.
+This repository is the canonical source for Commentary agent skills. The skills teach agents how to use Commentary for live collaborative review of Markdown, MDX, HTML, and plain text artifacts, including consensus-driven Brainstorming Reviews.
 
 ## What Is Commentary?
 
@@ -16,13 +16,15 @@ Codex and other `SKILL.md`-compatible agents can consume the skill folder direct
 git clone https://github.com/commentary-dev/commentary-skills.git
 ```
 
-Then install or copy `skills/commentary-draft-review` into the skill directory for your agent.
+Then install or copy the desired folder from `skills/` into the skill directory for your agent.
 
 GitHub Copilot cloud agent users can install the skill with GitHub CLI 2.90.0 or later:
 
 ```bash
 gh skill preview commentary-dev/commentary-skills commentary-draft-review
 gh skill install commentary-dev/commentary-skills commentary-draft-review
+gh skill preview commentary-dev/commentary-skills commentary-brainstorm-review
+gh skill install commentary-dev/commentary-skills commentary-brainstorm-review
 ```
 
 GitHub Copilot CLI users can install the `commentary-review` plugin from this repository marketplace:
@@ -43,19 +45,21 @@ Claude Code users can add this repository as a plugin marketplace and install th
 
 ## Skills
 
+- [Commentary Brainstorm Review](docs/commentary-brainstorm-review.md): Apply accepted consensus changes from Commentary Brainstorming Reviews through MCP-only or local file-backed workflows.
 - [Commentary Draft Review](docs/commentary-draft-review.md): Use the Commentary CLI for live collaborative review of local Markdown, MDX, HTML, and plain text artifacts.
 
 ## Repository Layout
 
 ```text
-catalog/                         Human-edited skill and plugin metadata
-docs/                            Human-facing skill documentation
-skills/commentary-draft-review/  Canonical portable skill
-plugins/commentary-review/       Generated Copilot CLI and Claude Code plugin wrapper
-.github/plugin/marketplace.json  Generated GitHub Copilot CLI marketplace manifest
-.claude-plugin/marketplace.json  Generated Claude marketplace manifest
-dist/                            Generated marketplace indexes
-scripts/                         Validation and generation scripts
+catalog/                            Human-edited skill and plugin metadata
+docs/                               Human-facing skill documentation
+skills/commentary-draft-review/     Canonical portable draft review skill
+skills/commentary-brainstorm-review/ Canonical portable brainstorming skill
+plugins/commentary-review/          Generated Copilot CLI and Claude Code plugin wrapper
+.github/plugin/marketplace.json     Generated GitHub Copilot CLI marketplace manifest
+.claude-plugin/marketplace.json     Generated Claude marketplace manifest
+dist/                               Generated marketplace indexes
+scripts/                            Validation and generation scripts
 ```
 
 Generated files are committed because they are required for direct installation on some platforms. Do not hand-edit generated plugin copies or `dist` files; update the canonical skill or catalog and run:
@@ -70,7 +74,7 @@ Generated install files include:
 - `.claude-plugin/marketplace.json` for Claude Code marketplace installs.
 - `plugins/commentary-review/plugin.json` for GitHub Copilot CLI plugin installs.
 - `plugins/commentary-review/.claude-plugin/plugin.json` for Claude Code plugin installs.
-- `plugins/commentary-review/skills/commentary-draft-review/` as the plugin-local generated skill copy.
+- `plugins/commentary-review/skills/*/` as the plugin-local generated skill copies.
 
 ## Development
 
