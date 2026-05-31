@@ -1,6 +1,6 @@
 ---
 name: commentary-draft-review
-description: Use Commentary draft reviews from an agent via the Commentary CLI for live collaborative review of Markdown, MDX, HTML, and plain text artifacts. Trigger this skill when a user asks to create, draft, edit, revise, or review a blog post, spec, proposal, report, documentation page, or other text artifact with Commentary; when they mention Commentary draft reviews, live comments, watch-comment, review it with commentary, or using an agent and human reviewer together; and when the agent needs to set up authentication, create/sync/watch a review, read or wait for comments, reply to comments, resolve threads, or decide whether to use the CLI or an already-installed Commentary MCP server.
+description: Use Commentary draft reviews from an agent via the Commentary CLI for live collaborative review of Markdown, MDX, HTML, and plain text artifacts. Trigger this skill when a user asks to create, draft, edit, revise, share, or review a blog post, spec, proposal, report, documentation page, or other text artifact with Commentary; when they mention Commentary draft reviews, live comments, watch-comment, review it with commentary, or using an agent and human reviewer together; and when the agent needs to set up authentication, create/sync/watch/share a review, read or wait for comments, reply to comments, resolve threads, manage comments by other reviewers, or decide whether to use the CLI or an already-installed Commentary MCP server.
 ---
 
 # Commentary Draft Review
@@ -94,6 +94,38 @@ commentary track ./docs/new-page.md --message "Add requested page"
 
 Use `track` instead of creating a second review. It uploads a full revision containing the existing tracked files and the new files, then updates `.commentary/session.json`.
 
+## Sharing Reviews
+
+When the user asks to share a review, use the CLI share command against the current local review session. If there is no local `.commentary/session.json`, use `--session <id>` when the user provides a session id; otherwise create or restore the review first.
+
+For anyone-with-link sharing:
+
+```bash
+commentary share --anyone --json
+```
+
+For a specific user:
+
+```bash
+commentary share --user reviewer@example.com --json
+```
+
+If the user asks to inspect current sharing state:
+
+```bash
+commentary share --list --json
+```
+
+Return the share URL to the user when the CLI response includes a `shareLink.url` or `shareLink.shareUrl`. For user-specific grants, return the recipient/access-grant confirmation and the draft review URL from local session metadata or `commentary status --json` if no share URL is present.
+
+Do not write share links, recipients, or access grants into `.commentary/session.json`, source files, docs, comments, or skill memory. Sharing state is stored by Commentary.
+
+After sharing a review, ask the current user how to handle comment threads authored by other reviewers:
+
+- Default to requiring approval before resolving other-authored threads.
+- Accept approval from the current user in the agent conversation, or from a reply in the Commentary thread approving the requested change.
+- If the user explicitly authorizes automatic resolution for other-authored threads, continue the normal edit, sync, and resolve loop for those threads.
+
 ## Comment Loop
 
 For existing comments, read open threads:
@@ -131,18 +163,21 @@ Run `comments --stop` instead of killing processes manually. If using a custom s
 When a comment arrives:
 
 1. Inspect the thread id, file path, selected text, line hints, and comment body.
-2. Edit the local file to address the request.
-3. Upload a new revision:
+2. Determine whether the thread appears to be authored by the current agent alias or by another reviewer. Use `agentAlias`, `authorLogin`, and `author` fields when present; if authorship is ambiguous after a review has been shared, treat the thread as other-authored.
+3. Edit the local file to address the request.
+4. Upload a new revision:
 
    ```bash
    commentary sync --message "Address review comments"
    ```
 
-4. Resolve only when the requested change is fully addressed, and include the final visible response in the resolve command:
+5. Resolve only when the requested change is fully addressed, and include the final visible response in the resolve command:
 
    ```bash
    commentary resolve <thread-id> --message "Updated the introduction and synced revision 2." --alias "Docs agent"
    ```
+
+For other-authored threads after sharing, do not resolve by default after syncing. Ask the current user for approval, or wait for an approving reply on the thread. A reply created by another reviewer can arrive through the default `next-comment` behavior because replies are included unless `--no-include-replies` is used. If approval is missing, leave the thread open and optionally reply with a concise progress update.
 
 Use `commentary reply` only for non-final progress updates or follow-up discussion, because replies can reopen resolved threads.
 
@@ -178,4 +213,5 @@ If a Commentary MCP server is already installed and exposes equivalent draft-rev
 - Do not print spinners or rely on interactive prompts in non-TTY automation.
 - Prefer short bounded waits for interactive agent sessions; use `comments --watch --jsonl` plus `comments --stop` for long-running listeners.
 - Preserve `.commentary/session.json`; it stores review metadata but must never contain secrets.
+- Do not persist share links, recipients, access grants, or reviewer instructions in local repo files unless the user explicitly asks to document them.
 - Respect draft-review limits: at most 20 files, 512 KiB per file, and 2 MiB total per revision.
