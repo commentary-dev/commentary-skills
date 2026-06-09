@@ -11,6 +11,7 @@ import {
 
 const namePattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const requiredTargets = ["codex", "copilot", "claude-code", "openclaw"];
+const supportedMcpServers = new Set(["commentary"]);
 
 function validate() {
   const { skills, plugins } = readCatalogs();
@@ -81,6 +82,13 @@ function validatePlugin(plugin, skillNameSet) {
   for (const skillName of plugin.skills) {
     assert(skillNameSet.has(skillName), `${plugin.name} references unknown skill ${skillName}`);
   }
+
+  if (plugin.mcpServers !== undefined) {
+    assert(Array.isArray(plugin.mcpServers), `${plugin.name} mcpServers must be an array`);
+    for (const serverName of plugin.mcpServers) {
+      assert(supportedMcpServers.has(serverName), `${plugin.name} references unsupported MCP server ${serverName}`);
+    }
+  }
 }
 
 function validateGeneratedMarketplaceMetadata() {
@@ -107,6 +115,13 @@ function validateGeneratedMarketplaceMetadata() {
         assert(manifest.name === plugin.name, `${plugin.name} manifest name mismatch at ${manifestPath}`);
         assert(manifest.version, `${plugin.name} manifest must set version at ${manifestPath}`);
         assert(manifest.skills === "./skills", `${plugin.name} manifest must point skills to ./skills at ${manifestPath}`);
+        if (manifest.mcpServers) {
+          assert(manifest.mcpServers === "./.mcp.json", `${plugin.name} manifest must point mcpServers to ./.mcp.json at ${manifestPath}`);
+          assert(fs.existsSync(`${pluginRoot}/.mcp.json`), `${plugin.name} MCP config is missing at ${pluginRoot}/.mcp.json`);
+          const mcp = JSON.parse(readText(`${pluginRoot}/.mcp.json`));
+          assert(mcp.mcpServers?.commentary?.type === "http", `${plugin.name} MCP config must define commentary as an HTTP server`);
+          assert(mcp.mcpServers?.commentary?.url === "https://commentary.dev/mcp", `${plugin.name} MCP config must point to Commentary MCP`);
+        }
       }
     }
   }

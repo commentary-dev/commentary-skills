@@ -1,7 +1,7 @@
 {
   "name": "commentary-review",
   "description": "Adds Commentary review skills for Claude Code.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": {
     "name": "Commentary"
   },
@@ -11,13 +11,16 @@
   "keywords": [
     "commentary",
     "review",
-    "markdown"
+    "markdown",
+    "web"
   ],
   "category": "review",
   "tags": [
     "commentary",
     "review",
-    "markdown"
+    "markdown",
+    "web"
   ],
-  "skills": "./skills"
+  "skills": "./skills",
+  "mcpServers": "./.mcp.json"
 }

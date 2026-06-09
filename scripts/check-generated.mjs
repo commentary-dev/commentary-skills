@@ -7,6 +7,7 @@ const generatedRoots = [
   ".github/plugin/",
   "dist/",
   "plugins/commentary-review/.claude-plugin/",
+  "plugins/commentary-review/.mcp.json",
   "plugins/commentary-review/plugin.json",
   "plugins/commentary-review/skills/",
 ];

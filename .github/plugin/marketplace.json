@@ -5,19 +5,20 @@
   },
   "metadata": {
     "description": "Commentary agent skills and platform plugins.",
-    "version": "0.2.0"
+    "version": "0.3.0"
   },
   "plugins": [
     {
       "name": "commentary-review",
       "source": "./plugins/commentary-review",
       "description": "Adds Commentary review skills for Claude Code.",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "category": "review",
       "tags": [
         "commentary",
         "review",
-        "markdown"
+        "markdown",
+        "web"
       ],
       "author": {
         "name": "Commentary"

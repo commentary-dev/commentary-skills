@@ -6,7 +6,7 @@ This repository is the canonical source for Commentary agent skills. The skills 
 
 ## What Is Commentary?
 
-[Commentary](https://commentary.dev) is a GitHub-native document review workspace for Markdown specs, ADRs, rollout plans, READMEs, and docs. It renders documents for reading-first review and keeps comments attached to paragraphs and semantic blocks instead of raw diff lines.
+[Commentary](https://commentary.dev) is a GitHub-native review workspace for documents and live web app previews. It supports Markdown specs, ADRs, rollout plans, READMEs, docs, and opt-in Live Preview Reviews for browser apps instrumented with the Commentary review SDK.
 
 ## Install
 
@@ -25,6 +25,8 @@ gh skill preview commentary-dev/commentary-skills commentary-draft-review
 gh skill install commentary-dev/commentary-skills commentary-draft-review
 gh skill preview commentary-dev/commentary-skills commentary-brainstorm-review
 gh skill install commentary-dev/commentary-skills commentary-brainstorm-review
+gh skill preview commentary-dev/commentary-skills commentary-live-preview-review
+gh skill install commentary-dev/commentary-skills commentary-live-preview-review
 ```
 
 GitHub Copilot CLI users can install the `commentary-review` plugin from this repository marketplace:
@@ -47,14 +49,16 @@ Claude Code users can add this repository as a plugin marketplace and install th
 
 - [Commentary Brainstorm Review](docs/commentary-brainstorm-review.md): Apply accepted consensus changes from Commentary Brainstorming Reviews through MCP-only or local file-backed workflows.
 - [Commentary Draft Review](docs/commentary-draft-review.md): Use the Commentary CLI for live collaborative review of local Markdown, MDX, HTML, and plain text artifacts.
+- [Commentary Live Preview Review](docs/commentary-live-preview-review.md): Set up Commentary Live Preview Reviews and address selected-element comments on live web apps.
 
 ## Repository Layout
 
 ```text
 catalog/                            Human-edited skill and plugin metadata
 docs/                               Human-facing skill documentation
-skills/commentary-draft-review/     Canonical portable draft review skill
 skills/commentary-brainstorm-review/ Canonical portable brainstorming skill
+skills/commentary-draft-review/     Canonical portable draft review skill
+skills/commentary-live-preview-review/ Canonical portable live preview review skill
 plugins/commentary-review/          Generated Copilot CLI and Claude Code plugin wrapper
 .github/plugin/marketplace.json     Generated GitHub Copilot CLI marketplace manifest
 .claude-plugin/marketplace.json     Generated Claude marketplace manifest
@@ -74,6 +78,7 @@ Generated install files include:
 - `.claude-plugin/marketplace.json` for Claude Code marketplace installs.
 - `plugins/commentary-review/plugin.json` for GitHub Copilot CLI plugin installs.
 - `plugins/commentary-review/.claude-plugin/plugin.json` for Claude Code plugin installs.
+- `plugins/commentary-review/.mcp.json` for the Commentary MCP server used by Live Preview Review workflows.
 - `plugins/commentary-review/skills/*/` as the plugin-local generated skill copies.
 
 ## Development

@@ -15,3 +15,11 @@ skills:
     version: 0.1.0
     summary: Use the Commentary CLI for live collaborative review of local text artifacts.
     slug: commentary-draft-review
+  - name: commentary-live-preview-review
+    displayName: Commentary Live Preview Review
+    category: review
+    source: skills/commentary-live-preview-review
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Set up Commentary Live Preview Reviews and address live web app comments.
+    slug: commentary-live-preview-review

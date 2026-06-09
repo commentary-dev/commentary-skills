@@ -1,6 +1,6 @@
 {
   "name": "commentary-skills",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "repository": "https://github.com/commentary-dev/commentary-skills",
   "license": "MIT",
   "skills": [
@@ -45,6 +45,27 @@
         "short_description": "Live Commentary reviews for docs",
         "default_prompt": "Use $commentary-draft-review to draft a Markdown artifact and review it with Commentary."
       }
+    },
+    {
+      "name": "commentary-live-preview-review",
+      "displayName": "Commentary Live Preview Review",
+      "category": "review",
+      "source": "skills/commentary-live-preview-review",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Set up Commentary Live Preview Reviews and address live web app comments.",
+      "slug": "commentary-live-preview-review",
+      "description": "Set up and use Commentary Live Preview Reviews for web apps through the Commentary review SDK and MCP. Trigger this skill when a user wants to add @commentary-dev/review-sdk or the Commentary CDN SDK to a React, Next.js, Vite, Vue, Svelte, Angular, Astro, static HTML, or other browser app; launch a localhost or deployed live preview review; listen for Web App Review comments through the Commentary MCP server; address selected-element comments; resolve review threads; handle localhost immediate feedback; or apply deployed-review rules based on review owner, current user, comment author, and agent alias tags.",
+      "interface": {
+        "display_name": "Commentary Live Preview Review",
+        "short_description": "SDK setup and live app comments",
+        "default_prompt": "Use $commentary-live-preview-review to add the Commentary SDK and address Live Preview Review comments."
+      }
     }
   ],
   "plugins": [
@@ -52,17 +73,22 @@
       "name": "commentary-review",
       "displayName": "Commentary Review",
       "target": "claude-code",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "description": "Adds Commentary review skills for Claude Code.",
       "category": "review",
       "tags": [
         "commentary",
         "review",
-        "markdown"
+        "markdown",
+        "web"
       ],
       "skills": [
         "commentary-brainstorm-review",
-        "commentary-draft-review"
+        "commentary-draft-review",
+        "commentary-live-preview-review"
+      ],
+      "mcpServers": [
+        "commentary"
       ]
     }
   ]

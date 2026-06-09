@@ -2,8 +2,9 @@ plugins:
   - name: commentary-review
     displayName: Commentary Review
     target: claude-code
-    version: 0.2.0
+    version: 0.3.0
     description: Adds Commentary review skills for Claude Code.
     category: review
-    tags: [commentary, review, markdown]
-    skills: [commentary-brainstorm-review, commentary-draft-review]
+    tags: [commentary, review, markdown, web]
+    skills: [commentary-brainstorm-review, commentary-draft-review, commentary-live-preview-review]
+    mcpServers: [commentary]

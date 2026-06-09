@@ -18,6 +18,7 @@ export function generateClaudePlugins() {
   const marketplacePlugins = plugins.map((plugin) => {
     const pluginRoot = `plugins/${plugin.name}`;
     fs.mkdirSync(repoPath(`${pluginRoot}/.claude-plugin`), { recursive: true });
+    const mcpServers = Array.isArray(plugin.mcpServers) ? plugin.mcpServers : [];
 
     const pluginManifest = {
       name: plugin.name,
@@ -34,6 +35,19 @@ export function generateClaudePlugins() {
       tags: plugin.tags,
       skills: "./skills",
     };
+    if (mcpServers.includes("commentary")) {
+      pluginManifest.mcpServers = "./.mcp.json";
+      writeJson(`${pluginRoot}/.mcp.json`, {
+        mcpServers: {
+          commentary: {
+            type: "http",
+            url: "https://commentary.dev/mcp",
+          },
+        },
+      });
+    } else {
+      fs.rmSync(repoPath(`${pluginRoot}/.mcp.json`), { force: true });
+    }
 
     writeJson(`${pluginRoot}/plugin.json`, pluginManifest);
     writeJson(`${pluginRoot}/.claude-plugin/plugin.json`, pluginManifest);
