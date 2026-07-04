@@ -1,6 +1,6 @@
 {
   "name": "commentary-review",
-  "description": "Adds Commentary review skills for Claude Code.",
+  "description": "Adds Commentary review skills for collaborative document and live preview workflows.",
   "version": "0.3.0",
   "author": {
     "name": "Commentary"

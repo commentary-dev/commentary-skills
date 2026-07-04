@@ -1,19 +1,27 @@
 import { generateCatalog } from "./generate-catalog.mjs";
 import { generateClaudePlugins } from "./generate-claude-plugins.mjs";
-import { listFiles, readText } from "./lib.mjs";
+import { listFiles, readCatalogs, readText } from "./lib.mjs";
 
-const generatedRoots = [
-  ".claude-plugin/",
-  ".github/plugin/",
-  "dist/",
-  "plugins/commentary-review/.claude-plugin/",
-  "plugins/commentary-review/.mcp.json",
-  "plugins/commentary-review/plugin.json",
-  "plugins/commentary-review/skills/",
-];
+function generatedRoots() {
+  const { plugins } = readCatalogs();
+  return [
+    ".agents/plugins/",
+    ".claude-plugin/",
+    ".github/plugin/",
+    "dist/",
+    ...plugins.flatMap((plugin) => [
+      `plugins/${plugin.name}/.claude-plugin/`,
+      `plugins/${plugin.name}/.codex-plugin/`,
+      `plugins/${plugin.name}/.mcp.json`,
+      `plugins/${plugin.name}/plugin.json`,
+      `plugins/${plugin.name}/skills/`,
+    ]),
+  ];
+}
 
 function snapshotGeneratedFiles() {
-  const files = listFiles().filter((file) => generatedRoots.some((root) => file.startsWith(root)));
+  const roots = generatedRoots();
+  const files = listFiles().filter((file) => roots.some((root) => file.startsWith(root)));
   return new Map(files.map((file) => [file, readText(file)]));
 }
 

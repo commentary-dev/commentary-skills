@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Form Creation"
+  short_description: "Design and create Commentary Forms"
+  default_prompt: "Use $commentary-form-creation to design and create a Commentary Form Contract."

@@ -1,6 +1,6 @@
 {
-  "name": "commentary-review",
-  "description": "Adds Commentary review skills for collaborative document and live preview workflows.",
+  "name": "commentary-forms",
+  "description": "Adds Commentary Forms skills for form authoring, design, results, and visualizations.",
   "version": "0.3.0",
   "author": {
     "name": "Commentary"
@@ -10,16 +10,16 @@
   "license": "MIT",
   "keywords": [
     "commentary",
-    "review",
-    "markdown",
-    "web"
+    "forms",
+    "data",
+    "visualization"
   ],
-  "category": "review",
+  "category": "forms",
   "tags": [
     "commentary",
-    "review",
-    "markdown",
-    "web"
+    "forms",
+    "data",
+    "visualization"
   ],
   "skills": "./skills",
   "mcpServers": "./.mcp.json"

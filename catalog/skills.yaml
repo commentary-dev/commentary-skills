@@ -23,3 +23,35 @@ skills:
     version: 0.1.0
     summary: Set up Commentary Live Preview Reviews and address live web app comments.
     slug: commentary-live-preview-review
+  - name: commentary-form-creation
+    displayName: Commentary Form Creation
+    category: forms
+    source: skills/commentary-form-creation
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Design and create Commentary Form Contract v1 forms.
+    slug: commentary-form-creation
+  - name: commentary-form-design
+    displayName: Commentary Form Design
+    category: forms
+    source: skills/commentary-form-design
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Build rich Markdown, MDX, HTML, and custom renderer form experiences.
+    slug: commentary-form-design
+  - name: commentary-form-results
+    displayName: Commentary Form Results
+    category: forms
+    source: skills/commentary-form-results
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Fetch, poll, normalize, and export Commentary Forms results.
+    slug: commentary-form-results
+  - name: commentary-form-result-visualizations
+    displayName: Commentary Form Result Visualizations
+    category: forms
+    source: skills/commentary-form-result-visualizations
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Create accessible visualizations from Commentary Forms results.
+    slug: commentary-form-result-visualizations

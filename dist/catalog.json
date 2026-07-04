@@ -66,15 +66,103 @@
         "short_description": "SDK setup and live app comments",
         "default_prompt": "Use $commentary-live-preview-review to add the Commentary SDK and address Live Preview Review comments."
       }
+    },
+    {
+      "name": "commentary-form-creation",
+      "displayName": "Commentary Form Creation",
+      "category": "forms",
+      "source": "skills/commentary-form-creation",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Design and create Commentary Form Contract v1 forms.",
+      "slug": "commentary-form-creation",
+      "description": "Design and create Commentary Forms from an agent. Use when a user wants to create, validate, revise, or review a Commentary Form Contract v1 YAML or JSON definition; choose form questions, field types, validations, conditional logic, required fields, response links, or draft-backed form authoring; detect whether a local git repo already contains forms or form results; use Commentary MCP draft_review and commentary_forms tools when no local source-backed form repo is available; or coordinate form drafts with Commentary Draft Review workflows.",
+      "interface": {
+        "display_name": "Commentary Form Creation",
+        "short_description": "Design and create Commentary Forms",
+        "default_prompt": "Use $commentary-form-creation to design and create a Commentary Form Contract."
+      }
+    },
+    {
+      "name": "commentary-form-design",
+      "displayName": "Commentary Form Design",
+      "category": "forms",
+      "source": "skills/commentary-form-design",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Build rich Markdown, MDX, HTML, and custom renderer form experiences.",
+      "slug": "commentary-form-design",
+      "description": "Design rich visual Commentary Forms and form pages. Use when a user wants to turn a Commentary Form Contract into a polished Markdown, MDX, static HTML, or Live Preview custom renderer experience; embed forms in review documents; bind static HTML controls with data-commentary-form and data-commentary-field metadata; use the Commentary Forms SDK bridge; improve form layout, visual hierarchy, accessibility, microcopy, or reviewability; or combine form creation with graphical presentation.",
+      "interface": {
+        "display_name": "Commentary Form Design",
+        "short_description": "Design rich Commentary form pages",
+        "default_prompt": "Use $commentary-form-design to build a polished Markdown or HTML Commentary form page."
+      }
+    },
+    {
+      "name": "commentary-form-results",
+      "displayName": "Commentary Form Results",
+      "category": "forms",
+      "source": "skills/commentary-form-results",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Fetch, poll, normalize, and export Commentary Forms results.",
+      "slug": "commentary-form-results",
+      "description": "Fetch, poll, process, normalize, export, and sync Commentary Forms results. Use when a user asks to list form submissions, read embedded answers, process response-link results, export form results as JSON YAML CSV JSONL or another structured dataset, poll for new submissions, import or inspect canonical git-hosted result files, write final submissions back to GitHub through Commentary, or transform Commentary Forms result payloads for downstream analysis.",
+      "interface": {
+        "display_name": "Commentary Form Results",
+        "short_description": "Fetch and process Forms results",
+        "default_prompt": "Use $commentary-form-results to fetch and normalize Commentary Forms submissions."
+      }
+    },
+    {
+      "name": "commentary-form-result-visualizations",
+      "displayName": "Commentary Form Result Visualizations",
+      "category": "forms",
+      "source": "skills/commentary-form-result-visualizations",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Create accessible visualizations from Commentary Forms results.",
+      "slug": "commentary-form-result-visualizations",
+      "description": "Create accessible visualizations and dashboards for Commentary Forms results. Use when a user wants charts, tables, summaries, HTML reports, JavaScript dashboards, trend views, distributions, comparisons, response completion views, risk matrices, qualitative coding summaries, or recommendations for visualizing normalized Commentary Forms submissions from MCP, API exports, CSV, JSON, JSONL, or canonical git result files.",
+      "interface": {
+        "display_name": "Commentary Form Result Visualizations",
+        "short_description": "Visualize Commentary Forms results",
+        "default_prompt": "Use $commentary-form-result-visualizations to create an accessible dashboard from Forms results."
+      }
     }
   ],
   "plugins": [
     {
       "name": "commentary-review",
       "displayName": "Commentary Review",
-      "target": "claude-code",
+      "targets": [
+        "claude-code",
+        "copilot",
+        "codex"
+      ],
       "version": "0.3.0",
-      "description": "Adds Commentary review skills for Claude Code.",
+      "description": "Adds Commentary review skills for collaborative document and live preview workflows.",
       "category": "review",
       "tags": [
         "commentary",
@@ -86,6 +174,33 @@
         "commentary-brainstorm-review",
         "commentary-draft-review",
         "commentary-live-preview-review"
+      ],
+      "mcpServers": [
+        "commentary"
+      ]
+    },
+    {
+      "name": "commentary-forms",
+      "displayName": "Commentary Forms",
+      "targets": [
+        "claude-code",
+        "copilot",
+        "codex"
+      ],
+      "version": "0.3.0",
+      "description": "Adds Commentary Forms skills for form authoring, design, results, and visualizations.",
+      "category": "forms",
+      "tags": [
+        "commentary",
+        "forms",
+        "data",
+        "visualization"
+      ],
+      "skills": [
+        "commentary-form-creation",
+        "commentary-form-design",
+        "commentary-form-results",
+        "commentary-form-result-visualizations"
       ],
       "mcpServers": [
         "commentary"

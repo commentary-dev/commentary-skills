@@ -11,7 +11,16 @@ import {
 
 const namePattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const requiredTargets = ["codex", "copilot", "claude-code", "openclaw"];
+const requiredPluginTargets = ["claude-code", "copilot", "codex"];
 const supportedMcpServers = new Set(["commentary"]);
+
+function pluginTargets(plugin) {
+  return Array.isArray(plugin.targets) ? plugin.targets : [plugin.target].filter(Boolean);
+}
+
+function pluginHasTarget(plugin, target) {
+  return pluginTargets(plugin).includes(target);
+}
 
 function validate() {
   const { skills, plugins } = readCatalogs();
@@ -35,7 +44,7 @@ function validate() {
     validatePlugin(plugin, skillNameSet);
   }
 
-  validateGeneratedMarketplaceMetadata();
+  validateGeneratedMarketplaceMetadata(plugins);
 }
 
 function validateSkill(skill) {
@@ -71,7 +80,10 @@ function validateSkill(skill) {
 
 function validatePlugin(plugin, skillNameSet) {
   assert(namePattern.test(plugin.name), `Invalid plugin name: ${plugin.name}`);
-  assert(plugin.target === "claude-code", `${plugin.name} must target claude-code`);
+  assert(Array.isArray(plugin.targets), `${plugin.name} targets must be an array`);
+  for (const target of requiredPluginTargets) {
+    assert(plugin.targets.includes(target), `${plugin.name} must target ${target}`);
+  }
   assert(Array.isArray(plugin.tags), `${plugin.name} tags must be an array`);
   assert(Array.isArray(plugin.skills), `${plugin.name} skills must be an array`);
 
@@ -91,39 +103,81 @@ function validatePlugin(plugin, skillNameSet) {
   }
 }
 
-function validateGeneratedMarketplaceMetadata() {
+function validateGeneratedMarketplaceMetadata(catalogPlugins) {
   if (!pathExists(".claude-plugin/marketplace.json")) {
     return;
   }
 
-  for (const marketplacePath of [".claude-plugin/marketplace.json", ".github/plugin/marketplace.json"]) {
-    assert(pathExists(marketplacePath), `${marketplacePath} is missing`);
-    const marketplace = JSON.parse(readText(marketplacePath));
-    assert(marketplace.name === "commentary-skills", `${marketplacePath} name must be commentary-skills`);
-    assert(marketplace.owner?.name === "Commentary", `${marketplacePath} owner must be Commentary`);
-    assert(marketplace.metadata?.description, `${marketplacePath} must set metadata.description`);
-    assert(Array.isArray(marketplace.plugins), `${marketplacePath} plugins must be an array`);
+  validatePlatformMarketplace(".claude-plugin/marketplace.json", catalogPlugins, "claude-code", "claude");
+  validatePlatformMarketplace(".github/plugin/marketplace.json", catalogPlugins, "copilot", "copilot");
+  validateCodexMarketplace(".agents/plugins/marketplace.json", catalogPlugins);
+}
 
-    for (const plugin of marketplace.plugins) {
-      assert(plugin.source?.startsWith("./plugins/"), `${plugin.name} must use a relative plugin source`);
-      assert(plugin.version, `${plugin.name} marketplace entry must set version`);
+function validatePlatformMarketplace(marketplacePath, catalogPlugins, target, platform) {
+  assert(pathExists(marketplacePath), `${marketplacePath} is missing`);
+  const marketplace = JSON.parse(readText(marketplacePath));
+  assert(marketplace.name === "commentary-skills", `${marketplacePath} name must be commentary-skills`);
+  assert(marketplace.owner?.name === "Commentary", `${marketplacePath} owner must be Commentary`);
+  assert(marketplace.metadata?.description, `${marketplacePath} must set metadata.description`);
+  assert(Array.isArray(marketplace.plugins), `${marketplacePath} plugins must be an array`);
 
-      const pluginRoot = plugin.source.slice(2);
-      for (const manifestPath of [`${pluginRoot}/plugin.json`, `${pluginRoot}/.claude-plugin/plugin.json`]) {
-        assert(fs.existsSync(manifestPath), `${plugin.name} plugin manifest is missing at ${manifestPath}`);
-        const manifest = JSON.parse(readText(manifestPath));
-        assert(manifest.name === plugin.name, `${plugin.name} manifest name mismatch at ${manifestPath}`);
-        assert(manifest.version, `${plugin.name} manifest must set version at ${manifestPath}`);
-        assert(manifest.skills === "./skills", `${plugin.name} manifest must point skills to ./skills at ${manifestPath}`);
-        if (manifest.mcpServers) {
-          assert(manifest.mcpServers === "./.mcp.json", `${plugin.name} manifest must point mcpServers to ./.mcp.json at ${manifestPath}`);
-          assert(fs.existsSync(`${pluginRoot}/.mcp.json`), `${plugin.name} MCP config is missing at ${pluginRoot}/.mcp.json`);
-          const mcp = JSON.parse(readText(`${pluginRoot}/.mcp.json`));
-          assert(mcp.mcpServers?.commentary?.type === "http", `${plugin.name} MCP config must define commentary as an HTTP server`);
-          assert(mcp.mcpServers?.commentary?.url === "https://commentary.dev/mcp", `${plugin.name} MCP config must point to Commentary MCP`);
-        }
-      }
-    }
+  const expectedNames = catalogPlugins.filter((plugin) => pluginHasTarget(plugin, target)).map((plugin) => plugin.name).sort();
+  assert(
+    JSON.stringify(marketplace.plugins.map((plugin) => plugin.name).sort()) === JSON.stringify(expectedNames),
+    `${marketplacePath} plugins must match catalog ${target} plugins`,
+  );
+
+  for (const plugin of marketplace.plugins) {
+    assert(plugin.source?.startsWith("./plugins/"), `${plugin.name} must use a relative plugin source`);
+    assert(plugin.version, `${plugin.name} marketplace entry must set version`);
+
+    const pluginRoot = plugin.source.slice(2);
+    const manifestPath = platform === "claude" ? `${pluginRoot}/.claude-plugin/plugin.json` : `${pluginRoot}/plugin.json`;
+    validatePluginManifest(plugin.name, manifestPath, pluginRoot, false);
+  }
+}
+
+function validateCodexMarketplace(marketplacePath, catalogPlugins) {
+  assert(pathExists(marketplacePath), `${marketplacePath} is missing`);
+  const marketplace = JSON.parse(readText(marketplacePath));
+  assert(marketplace.name === "commentary-skills", `${marketplacePath} name must be commentary-skills`);
+  assert(marketplace.interface?.displayName, `${marketplacePath} must set interface.displayName`);
+  assert(Array.isArray(marketplace.plugins), `${marketplacePath} plugins must be an array`);
+
+  const expectedNames = catalogPlugins.filter((plugin) => pluginHasTarget(plugin, "codex")).map((plugin) => plugin.name).sort();
+  assert(
+    JSON.stringify(marketplace.plugins.map((plugin) => plugin.name).sort()) === JSON.stringify(expectedNames),
+    `${marketplacePath} plugins must match catalog codex plugins`,
+  );
+
+  for (const plugin of marketplace.plugins) {
+    assert(plugin.source?.source === "local", `${plugin.name} Codex marketplace source must be local`);
+    assert(plugin.source?.path?.startsWith("./plugins/"), `${plugin.name} must use a relative plugin source path`);
+    assert(plugin.policy?.installation, `${plugin.name} must set Codex installation policy`);
+    assert(plugin.policy?.authentication, `${plugin.name} must set Codex authentication policy`);
+    assert(plugin.category, `${plugin.name} must set Codex category`);
+
+    const pluginRoot = plugin.source.path.slice(2);
+    validatePluginManifest(plugin.name, `${pluginRoot}/.codex-plugin/plugin.json`, pluginRoot, true);
+  }
+}
+
+function validatePluginManifest(pluginName, manifestPath, pluginRoot, requireInterface) {
+  assert(fs.existsSync(manifestPath), `${pluginName} plugin manifest is missing at ${manifestPath}`);
+  const manifest = JSON.parse(readText(manifestPath));
+  assert(manifest.name === pluginName, `${pluginName} manifest name mismatch at ${manifestPath}`);
+  assert(manifest.version, `${pluginName} manifest must set version at ${manifestPath}`);
+  assert(manifest.skills === "./skills", `${pluginName} manifest must point skills to ./skills at ${manifestPath}`);
+  if (requireInterface) {
+    assert(manifest.interface?.displayName, `${pluginName} Codex manifest must set interface.displayName`);
+    assert(manifest.interface?.shortDescription, `${pluginName} Codex manifest must set interface.shortDescription`);
+  }
+  if (manifest.mcpServers) {
+    assert(manifest.mcpServers === "./.mcp.json", `${pluginName} manifest must point mcpServers to ./.mcp.json at ${manifestPath}`);
+    assert(fs.existsSync(`${pluginRoot}/.mcp.json`), `${pluginName} MCP config is missing at ${pluginRoot}/.mcp.json`);
+    const mcp = JSON.parse(readText(`${pluginRoot}/.mcp.json`));
+    assert(mcp.mcpServers?.commentary?.type === "http", `${pluginName} MCP config must define commentary as an HTTP server`);
+    assert(mcp.mcpServers?.commentary?.url === "https://commentary.dev/mcp", `${pluginName} MCP config must point to Commentary MCP`);
   }
 }
 

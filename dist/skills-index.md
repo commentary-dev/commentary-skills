@@ -30,3 +30,39 @@ Use the Commentary CLI for live collaborative review of local text artifacts.
 - Targets: `codex`, `copilot`, `claude-code`, `openclaw`
 
 Set up Commentary Live Preview Reviews and address live web app comments.
+
+## Commentary Form Creation
+
+- Name: `commentary-form-creation`
+- Version: `0.1.0`
+- Source: `skills/commentary-form-creation`
+- Targets: `codex`, `copilot`, `claude-code`, `openclaw`
+
+Design and create Commentary Form Contract v1 forms.
+
+## Commentary Form Design
+
+- Name: `commentary-form-design`
+- Version: `0.1.0`
+- Source: `skills/commentary-form-design`
+- Targets: `codex`, `copilot`, `claude-code`, `openclaw`
+
+Build rich Markdown, MDX, HTML, and custom renderer form experiences.
+
+## Commentary Form Results
+
+- Name: `commentary-form-results`
+- Version: `0.1.0`
+- Source: `skills/commentary-form-results`
+- Targets: `codex`, `copilot`, `claude-code`, `openclaw`
+
+Fetch, poll, normalize, and export Commentary Forms results.
+
+## Commentary Form Result Visualizations
+
+- Name: `commentary-form-result-visualizations`
+- Version: `0.1.0`
+- Source: `skills/commentary-form-result-visualizations`
+- Targets: `codex`, `copilot`, `claude-code`, `openclaw`
+
+Create accessible visualizations from Commentary Forms results.

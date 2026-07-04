@@ -13,7 +13,7 @@
     {
       "name": "commentary-review",
       "source": "./plugins/commentary-review",
-      "description": "Adds Commentary review skills for Claude Code.",
+      "description": "Adds Commentary review skills for collaborative document and live preview workflows.",
       "version": "0.3.0",
       "category": "review",
       "tags": [
@@ -21,6 +21,25 @@
         "review",
         "markdown",
         "web"
+      ],
+      "author": {
+        "name": "Commentary"
+      },
+      "homepage": "https://github.com/commentary-dev/commentary-skills",
+      "repository": "https://github.com/commentary-dev/commentary-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "commentary-forms",
+      "source": "./plugins/commentary-forms",
+      "description": "Adds Commentary Forms skills for form authoring, design, results, and visualizations.",
+      "version": "0.3.0",
+      "category": "forms",
+      "tags": [
+        "commentary",
+        "forms",
+        "data",
+        "visualization"
       ],
       "author": {
         "name": "Commentary"

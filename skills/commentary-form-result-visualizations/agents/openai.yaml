@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Form Result Visualizations"
+  short_description: "Visualize Commentary Forms results"
+  default_prompt: "Use $commentary-form-result-visualizations to create an accessible dashboard from Forms results."

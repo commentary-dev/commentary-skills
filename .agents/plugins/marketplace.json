@@ -1,0 +1,32 @@
+{
+  "name": "commentary-skills",
+  "interface": {
+    "displayName": "Commentary Skills"
+  },
+  "plugins": [
+    {
+      "name": "commentary-review",
+      "source": {
+        "source": "local",
+        "path": "./plugins/commentary-review"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "review"
+    },
+    {
+      "name": "commentary-forms",
+      "source": {
+        "source": "local",
+        "path": "./plugins/commentary-forms"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "forms"
+    }
+  ]
+}

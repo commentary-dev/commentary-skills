@@ -1,0 +1,44 @@
+{
+  "name": "commentary-forms",
+  "description": "Adds Commentary Forms skills for form authoring, design, results, and visualizations.",
+  "version": "0.3.0",
+  "author": {
+    "name": "Commentary"
+  },
+  "homepage": "https://github.com/commentary-dev/commentary-skills",
+  "repository": "https://github.com/commentary-dev/commentary-skills",
+  "license": "MIT",
+  "keywords": [
+    "commentary",
+    "forms",
+    "data",
+    "visualization"
+  ],
+  "category": "forms",
+  "tags": [
+    "commentary",
+    "forms",
+    "data",
+    "visualization"
+  ],
+  "skills": "./skills",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Commentary Forms",
+    "shortDescription": "Create and analyze Forms",
+    "longDescription": "Adds Commentary Forms skills for form authoring, design, results, and visualizations.",
+    "developerName": "Commentary",
+    "category": "forms",
+    "capabilities": [
+      "Skills",
+      "MCP"
+    ],
+    "websiteURL": "https://commentary.dev",
+    "privacyPolicyURL": "https://commentary.dev/privacy",
+    "termsOfServiceURL": "https://commentary.dev/terms",
+    "defaultPrompt": [
+      "Use $commentary-form-creation to create a Commentary form."
+    ],
+    "brandColor": "#2563EB"
+  }
+}

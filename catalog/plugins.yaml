@@ -1,10 +1,19 @@
 plugins:
   - name: commentary-review
     displayName: Commentary Review
-    target: claude-code
+    targets: [claude-code, copilot, codex]
     version: 0.3.0
-    description: Adds Commentary review skills for Claude Code.
+    description: Adds Commentary review skills for collaborative document and live preview workflows.
     category: review
     tags: [commentary, review, markdown, web]
     skills: [commentary-brainstorm-review, commentary-draft-review, commentary-live-preview-review]
+    mcpServers: [commentary]
+  - name: commentary-forms
+    displayName: Commentary Forms
+    targets: [claude-code, copilot, codex]
+    version: 0.3.0
+    description: Adds Commentary Forms skills for form authoring, design, results, and visualizations.
+    category: forms
+    tags: [commentary, forms, data, visualization]
+    skills: [commentary-form-creation, commentary-form-design, commentary-form-results, commentary-form-result-visualizations]
     mcpServers: [commentary]

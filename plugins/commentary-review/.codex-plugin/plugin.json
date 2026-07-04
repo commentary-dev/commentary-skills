@@ -1,0 +1,44 @@
+{
+  "name": "commentary-review",
+  "description": "Adds Commentary review skills for collaborative document and live preview workflows.",
+  "version": "0.3.0",
+  "author": {
+    "name": "Commentary"
+  },
+  "homepage": "https://github.com/commentary-dev/commentary-skills",
+  "repository": "https://github.com/commentary-dev/commentary-skills",
+  "license": "MIT",
+  "keywords": [
+    "commentary",
+    "review",
+    "markdown",
+    "web"
+  ],
+  "category": "review",
+  "tags": [
+    "commentary",
+    "review",
+    "markdown",
+    "web"
+  ],
+  "skills": "./skills",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Commentary Review",
+    "shortDescription": "Review docs and app previews",
+    "longDescription": "Adds Commentary review skills for collaborative document and live preview workflows.",
+    "developerName": "Commentary",
+    "category": "review",
+    "capabilities": [
+      "Skills",
+      "MCP"
+    ],
+    "websiteURL": "https://commentary.dev",
+    "privacyPolicyURL": "https://commentary.dev/privacy",
+    "termsOfServiceURL": "https://commentary.dev/terms",
+    "defaultPrompt": [
+      "Use $commentary-draft-review to review a Commentary draft."
+    ],
+    "brandColor": "#2563EB"
+  }
+}

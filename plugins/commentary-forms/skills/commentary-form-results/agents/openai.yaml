@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Form Results"
+  short_description: "Fetch and process Forms results"
+  default_prompt: "Use $commentary-form-results to fetch and normalize Commentary Forms submissions."

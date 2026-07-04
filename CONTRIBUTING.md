@@ -15,7 +15,12 @@ This repository distributes Commentary agent skills. Keep changes public-safe an
 Generated marketplace artifacts are committed for direct installation:
 
 - `.claude-plugin/marketplace.json`
+- `.github/plugin/marketplace.json`
+- `.agents/plugins/marketplace.json`
+- `plugins/*/plugin.json`
 - `plugins/*/.claude-plugin/plugin.json`
+- `plugins/*/.codex-plugin/plugin.json`
+- `plugins/*/.mcp.json`
 - `plugins/*/skills/*`
 - `dist/catalog.json`
 - `dist/skills-index.md`
@@ -26,4 +31,3 @@ Do not hand-edit generated files. Run:
 npm run generate
 npm run verify
 ```
-

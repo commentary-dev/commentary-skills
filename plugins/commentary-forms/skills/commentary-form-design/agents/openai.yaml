@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Form Design"
+  short_description: "Design rich Commentary form pages"
+  default_prompt: "Use $commentary-form-design to build a polished Markdown or HTML Commentary form page."
