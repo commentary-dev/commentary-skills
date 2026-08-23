@@ -5,14 +5,14 @@
   },
   "metadata": {
     "description": "Commentary agent skills and platform plugins.",
-    "version": "0.3.0"
+    "version": "0.4.0"
   },
   "plugins": [
     {
       "name": "commentary-review",
       "source": "./plugins/commentary-review",
-      "description": "Adds Commentary review skills for collaborative document and live preview workflows.",
-      "version": "0.3.0",
+      "description": "Operate Commentary review workflows and improve agent-generated plans with evidence-based review practices.",
+      "version": "0.4.0",
       "category": "review",
       "tags": [
         "commentary",
@@ -30,14 +30,33 @@
     {
       "name": "commentary-forms",
       "source": "./plugins/commentary-forms",
-      "description": "Adds Commentary Forms skills for form authoring, design, results, and visualizations.",
-      "version": "0.3.0",
+      "description": "Operate Commentary Forms and design clear, accessible, adaptive form experiences.",
+      "version": "0.4.0",
       "category": "forms",
       "tags": [
         "commentary",
         "forms",
         "data",
         "visualization"
+      ],
+      "author": {
+        "name": "Commentary"
+      },
+      "homepage": "https://github.com/commentary-dev/commentary-skills",
+      "repository": "https://github.com/commentary-dev/commentary-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "commentary-research",
+      "source": "./plugins/commentary-research",
+      "description": "Operate Commentary Research Studies and design ethical, evidence-centered product research.",
+      "version": "0.1.0",
+      "category": "research",
+      "tags": [
+        "commentary",
+        "research",
+        "usability",
+        "evidence"
       ],
       "author": {
         "name": "Commentary"

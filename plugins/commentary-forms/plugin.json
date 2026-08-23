@@ -1,7 +1,7 @@
 {
   "name": "commentary-forms",
-  "description": "Adds Commentary Forms skills for form authoring, design, results, and visualizations.",
-  "version": "0.3.0",
+  "description": "Operate Commentary Forms and design clear, accessible, adaptive form experiences.",
+  "version": "0.4.0",
   "author": {
     "name": "Commentary"
   },

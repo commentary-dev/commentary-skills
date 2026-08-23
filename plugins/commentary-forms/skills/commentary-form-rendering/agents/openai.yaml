@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Form Rendering"
+  short_description: "Implement secure rich Commentary Form renderers"
+  default_prompt: "Use $commentary-form-rendering to implement this form in the appropriate Commentary rendering surface."

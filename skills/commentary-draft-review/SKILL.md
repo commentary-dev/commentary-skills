@@ -7,6 +7,8 @@ description: Use Commentary draft reviews from an agent via the Commentary CLI f
 
 Use this skill to collaborate with a human reviewer on local text artifacts through Commentary draft reviews. Keep the local artifact as the source of truth unless the user explicitly asks to pull reviewed content back from Commentary.
 
+Read `references/operating-surfaces.md` before choosing CLI, MCP, or a deliberate two-step handoff.
+
 ## Command Runner
 
 Use the Commentary CLI by resolving a command runner in this order:
@@ -202,7 +204,7 @@ commentary pull --backup --yes
 
 The Commentary CLI is the default for file-backed draft review workflows because it manages `.commentary/session.json`, tracks local files, syncs revisions, watches file changes, and streams live comment events.
 
-If a Commentary MCP server is already installed and exposes equivalent draft-review tools, prefer MCP only for typed, in-process operations that do not need local file watching or project metadata, such as listing or replying to comments. Before using MCP against a CLI-created review, verify that MCP can read the exact draft review session id. If MCP reports "Draft review not found" while the CLI can access the same session, treat it as an auth/resource mismatch and continue CLI-only. Do not mix surfaces for that session. Do not require, install, or configure MCP for this skill. Fall back to the CLI whenever MCP is unavailable, incomplete, ambiguous, or not explicitly connected to the current local files.
+If a Commentary MCP server is already installed, use it only for a distinct typed remote operation that does not duplicate the CLI mutation, such as reading an approval gate after the CLI synchronized the local source. Before any MCP handoff, verify that it can read the exact Draft Review session id and inspect current thread authorship and gate state. If MCP reports "Draft review not found" while the CLI can access the same session, treat it as an auth/resource mismatch and continue CLI-only. Do not require, install, or configure MCP for this skill. Fall back to the CLI whenever MCP is unavailable, incomplete, ambiguous, or not explicitly connected to the current local files.
 
 ## Operational Guardrails
 

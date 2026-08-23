@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Product Research"
+  short_description: "Plan ethical, evidence-centered product research"
+  default_prompt: "Use $design-product-research to turn these assumptions into a credible product research study."

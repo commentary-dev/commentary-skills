@@ -2,18 +2,27 @@ plugins:
   - name: commentary-review
     displayName: Commentary Review
     targets: [claude-code, copilot, codex]
-    version: 0.3.0
-    description: Adds Commentary review skills for collaborative document and live preview workflows.
+    version: 0.4.0
+    description: Operate Commentary review workflows and improve agent-generated plans with evidence-based review practices.
     category: review
     tags: [commentary, review, markdown, web]
-    skills: [commentary-brainstorm-review, commentary-draft-review, commentary-live-preview-review]
+    skills: [commentary-brainstorm-review, commentary-draft-review, commentary-live-preview-review, commentary-pr-review, review-agentic-plans]
     mcpServers: [commentary]
   - name: commentary-forms
     displayName: Commentary Forms
     targets: [claude-code, copilot, codex]
-    version: 0.3.0
-    description: Adds Commentary Forms skills for form authoring, design, results, and visualizations.
+    version: 0.4.0
+    description: Operate Commentary Forms and design clear, accessible, adaptive form experiences.
     category: forms
     tags: [commentary, forms, data, visualization]
-    skills: [commentary-form-creation, commentary-form-design, commentary-form-results, commentary-form-result-visualizations]
+    skills: [commentary-form-creation, commentary-form-design, commentary-form-rendering, commentary-form-results, commentary-form-result-visualizations, design-effective-forms]
+    mcpServers: [commentary]
+  - name: commentary-research
+    displayName: Commentary Research
+    targets: [claude-code, copilot, codex]
+    version: 0.1.0
+    description: Operate Commentary Research Studies and design ethical, evidence-centered product research.
+    category: research
+    tags: [commentary, research, usability, evidence]
+    skills: [commentary-research-workflow, design-product-research]
     mcpServers: [commentary]

@@ -1,7 +1,7 @@
 {
   "name": "commentary-forms",
-  "description": "Adds Commentary Forms skills for form authoring, design, results, and visualizations.",
-  "version": "0.3.0",
+  "description": "Operate Commentary Forms and design clear, accessible, adaptive form experiences.",
+  "version": "0.4.0",
   "author": {
     "name": "Commentary"
   },
@@ -25,8 +25,8 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Commentary Forms",
-    "shortDescription": "Create and analyze Forms",
-    "longDescription": "Adds Commentary Forms skills for form authoring, design, results, and visualizations.",
+    "shortDescription": "Operate and design adaptive Forms",
+    "longDescription": "Operate Commentary Forms and design clear, accessible, adaptive form experiences.",
     "developerName": "Commentary",
     "category": "forms",
     "capabilities": [
@@ -34,10 +34,10 @@
       "MCP"
     ],
     "websiteURL": "https://commentary.dev",
-    "privacyPolicyURL": "https://commentary.dev/privacy",
-    "termsOfServiceURL": "https://commentary.dev/terms",
+    "privacyPolicyURL": "https://commentary.dev/legal/privacy",
+    "termsOfServiceURL": "https://commentary.dev/legal/terms",
     "defaultPrompt": [
-      "Use $commentary-form-creation to create a Commentary form."
+      "Use $design-effective-forms, then $commentary-form-creation, to create this form."
     ],
     "brandColor": "#2563EB"
   }

@@ -1,7 +1,7 @@
 skills:
   - name: commentary-brainstorm-review
     displayName: Commentary Brainstorm Review
-    category: review
+    category: review-technical
     source: skills/commentary-brainstorm-review
     targets: [codex, copilot, claude-code, openclaw]
     version: 0.1.0
@@ -9,7 +9,7 @@ skills:
     slug: commentary-brainstorm-review
   - name: commentary-draft-review
     displayName: Commentary Draft Review
-    category: review
+    category: review-technical
     source: skills/commentary-draft-review
     targets: [codex, copilot, claude-code, openclaw]
     version: 0.1.0
@@ -17,15 +17,31 @@ skills:
     slug: commentary-draft-review
   - name: commentary-live-preview-review
     displayName: Commentary Live Preview Review
-    category: review
+    category: review-technical
     source: skills/commentary-live-preview-review
     targets: [codex, copilot, claude-code, openclaw]
     version: 0.1.0
     summary: Set up Commentary Live Preview Reviews and address live web app comments.
     slug: commentary-live-preview-review
+  - name: commentary-pr-review
+    displayName: Commentary PR Review
+    category: review-technical
+    source: skills/commentary-pr-review
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Operate rendered GitHub and Azure DevOps PR reviews through Commentary MCP.
+    slug: commentary-pr-review
+  - name: review-agentic-plans
+    displayName: Review Agentic Plans
+    category: review-practice
+    source: skills/review-agentic-plans
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Review agent-generated plans for intent, evidence, risk, and decision completeness.
+    slug: review-agentic-plans
   - name: commentary-form-creation
     displayName: Commentary Form Creation
-    category: forms
+    category: forms-technical
     source: skills/commentary-form-creation
     targets: [codex, copilot, claude-code, openclaw]
     version: 0.1.0
@@ -33,15 +49,31 @@ skills:
     slug: commentary-form-creation
   - name: commentary-form-design
     displayName: Commentary Form Design
-    category: forms
+    category: forms-compatibility
     source: skills/commentary-form-design
     targets: [codex, copilot, claude-code, openclaw]
     version: 0.1.0
     summary: Build rich Markdown, MDX, HTML, and custom renderer form experiences.
     slug: commentary-form-design
+  - name: commentary-form-rendering
+    displayName: Commentary Form Rendering
+    category: forms-technical
+    source: skills/commentary-form-rendering
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Implement Commentary Form renderers, bindings, and SDK bridges.
+    slug: commentary-form-rendering
+  - name: design-effective-forms
+    displayName: Design Effective Forms
+    category: forms-practice
+    source: skills/design-effective-forms
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Design clear, accessible, unbiased, and adaptive forms.
+    slug: design-effective-forms
   - name: commentary-form-results
     displayName: Commentary Form Results
-    category: forms
+    category: forms-technical
     source: skills/commentary-form-results
     targets: [codex, copilot, claude-code, openclaw]
     version: 0.1.0
@@ -49,9 +81,25 @@ skills:
     slug: commentary-form-results
   - name: commentary-form-result-visualizations
     displayName: Commentary Form Result Visualizations
-    category: forms
+    category: forms-practice
     source: skills/commentary-form-result-visualizations
     targets: [codex, copilot, claude-code, openclaw]
     version: 0.1.0
     summary: Create accessible visualizations from Commentary Forms results.
     slug: commentary-form-result-visualizations
+  - name: commentary-research-workflow
+    displayName: Commentary Research Workflow
+    category: research-technical
+    source: skills/commentary-research-workflow
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Operate source-backed Commentary Research Studies through MCP and Draft Review.
+    slug: commentary-research-workflow
+  - name: design-product-research
+    displayName: Design Product Research
+    category: research-practice
+    source: skills/design-product-research
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Design ethical, decision-focused product research using established UX methods.
+    slug: design-product-research

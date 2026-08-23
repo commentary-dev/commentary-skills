@@ -1,7 +1,7 @@
 {
   "name": "commentary-review",
-  "description": "Adds Commentary review skills for collaborative document and live preview workflows.",
-  "version": "0.3.0",
+  "description": "Operate Commentary review workflows and improve agent-generated plans with evidence-based review practices.",
+  "version": "0.4.0",
   "author": {
     "name": "Commentary"
   },

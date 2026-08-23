@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary PR Review"
+  short_description: "Operate rendered PR reviews through Commentary"
+  default_prompt: "Use $commentary-pr-review to inspect and address the open review feedback on this PR."

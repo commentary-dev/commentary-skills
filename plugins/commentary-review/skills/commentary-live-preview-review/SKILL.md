@@ -7,6 +7,8 @@ description: Set up and use Commentary Live Preview Reviews for web apps through
 
 Use this skill for Commentary Live Preview Reviews of browser web apps. The app must opt in by loading the Commentary review SDK in a browser page that can be embedded by Commentary.
 
+Read `references/operating-surfaces.md` before combining local SDK work with remote MCP actions.
+
 ## Core Facts
 
 - Default SDK source: `https://cdn.commentary.dev/review-sdk/latest/commentary-review-sdk.js`
@@ -210,9 +212,10 @@ Use comment mode after a Web App Review exists.
    ```
 
 4. Inspect `review.owner`, `review.currentUser`, `review.sourceType`, and each comment's `author`, `target`, `context`, and `security`.
-5. Edit the local app to address in-scope comments.
-6. Run focused validation appropriate to the app.
-7. Resolve addressed threads:
+5. Inspect the current gate state when the review has a configured approval gate; never infer approval from a successful mutation.
+6. Edit the local app to address in-scope comments.
+7. Run focused validation appropriate to the app.
+8. Resolve addressed threads:
 
    ```json
    {

@@ -1,11 +1,11 @@
 ---
 name: commentary-form-creation
-description: Design and create Commentary Forms from an agent. Use when a user wants to create, validate, revise, or review a Commentary Form Contract v1 YAML or JSON definition; choose form questions, field types, validations, conditional logic, required fields, response links, or draft-backed form authoring; detect whether a local git repo already contains forms or form results; use Commentary MCP draft_review and commentary_forms tools when no local source-backed form repo is available; or coordinate form drafts with Commentary Draft Review workflows.
+description: Create, validate, revise, and publish Commentary Form Contract v1 YAML or JSON through source-backed files, Draft Review, response links, and Commentary MCP. Use for contract mechanics and form operations after the questions and experience are designed; use design-effective-forms for question quality, flow, accessibility, appearance, and adaptive-form judgment.
 ---
 
 # Commentary Form Creation
 
-Use this skill to help users design useful structured forms and create valid Commentary Form Contract v1 source artifacts.
+Use this skill to create valid Commentary Form Contract v1 source artifacts and operate them through Commentary. For question, flow, visual, or personalization decisions, use `design-effective-forms` first.
 
 ## First Checks
 
@@ -16,22 +16,7 @@ Use this skill to help users design useful structured forms and create valid Com
 
 Do not call `commentary_forms` with `create` or `update` for normal authoring. Standalone Forms API creation/editing is removed. Create or edit form source files through git-backed artifacts or draft review files.
 
-## Design The Form Before Writing YAML
-
-Start with the business decision the form supports. Ask only for fields that change routing, validation, approval, reporting, or follow-up work.
-
-Use this checklist:
-
-- Define the audience, submission context, owner, and expected number of submissions.
-- Separate required decision fields from helpful optional context.
-- Prefer one clear question per field; avoid double-barreled prompts.
-- Choose closed options when results will be aggregated; choose text areas only for narrative evidence.
-- Add validation that prevents unusable answers: length limits, numeric bounds, enum options, required fields, and patterns only when they are explainable.
-- Add conditional requirements only when they reduce burden or prevent incomplete follow-up.
-- Plan result access and privacy before collecting sensitive values.
-
-For detailed question and validation guidance, read `references/form-best-practices.md`.
-For the contract fields and examples, read `references/contract-v1.md`.
+Read `references/contract-v1.md` for contract fields and examples. Read `references/adaptive-forms.md` when a form creates respondent-specific follow-up sections.
 
 ## Local Source-Backed Workflow
 
@@ -93,6 +78,12 @@ Use `commentary_forms` `create_fillout_link` with:
 
 Do not use anonymous links for sensitive data unless the user explicitly accepts anonymous replies and result ownership constraints.
 
+## Adaptive Respondent Instances
+
+Adaptive Forms do not mutate the shared source contract. The contract opts in with `adaptive.enabled: true` and `adaptive.handoff: mcp_pull_queue`. At a configured boundary, use `commentary_forms` to list and claim the pending transition, then complete it with `show_section`, `complete`, or `fallback`.
+
+Generated sections belong to that submission instance. Use only the bounded answer snapshot and sanitized context returned for the transition. Preserve the audit trail and deterministic fallback. Read `references/adaptive-forms.md` for the action sequence and invariants.
+
 ## Guardrails
 
 - Treat server validation as authoritative.
@@ -100,3 +91,5 @@ Do not use anonymous links for sensitive data unless the user explicitly accepts
 - Do not invent source permissions in `sourceContext`; Commentary derives trusted result access server-side.
 - Keep forms source-authored: git files, Markdown/HTML embeds, draft review files, response links, or custom renderer submissions.
 - Keep generated YAML deterministic and stable so diffs are reviewable.
+- Pass a stable `agentAlias` on state-changing MCP actions.
+- `forms.adaptive_agent` is Pro; do not represent it as part of basic Forms.

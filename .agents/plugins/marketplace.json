@@ -27,6 +27,18 @@
         "authentication": "ON_INSTALL"
       },
       "category": "forms"
+    },
+    {
+      "name": "commentary-research",
+      "source": {
+        "source": "local",
+        "path": "./plugins/commentary-research"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "research"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "name": "commentary-review",
-  "description": "Adds Commentary review skills for collaborative document and live preview workflows.",
-  "version": "0.3.0",
+  "description": "Operate Commentary review workflows and improve agent-generated plans with evidence-based review practices.",
+  "version": "0.4.0",
   "author": {
     "name": "Commentary"
   },
@@ -25,8 +25,8 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Commentary Review",
-    "shortDescription": "Review docs and app previews",
-    "longDescription": "Adds Commentary review skills for collaborative document and live preview workflows.",
+    "shortDescription": "Operate reviews and improve agent plans",
+    "longDescription": "Operate Commentary review workflows and improve agent-generated plans with evidence-based review practices.",
     "developerName": "Commentary",
     "category": "review",
     "capabilities": [
@@ -34,10 +34,10 @@
       "MCP"
     ],
     "websiteURL": "https://commentary.dev",
-    "privacyPolicyURL": "https://commentary.dev/privacy",
-    "termsOfServiceURL": "https://commentary.dev/terms",
+    "privacyPolicyURL": "https://commentary.dev/legal/privacy",
+    "termsOfServiceURL": "https://commentary.dev/legal/terms",
     "defaultPrompt": [
-      "Use $commentary-draft-review to review a Commentary draft."
+      "Use $review-agentic-plans, then $commentary-draft-review, to review this plan."
     ],
     "brandColor": "#2563EB"
   }

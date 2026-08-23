@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Research Workflow"
+  short_description: "Operate bounded source-backed Research Studies"
+  default_prompt: "Use $commentary-research-workflow to inspect this study and propose the next authorized research action."

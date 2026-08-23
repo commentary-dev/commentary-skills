@@ -2,7 +2,7 @@
 
 Portable agent skills and marketplace metadata for Commentary.
 
-This repository is the canonical source for Commentary agent skills. The skills teach agents how to use Commentary for live collaborative review of Markdown, MDX, HTML, plain text, Live Preview Reviews, Brainstorming Reviews, and source-authored Commentary Forms.
+This repository is the canonical source for Commentary agent skills. Each plugin separates technical skills that operate Commentary from practice skills that improve the plan, form, or research being reviewed.
 
 ## What Is Commentary?
 
@@ -43,6 +43,7 @@ GitHub Copilot CLI users can install plugin bundles from this repository marketp
 copilot plugin marketplace add commentary-dev/commentary-skills
 copilot plugin install commentary-review@commentary-skills
 copilot plugin install commentary-forms@commentary-skills
+copilot plugin install commentary-research@commentary-skills
 ```
 
 GitHub Copilot skill publishing is driven from `skills/*` and release automation in this repository. GitHub Copilot CLI plugin discovery is driven from `.github/plugin/marketplace.json`.
@@ -53,6 +54,7 @@ Claude Code users can add this repository as a plugin marketplace and install pl
 /plugin marketplace add commentary-dev/commentary-skills
 /plugin install commentary-review@commentary-skills
 /plugin install commentary-forms@commentary-skills
+/plugin install commentary-research@commentary-skills
 ```
 
 Codex plugin users can use the Codex marketplace metadata generated at `.agents/plugins/marketplace.json`:
@@ -61,22 +63,30 @@ Codex plugin users can use the Codex marketplace metadata generated at `.agents/
 codex plugin marketplace add commentary-dev/commentary-skills
 codex plugin add commentary-review@commentary-skills
 codex plugin add commentary-forms@commentary-skills
+codex plugin add commentary-research@commentary-skills
 ```
 
 ## Skills
 
-- [Commentary Brainstorm Review](docs/commentary-brainstorm-review.md): Apply accepted consensus changes from Commentary Brainstorming Reviews through MCP-only or local file-backed workflows.
-- [Commentary Draft Review](docs/commentary-draft-review.md): Use the Commentary CLI for live collaborative review of local Markdown, MDX, HTML, and plain text artifacts.
-- [Commentary Live Preview Review](docs/commentary-live-preview-review.md): Set up Commentary Live Preview Reviews and address selected-element comments on live web apps.
-- [Commentary Form Creation](docs/commentary-form-creation.md): Design and create Commentary Form Contract v1 forms.
-- [Commentary Form Design](docs/commentary-form-design.md): Build rich Markdown, MDX, HTML, and custom renderer form experiences.
-- [Commentary Form Results](docs/commentary-form-results.md): Fetch, poll, normalize, export, and sync Commentary Forms results.
-- [Commentary Form Result Visualizations](docs/commentary-form-result-visualizations.md): Create accessible visualizations from Commentary Forms results.
+### Technical skills
+
+- [Commentary Draft Review](docs/commentary-draft-review.md), [Brainstorm Review](docs/commentary-brainstorm-review.md), [PR Review](docs/commentary-pr-review.md), and [Live Preview Review](docs/commentary-live-preview-review.md) choose and operate the correct CLI, MCP, or SDK workflow.
+- [Commentary Form Creation](docs/commentary-form-creation.md), [Form Rendering](docs/commentary-form-rendering.md), and [Form Results](docs/commentary-form-results.md) implement and operate source-backed Forms, including adaptive respondent instances.
+- [Commentary Research Workflow](docs/commentary-research-workflow.md) operates bounded, source-backed Research Studies while preserving human launch, consent, and publication authority.
+
+### Practice skills
+
+- [Review Agentic Plans](docs/review-agentic-plans.md) critiques intent, evidence, tradeoffs, risk, and decision completeness before execution.
+- [Design Effective Forms](docs/design-effective-forms.md) improves question quality, accessibility, visual hierarchy, and responsible per-respondent adaptation.
+- [Form Result Visualizations](docs/commentary-form-result-visualizations.md) turns permitted result data into accessible explanations.
+- [Design Product Research](docs/design-product-research.md) selects credible UX methods and maps them into Commentary's Consent, Content, Activity, Form, and Complete workflow.
+- [Commentary Form Design](docs/commentary-form-design.md) remains as a compatibility router to the focused rendering and practice skills.
 
 ## Plugins
 
-- `commentary-review`: Review skills for Draft Reviews, Brainstorming Reviews, and Live Preview Reviews.
-- `commentary-forms`: Forms skills for creation, visual design, result processing, and visualization.
+- `commentary-review`: technical Draft, PR, Brainstorming, and Live Preview workflows plus agentic-plan review practice.
+- `commentary-forms`: technical Form creation, rendering, and results plus form-design and visualization practice.
+- `commentary-research`: technical Research Study operations plus evidence-centered product-research practice.
 
 ## Repository Layout
 
@@ -121,4 +131,4 @@ npm install
 npm run verify
 ```
 
-`npm run verify` validates the skill, catalogs, generated artifacts, public-safety rules, and basic formatting.
+`npm run verify` validates the skills, catalogs, generated artifacts, public-safety rules, forward-test catalog, and basic formatting. The maintained cases in `evals/forward-tests.json` cover plan critique, CLI/MCP routing, authorship-aware comment handling, accessible and adaptive Forms, typed NN/g-style study design, evidence-led synthesis, and refusal of human-only Research actions.

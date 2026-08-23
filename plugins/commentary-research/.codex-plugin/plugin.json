@@ -1,0 +1,44 @@
+{
+  "name": "commentary-research",
+  "description": "Operate Commentary Research Studies and design ethical, evidence-centered product research.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Commentary"
+  },
+  "homepage": "https://github.com/commentary-dev/commentary-skills",
+  "repository": "https://github.com/commentary-dev/commentary-skills",
+  "license": "MIT",
+  "keywords": [
+    "commentary",
+    "research",
+    "usability",
+    "evidence"
+  ],
+  "category": "research",
+  "tags": [
+    "commentary",
+    "research",
+    "usability",
+    "evidence"
+  ],
+  "skills": "./skills",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Commentary Research",
+    "shortDescription": "Operate and design product research",
+    "longDescription": "Operate Commentary Research Studies and design ethical, evidence-centered product research.",
+    "developerName": "Commentary",
+    "category": "research",
+    "capabilities": [
+      "Skills",
+      "MCP"
+    ],
+    "websiteURL": "https://commentary.dev",
+    "privacyPolicyURL": "https://commentary.dev/legal/privacy",
+    "termsOfServiceURL": "https://commentary.dev/legal/terms",
+    "defaultPrompt": [
+      "Use $design-product-research, then $commentary-research-workflow, to prepare this study."
+    ],
+    "brandColor": "#2563EB"
+  }
+}

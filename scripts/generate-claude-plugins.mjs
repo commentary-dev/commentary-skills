@@ -47,20 +47,26 @@ function commonManifest(plugin, packageJson) {
 
 function codexShortDescription(plugin) {
   if (plugin.name === "commentary-review") {
-    return "Review docs and app previews";
+    return "Operate reviews and improve agent plans";
   }
   if (plugin.name === "commentary-forms") {
-    return "Create and analyze Forms";
+    return "Operate and design adaptive Forms";
+  }
+  if (plugin.name === "commentary-research") {
+    return "Operate and design product research";
   }
   return plugin.displayName;
 }
 
 function codexDefaultPrompt(plugin) {
   if (plugin.name === "commentary-review") {
-    return "Use $commentary-draft-review to review a Commentary draft.";
+    return "Use $review-agentic-plans, then $commentary-draft-review, to review this plan.";
   }
   if (plugin.name === "commentary-forms") {
-    return "Use $commentary-form-creation to create a Commentary form.";
+    return "Use $design-effective-forms, then $commentary-form-creation, to create this form.";
+  }
+  if (plugin.name === "commentary-research") {
+    return "Use $design-product-research, then $commentary-research-workflow, to prepare this study.";
   }
   return `Use $${plugin.skills[0]} for this Commentary workflow.`;
 }
@@ -77,14 +83,19 @@ function codexManifest(plugin, packageJson) {
       category: plugin.category,
       capabilities: ["Skills", "MCP"],
       websiteURL: "https://commentary.dev",
-      privacyPolicyURL: "https://commentary.dev/privacy",
-      termsOfServiceURL: "https://commentary.dev/terms",
+      privacyPolicyURL: "https://commentary.dev/legal/privacy",
+      termsOfServiceURL: "https://commentary.dev/legal/terms",
       defaultPrompt: [
         codexDefaultPrompt(plugin),
       ],
       brandColor: "#2563EB",
     },
   };
+}
+
+function claudeManifest(plugin, packageJson) {
+  const { category: _category, tags: _tags, ...manifest } = commonManifest(plugin, packageJson);
+  return manifest;
 }
 
 function marketplaceEntry(plugin, packageJson) {
@@ -146,7 +157,7 @@ function syncPluginFiles(plugin, packageJson, skillByName) {
 
   if (pluginHasTarget(plugin, "claude-code")) {
     fs.mkdirSync(repoPath(`${pluginRoot}/.claude-plugin`), { recursive: true });
-    writeJson(`${pluginRoot}/.claude-plugin/plugin.json`, manifest);
+    writeJson(`${pluginRoot}/.claude-plugin/plugin.json`, claudeManifest(plugin, packageJson));
   } else {
     fs.rmSync(repoPath(`${pluginRoot}/.claude-plugin`), { recursive: true, force: true });
   }

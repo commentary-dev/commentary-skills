@@ -1,13 +1,13 @@
 {
   "name": "commentary-skills",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "repository": "https://github.com/commentary-dev/commentary-skills",
   "license": "MIT",
   "skills": [
     {
       "name": "commentary-brainstorm-review",
       "displayName": "Commentary Brainstorm Review",
-      "category": "review",
+      "category": "review-technical",
       "source": "skills/commentary-brainstorm-review",
       "targets": [
         "codex",
@@ -28,7 +28,7 @@
     {
       "name": "commentary-draft-review",
       "displayName": "Commentary Draft Review",
-      "category": "review",
+      "category": "review-technical",
       "source": "skills/commentary-draft-review",
       "targets": [
         "codex",
@@ -49,7 +49,7 @@
     {
       "name": "commentary-live-preview-review",
       "displayName": "Commentary Live Preview Review",
-      "category": "review",
+      "category": "review-technical",
       "source": "skills/commentary-live-preview-review",
       "targets": [
         "codex",
@@ -68,9 +68,51 @@
       }
     },
     {
+      "name": "commentary-pr-review",
+      "displayName": "Commentary PR Review",
+      "category": "review-technical",
+      "source": "skills/commentary-pr-review",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Operate rendered GitHub and Azure DevOps PR reviews through Commentary MCP.",
+      "slug": "commentary-pr-review",
+      "description": "Operate an existing GitHub or Azure DevOps pull-request or repository-document review through Commentary MCP. Use when an agent must inspect rendered files, list or address review threads, preserve provider permissions, check revision-specific approval gates, or continue PR work without duplicating the workflow through the Commentary CLI.",
+      "interface": {
+        "display_name": "Commentary PR Review",
+        "short_description": "Operate rendered PR reviews through Commentary",
+        "default_prompt": "Use $commentary-pr-review to inspect and address the open review feedback on this PR."
+      }
+    },
+    {
+      "name": "review-agentic-plans",
+      "displayName": "Review Agentic Plans",
+      "category": "review-practice",
+      "source": "skills/review-agentic-plans",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Review agent-generated plans for intent, evidence, risk, and decision completeness.",
+      "slug": "review-agentic-plans",
+      "description": "Review an implementation plan, technical design, specification, or agent-generated proposal for intent, evidence, tradeoffs, risk, and decision completeness. Use before execution when a plan needs substantive critique; do not activate merely to proofread prose or operate Commentary tools.",
+      "interface": {
+        "display_name": "Review Agentic Plans",
+        "short_description": "Find plan risks before an agent executes",
+        "default_prompt": "Use $review-agentic-plans to critique this plan for evidence, risk, and missing decisions."
+      }
+    },
+    {
       "name": "commentary-form-creation",
       "displayName": "Commentary Form Creation",
-      "category": "forms",
+      "category": "forms-technical",
       "source": "skills/commentary-form-creation",
       "targets": [
         "codex",
@@ -81,17 +123,17 @@
       "version": "0.1.0",
       "summary": "Design and create Commentary Form Contract v1 forms.",
       "slug": "commentary-form-creation",
-      "description": "Design and create Commentary Forms from an agent. Use when a user wants to create, validate, revise, or review a Commentary Form Contract v1 YAML or JSON definition; choose form questions, field types, validations, conditional logic, required fields, response links, or draft-backed form authoring; detect whether a local git repo already contains forms or form results; use Commentary MCP draft_review and commentary_forms tools when no local source-backed form repo is available; or coordinate form drafts with Commentary Draft Review workflows.",
+      "description": "Create, validate, revise, and publish Commentary Form Contract v1 YAML or JSON through source-backed files, Draft Review, response links, and Commentary MCP. Use for contract mechanics and form operations after the questions and experience are designed; use design-effective-forms for question quality, flow, accessibility, appearance, and adaptive-form judgment.",
       "interface": {
         "display_name": "Commentary Form Creation",
-        "short_description": "Design and create Commentary Forms",
-        "default_prompt": "Use $commentary-form-creation to design and create a Commentary Form Contract."
+        "short_description": "Create source-backed Commentary Form contracts",
+        "default_prompt": "Use $commentary-form-creation to implement and validate this Commentary Form contract."
       }
     },
     {
       "name": "commentary-form-design",
       "displayName": "Commentary Form Design",
-      "category": "forms",
+      "category": "forms-compatibility",
       "source": "skills/commentary-form-design",
       "targets": [
         "codex",
@@ -102,7 +144,7 @@
       "version": "0.1.0",
       "summary": "Build rich Markdown, MDX, HTML, and custom renderer form experiences.",
       "slug": "commentary-form-design",
-      "description": "Design rich visual Commentary Forms and form pages. Use when a user wants to turn a Commentary Form Contract into a polished Markdown, MDX, static HTML, or Live Preview custom renderer experience; embed forms in review documents; bind static HTML controls with data-commentary-form and data-commentary-field metadata; use the Commentary Forms SDK bridge; improve form layout, visual hierarchy, accessibility, microcopy, or reviewability; or combine form creation with graphical presentation.",
+      "description": "Route existing Commentary Form design requests to the focused rendering or form-practice workflow. Use this compatibility skill when a request mentions the former Commentary Form Design skill: choose commentary-form-rendering for Markdown, HTML, SDK, or custom-renderer mechanics, and design-effective-forms for questions, flow, accessibility, visual quality, or adaptive personalization.",
       "interface": {
         "display_name": "Commentary Form Design",
         "short_description": "Design rich Commentary form pages",
@@ -110,9 +152,51 @@
       }
     },
     {
+      "name": "commentary-form-rendering",
+      "displayName": "Commentary Form Rendering",
+      "category": "forms-technical",
+      "source": "skills/commentary-form-rendering",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Implement Commentary Form renderers, bindings, and SDK bridges.",
+      "slug": "commentary-form-rendering",
+      "description": "Implement a Commentary Form as native rendering, a Markdown or MDX embed, declarative static HTML, or a customer-owned Live Preview custom renderer. Use for data-commentary bindings, Forms SDK bridge integration, sandbox and origin constraints, responsive control implementation, and renderer review handoff; use design-effective-forms for question and experience decisions.",
+      "interface": {
+        "display_name": "Commentary Form Rendering",
+        "short_description": "Implement secure rich Commentary Form renderers",
+        "default_prompt": "Use $commentary-form-rendering to implement this form in the appropriate Commentary rendering surface."
+      }
+    },
+    {
+      "name": "design-effective-forms",
+      "displayName": "Design Effective Forms",
+      "category": "forms-practice",
+      "source": "skills/design-effective-forms",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Design clear, accessible, unbiased, and adaptive forms.",
+      "slug": "design-effective-forms",
+      "description": "Design or critique a form, questionnaire, intake, assessment, checklist, or adaptive follow-up flow for clear questions, unbiased responses, accessibility, visual quality, and respondent trust. Use before implementation even when Commentary is not connected; use commentary-form-creation or commentary-form-rendering afterward for product mechanics.",
+      "interface": {
+        "display_name": "Design Effective Forms",
+        "short_description": "Create clear, accessible, adaptive forms",
+        "default_prompt": "Use $design-effective-forms to improve this form's questions, flow, accessibility, and respondent trust."
+      }
+    },
+    {
       "name": "commentary-form-results",
       "displayName": "Commentary Form Results",
-      "category": "forms",
+      "category": "forms-technical",
       "source": "skills/commentary-form-results",
       "targets": [
         "codex",
@@ -133,7 +217,7 @@
     {
       "name": "commentary-form-result-visualizations",
       "displayName": "Commentary Form Result Visualizations",
-      "category": "forms",
+      "category": "forms-practice",
       "source": "skills/commentary-form-result-visualizations",
       "targets": [
         "codex",
@@ -150,6 +234,48 @@
         "short_description": "Visualize Commentary Forms results",
         "default_prompt": "Use $commentary-form-result-visualizations to create an accessible dashboard from Forms results."
       }
+    },
+    {
+      "name": "commentary-research-workflow",
+      "displayName": "Commentary Research Workflow",
+      "category": "research-technical",
+      "source": "skills/commentary-research-workflow",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Operate source-backed Commentary Research Studies through MCP and Draft Review.",
+      "slug": "commentary-research-workflow",
+      "description": "Operate source-backed Commentary Research Studies through MCP and Draft Review. Use for capability discovery, typed workflow proposals, study and session inspection, participant-event observation, step-scoped comments, evidence and result reads, findings proposals, and review handoff while preserving human control over launch, consent, access, destinations, acceptance, and publication.",
+      "interface": {
+        "display_name": "Commentary Research Workflow",
+        "short_description": "Operate bounded source-backed Research Studies",
+        "default_prompt": "Use $commentary-research-workflow to inspect this study and propose the next authorized research action."
+      }
+    },
+    {
+      "name": "design-product-research",
+      "displayName": "Design Product Research",
+      "category": "research-practice",
+      "source": "skills/design-product-research",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Design ethical, decision-focused product research using established UX methods.",
+      "slug": "design-product-research",
+      "description": "Design or critique product research using established UX methods, including interviews, usability testing, concept studies, contextual work, surveys, diary-style studies, benchmarking, and mixed methods. Use for research questions, method choice, participants, tasks, consent, evidence, synthesis, and findings even when Commentary is not connected.",
+      "interface": {
+        "display_name": "Design Product Research",
+        "short_description": "Plan ethical, evidence-centered product research",
+        "default_prompt": "Use $design-product-research to turn these assumptions into a credible product research study."
+      }
     }
   ],
   "plugins": [
@@ -161,8 +287,8 @@
         "copilot",
         "codex"
       ],
-      "version": "0.3.0",
-      "description": "Adds Commentary review skills for collaborative document and live preview workflows.",
+      "version": "0.4.0",
+      "description": "Operate Commentary review workflows and improve agent-generated plans with evidence-based review practices.",
       "category": "review",
       "tags": [
         "commentary",
@@ -173,7 +299,9 @@
       "skills": [
         "commentary-brainstorm-review",
         "commentary-draft-review",
-        "commentary-live-preview-review"
+        "commentary-live-preview-review",
+        "commentary-pr-review",
+        "review-agentic-plans"
       ],
       "mcpServers": [
         "commentary"
@@ -187,8 +315,8 @@
         "copilot",
         "codex"
       ],
-      "version": "0.3.0",
-      "description": "Adds Commentary Forms skills for form authoring, design, results, and visualizations.",
+      "version": "0.4.0",
+      "description": "Operate Commentary Forms and design clear, accessible, adaptive form experiences.",
       "category": "forms",
       "tags": [
         "commentary",
@@ -199,8 +327,35 @@
       "skills": [
         "commentary-form-creation",
         "commentary-form-design",
+        "commentary-form-rendering",
         "commentary-form-results",
-        "commentary-form-result-visualizations"
+        "commentary-form-result-visualizations",
+        "design-effective-forms"
+      ],
+      "mcpServers": [
+        "commentary"
+      ]
+    },
+    {
+      "name": "commentary-research",
+      "displayName": "Commentary Research",
+      "targets": [
+        "claude-code",
+        "copilot",
+        "codex"
+      ],
+      "version": "0.1.0",
+      "description": "Operate Commentary Research Studies and design ethical, evidence-centered product research.",
+      "category": "research",
+      "tags": [
+        "commentary",
+        "research",
+        "usability",
+        "evidence"
+      ],
+      "skills": [
+        "commentary-research-workflow",
+        "design-product-research"
       ],
       "mcpServers": [
         "commentary"

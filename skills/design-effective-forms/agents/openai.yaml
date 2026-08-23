@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Effective Forms"
+  short_description: "Create clear, accessible, adaptive forms"
+  default_prompt: "Use $design-effective-forms to improve this form's questions, flow, accessibility, and respondent trust."

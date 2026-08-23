@@ -7,6 +7,8 @@ description: Use Commentary Brainstorming Reviews from an agent to monitor multi
 
 Use this skill when a Commentary review is in brainstorming mode: multiple users discuss possible changes, cast signals or votes, and the agent updates the reviewed pages only after consensus reaches an actionable state.
 
+Read `references/operating-surfaces.md` before choosing the remote MCP or local CLI branch.
+
 The business logic is the same for every environment. Choose the technical branch based on the available editing surface:
 
 - **Remote MCP-only**: no local filesystem access, no CLI, and Commentary is the only source of truth.
@@ -42,7 +44,7 @@ Use the remote MCP-only branch when the user says there is no local copy, the ag
 
 Use the local mirror branch when local files exist, the user names local paths, or the workspace has `.commentary/session.json` for the target review. In this branch, local files are the editing surface and the Commentary CLI is preferred because it manages session metadata, changed-file detection, uploads, and brainstorming thread addressing.
 
-Do not mix branches for the same session unless the user explicitly asks to migrate. If MCP cannot see a CLI-created review, or the CLI cannot restore the remote review, treat it as an auth or resource mismatch and keep using the branch that can access the review.
+Never send the same mutation through both branches. A CLI-to-MCP handoff is allowed only when each interface owns a distinct operation and both can verify the exact session. If MCP cannot see a CLI-created review, or the CLI cannot restore the remote review, treat it as an auth or resource mismatch and keep using the branch that can access the review. Before addressing a thread or continuing downstream work, inspect its authorship, consensus state, and approval-gate state when a gate is configured.
 
 ## Remote MCP-Only Branch
 

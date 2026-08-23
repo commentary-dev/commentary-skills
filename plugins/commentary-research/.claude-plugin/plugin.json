@@ -1,0 +1,19 @@
+{
+  "name": "commentary-research",
+  "description": "Operate Commentary Research Studies and design ethical, evidence-centered product research.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Commentary"
+  },
+  "homepage": "https://github.com/commentary-dev/commentary-skills",
+  "repository": "https://github.com/commentary-dev/commentary-skills",
+  "license": "MIT",
+  "keywords": [
+    "commentary",
+    "research",
+    "usability",
+    "evidence"
+  ],
+  "skills": "./skills",
+  "mcpServers": "./.mcp.json"
+}
