@@ -41,6 +41,7 @@ GitHub Copilot CLI users can install plugin bundles from this repository marketp
 
 ```bash
 copilot plugin marketplace add commentary-dev/commentary-skills
+copilot plugin install commentary-inbox@commentary-skills
 copilot plugin install commentary-review@commentary-skills
 copilot plugin install commentary-forms@commentary-skills
 copilot plugin install commentary-research@commentary-skills
@@ -52,6 +53,7 @@ Claude Code users can add this repository as a plugin marketplace and install pl
 
 ```text
 /plugin marketplace add commentary-dev/commentary-skills
+/plugin install commentary-inbox@commentary-skills
 /plugin install commentary-review@commentary-skills
 /plugin install commentary-forms@commentary-skills
 /plugin install commentary-research@commentary-skills
@@ -61,6 +63,7 @@ Codex plugin users can use the Codex marketplace metadata generated at `.agents/
 
 ```bash
 codex plugin marketplace add commentary-dev/commentary-skills
+codex plugin add commentary-inbox@commentary-skills
 codex plugin add commentary-review@commentary-skills
 codex plugin add commentary-forms@commentary-skills
 codex plugin add commentary-research@commentary-skills
@@ -69,6 +72,8 @@ codex plugin add commentary-research@commentary-skills
 ## Skills
 
 ### Technical skills
+
+- [Commentary Inbox](docs/commentary-inbox.md) provides Ask Human, Request Approval, Submit Revision, Escalate Review, and Async Workflow skills for durable human-in-the-loop work.
 
 - [Commentary Draft Review](docs/commentary-draft-review.md), [Brainstorm Review](docs/commentary-brainstorm-review.md), [PR Review](docs/commentary-pr-review.md), and [Live Preview Review](docs/commentary-live-preview-review.md) choose and operate the correct CLI, MCP, or SDK workflow.
 - [Commentary Form Creation](docs/commentary-form-creation.md), [Form Rendering](docs/commentary-form-rendering.md), and [Form Results](docs/commentary-form-results.md) implement and operate source-backed Forms, including adaptive respondent instances.
@@ -83,6 +88,8 @@ codex plugin add commentary-research@commentary-skills
 - [Commentary Form Design](docs/commentary-form-design.md) remains as a compatibility router to the focused rendering and practice skills.
 
 ## Plugins
+
+- commentary-inbox: durable questions, exact approvals, feedback revisions, escalation, bounded polling, and honest fulfillment across supported hosts and generic MCP.
 
 - `commentary-review`: technical Draft, PR, Brainstorming, and Live Preview workflows plus agentic-plan review practice.
 - `commentary-forms`: technical Form creation, rendering, and results plus form-design and visualization practice.

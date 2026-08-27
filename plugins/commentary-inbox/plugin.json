@@ -1,0 +1,26 @@
+{
+  "name": "commentary-inbox",
+  "description": "Create durable human questions, approvals, revisions, escalations, and asynchronous workflows through Commentary Inbox.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Commentary"
+  },
+  "homepage": "https://github.com/commentary-dev/commentary-skills",
+  "repository": "https://github.com/commentary-dev/commentary-skills",
+  "license": "MIT",
+  "keywords": [
+    "commentary",
+    "inbox",
+    "approval",
+    "human-in-the-loop"
+  ],
+  "category": "productivity",
+  "tags": [
+    "commentary",
+    "inbox",
+    "approval",
+    "human-in-the-loop"
+  ],
+  "skills": "./skills",
+  "mcpServers": "./.mcp.json"
+}

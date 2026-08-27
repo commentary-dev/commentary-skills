@@ -5,6 +5,18 @@
   },
   "plugins": [
     {
+      "name": "commentary-inbox",
+      "source": {
+        "source": "local",
+        "path": "./plugins/commentary-inbox"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "productivity"
+    },
+    {
       "name": "commentary-review",
       "source": {
         "source": "local",

@@ -5,9 +5,28 @@
   },
   "metadata": {
     "description": "Commentary agent skills and platform plugins.",
-    "version": "0.4.0"
+    "version": "0.5.0"
   },
   "plugins": [
+    {
+      "name": "commentary-inbox",
+      "source": "./plugins/commentary-inbox",
+      "description": "Create durable human questions, approvals, revisions, escalations, and asynchronous workflows through Commentary Inbox.",
+      "version": "0.1.0",
+      "category": "productivity",
+      "tags": [
+        "commentary",
+        "inbox",
+        "approval",
+        "human-in-the-loop"
+      ],
+      "author": {
+        "name": "Commentary"
+      },
+      "homepage": "https://github.com/commentary-dev/commentary-skills",
+      "repository": "https://github.com/commentary-dev/commentary-skills",
+      "license": "MIT"
+    },
     {
       "name": "commentary-review",
       "source": "./plugins/commentary-review",

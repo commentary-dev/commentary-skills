@@ -1,4 +1,44 @@
 skills:
+  - name: commentary-ask-human
+    displayName: Commentary Ask Human
+    category: inbox-technical
+    source: skills/commentary-ask-human
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Create a durable Inbox question when a response must survive the current chat.
+    slug: commentary-ask-human
+  - name: commentary-request-approval
+    displayName: Commentary Request Approval
+    category: inbox-technical
+    source: skills/commentary-request-approval
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Request a human Decision bound to an exact proposal and consequence.
+    slug: commentary-request-approval
+  - name: commentary-submit-revision
+    displayName: Commentary Submit Revision
+    category: inbox-technical
+    source: skills/commentary-submit-revision
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Address durable feedback with a new immutable Interaction revision.
+    slug: commentary-submit-revision
+  - name: commentary-escalate-review
+    displayName: Commentary Escalate Review
+    category: inbox-technical
+    source: skills/commentary-escalate-review
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Escalate blocked or high-impact work to an authorized human reviewer.
+    slug: commentary-escalate-review
+  - name: commentary-async-workflow
+    displayName: Commentary Async Workflow
+    category: inbox-technical
+    source: skills/commentary-async-workflow
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Orchestrate a durable Interaction across polling, Decision, revision, and fulfillment.
+    slug: commentary-async-workflow
   - name: commentary-brainstorm-review
     displayName: Commentary Brainstorm Review
     category: review-technical

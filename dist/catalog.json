@@ -1,9 +1,114 @@
 {
   "name": "commentary-skills",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "repository": "https://github.com/commentary-dev/commentary-skills",
   "license": "MIT",
   "skills": [
+    {
+      "name": "commentary-ask-human",
+      "displayName": "Commentary Ask Human",
+      "category": "inbox-technical",
+      "source": "skills/commentary-ask-human",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Create a durable Inbox question when a response must survive the current chat.",
+      "slug": "commentary-ask-human",
+      "description": "Create a durable Commentary Inbox question when the answer must survive the current chat, reach an authorized person asynchronously, or be resumed by another agent. Do not use for ordinary chat questions, immediate clarification, or ephemeral MCP Elicitation.",
+      "interface": {
+        "display_name": "Commentary Ask Human",
+        "short_description": "Ask a durable asynchronous human question",
+        "default_prompt": "Use $commentary-ask-human only if this question needs a durable Commentary Inbox response."
+      }
+    },
+    {
+      "name": "commentary-request-approval",
+      "displayName": "Commentary Request Approval",
+      "category": "inbox-technical",
+      "source": "skills/commentary-request-approval",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Request a human Decision bound to an exact proposal and consequence.",
+      "slug": "commentary-request-approval",
+      "description": "Request an authorized human Decision in Commentary Inbox for a precisely described proposal and consequence. Use when execution must be gated by durable approval; do not use for opinions, self-approval, or vague permission unbound to an immutable revision.",
+      "interface": {
+        "display_name": "Commentary Request Approval",
+        "short_description": "Bind human approval to an exact proposal",
+        "default_prompt": "Use $commentary-request-approval to request a durable Decision and stop before execution."
+      }
+    },
+    {
+      "name": "commentary-submit-revision",
+      "displayName": "Commentary Submit Revision",
+      "category": "inbox-technical",
+      "source": "skills/commentary-submit-revision",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Address durable feedback with a new immutable Interaction revision.",
+      "slug": "commentary-submit-revision",
+      "description": "Submit a new immutable Commentary Inbox revision after durable human feedback or a request-revision Decision. Use when feedback changes a proposal needing renewed review; do not edit an approved revision in place or carry an earlier approval fingerprint forward.",
+      "interface": {
+        "display_name": "Commentary Submit Revision",
+        "short_description": "Turn durable feedback into a new revision",
+        "default_prompt": "Use $commentary-submit-revision to create a new immutable revision and request a new Decision."
+      }
+    },
+    {
+      "name": "commentary-escalate-review",
+      "displayName": "Commentary Escalate Review",
+      "category": "inbox-technical",
+      "source": "skills/commentary-escalate-review",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Escalate blocked or high-impact work to an authorized human reviewer.",
+      "slug": "commentary-escalate-review",
+      "description": "Escalate a blocked, overdue, disputed, or high-impact Commentary Inbox request to an authorized human role with durable context. Use when normal review cannot safely proceed; do not use escalation to invent authority, bypass a Decision, or pressure a reviewer.",
+      "interface": {
+        "display_name": "Commentary Escalate Review",
+        "short_description": "Escalate review without granting authority",
+        "default_prompt": "Use $commentary-escalate-review to route this blocked review to an authorized human role."
+      }
+    },
+    {
+      "name": "commentary-async-workflow",
+      "displayName": "Commentary Async Workflow",
+      "category": "inbox-technical",
+      "source": "skills/commentary-async-workflow",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Orchestrate a durable Interaction across polling, Decision, revision, and fulfillment.",
+      "slug": "commentary-async-workflow",
+      "description": "Orchestrate a durable Commentary Inbox workflow across create, bounded polling, human Decision, feedback revision, external execution boundary, and fulfillment reporting. Use for work that must survive sessions or agents; do not use for ordinary chat questions or MCP Elicitation.",
+      "interface": {
+        "display_name": "Commentary Async Workflow",
+        "short_description": "Run a durable safe human-in-the-loop lifecycle",
+        "default_prompt": "Use $commentary-async-workflow to run this durable workflow through Decision, revision, and honest fulfillment."
+      }
+    },
     {
       "name": "commentary-brainstorm-review",
       "displayName": "Commentary Brainstorm Review",
@@ -279,6 +384,34 @@
     }
   ],
   "plugins": [
+    {
+      "name": "commentary-inbox",
+      "displayName": "Commentary Inbox",
+      "targets": [
+        "claude-code",
+        "copilot",
+        "codex"
+      ],
+      "version": "0.1.0",
+      "description": "Create durable human questions, approvals, revisions, escalations, and asynchronous workflows through Commentary Inbox.",
+      "category": "productivity",
+      "tags": [
+        "commentary",
+        "inbox",
+        "approval",
+        "human-in-the-loop"
+      ],
+      "skills": [
+        "commentary-ask-human",
+        "commentary-request-approval",
+        "commentary-submit-revision",
+        "commentary-escalate-review",
+        "commentary-async-workflow"
+      ],
+      "mcpServers": [
+        "commentary"
+      ]
+    },
     {
       "name": "commentary-review",
       "displayName": "Commentary Review",

@@ -1,4 +1,13 @@
 plugins:
+  - name: commentary-inbox
+    displayName: Commentary Inbox
+    targets: [claude-code, copilot, codex]
+    version: 0.1.0
+    description: Create durable human questions, approvals, revisions, escalations, and asynchronous workflows through Commentary Inbox.
+    category: productivity
+    tags: [commentary, inbox, approval, human-in-the-loop]
+    skills: [commentary-ask-human, commentary-request-approval, commentary-submit-revision, commentary-escalate-review, commentary-async-workflow]
+    mcpServers: [commentary]
   - name: commentary-review
     displayName: Commentary Review
     targets: [claude-code, copilot, codex]

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Request Approval"
+  short_description: "Bind human approval to an exact proposal"
+  default_prompt: "Use $commentary-request-approval to request a durable Decision and stop before execution."

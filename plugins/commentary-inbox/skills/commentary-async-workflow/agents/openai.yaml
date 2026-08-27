@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Async Workflow"
+  short_description: "Run a durable safe human-in-the-loop lifecycle"
+  default_prompt: "Use $commentary-async-workflow to run this durable workflow through Decision, revision, and honest fulfillment."

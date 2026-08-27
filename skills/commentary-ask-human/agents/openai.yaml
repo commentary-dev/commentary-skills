@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Ask Human"
+  short_description: "Ask a durable asynchronous human question"
+  default_prompt: "Use $commentary-ask-human only if this question needs a durable Commentary Inbox response."

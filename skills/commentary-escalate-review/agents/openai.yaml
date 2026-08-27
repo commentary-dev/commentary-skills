@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Escalate Review"
+  short_description: "Escalate review without granting authority"
+  default_prompt: "Use $commentary-escalate-review to route this blocked review to an authorized human role."
