@@ -6,7 +6,7 @@ This repository is the canonical source for Commentary agent skills. Each plugin
 
 ## What Is Commentary?
 
-[Commentary](https://commentary.dev) is a GitHub-native review workspace for documents, structured Forms, and live web app previews. It supports Markdown specs, ADRs, rollout plans, READMEs, docs, Form Contract files, and opt-in Live Preview Reviews for browser apps instrumented with the Commentary review SDK.
+[Commentary](https://commentary.dev) is the human decision layer for AI agents. The `commentary-inbox` plugin handles durable questions, exact approvals, revisions, escalation, and honest Fulfillment; the established review plugins remain the deep-decision surface for documents, structured Forms, research, and opt-in live web app previews.
 
 ## Install
 
