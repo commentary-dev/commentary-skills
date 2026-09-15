@@ -1,6 +1,6 @@
 {
   "name": "@commentary-dev/commentary-skills",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Marketplace and canonical source for Commentary agent skills.",
   "license": "MIT",
   "private": true,

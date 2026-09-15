@@ -96,7 +96,13 @@ export function parseFrontmatter(relativePath) {
       throw new Error(`${relativePath} has unsupported frontmatter line: ${line}`);
     }
 
-    frontmatter[lineMatch[1]] = parseScalar(lineMatch[2]);
+    const scalar = lineMatch[2].trim();
+    const quoted = (scalar.startsWith('"') && scalar.endsWith('"'))
+      || (scalar.startsWith("'") && scalar.endsWith("'"));
+    if (!quoted && /:\s/u.test(scalar)) {
+      throw new Error(`${relativePath}: quote frontmatter values containing a colon followed by whitespace`);
+    }
+    frontmatter[lineMatch[1]] = parseScalar(scalar);
   }
 
   return { frontmatter, body: match[2] };
@@ -207,4 +213,3 @@ function stripQuotes(value) {
 
   return value;
 }
-

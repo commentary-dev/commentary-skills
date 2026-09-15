@@ -20,7 +20,7 @@ plugins:
   - name: commentary-forms
     displayName: Commentary Forms
     targets: [claude-code, copilot, codex]
-    version: 0.4.1
+    version: 0.4.2
     description: Operate Commentary Forms and design clear, accessible, adaptive form experiences.
     category: forms
     tags: [commentary, forms, data, visualization]

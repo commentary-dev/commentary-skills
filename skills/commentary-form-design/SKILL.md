@@ -1,6 +1,6 @@
 ---
 name: commentary-form-design
-description: Route existing Commentary Form design requests to the focused rendering or form-practice workflow. Use this compatibility skill when a request mentions the former Commentary Form Design skill: choose commentary-form-rendering for Markdown, HTML, SDK, or custom-renderer mechanics, and design-effective-forms for questions, flow, accessibility, visual quality, or adaptive personalization.
+description: Route existing Commentary Form design requests to the focused rendering or form-practice workflow. Use this compatibility skill when a request mentions the former Commentary Form Design skill. Choose commentary-form-rendering for Markdown, HTML, SDK, or custom-renderer mechanics, and design-effective-forms for questions, flow, accessibility, visual quality, or adaptive personalization.
 ---
 
 # Commentary Form Design

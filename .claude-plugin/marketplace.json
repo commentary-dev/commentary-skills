@@ -6,9 +6,9 @@
   "description": "Commentary agent skills and platform plugins.",
   "metadata": {
     "description": "Commentary agent skills and platform plugins.",
-    "version": "0.6.0"
+    "version": "0.6.1"
   },
-  "version": "0.6.0",
+  "version": "0.6.1",
   "plugins": [
     {
       "name": "commentary-inbox",
@@ -53,7 +53,7 @@
       "name": "commentary-forms",
       "source": "./plugins/commentary-forms",
       "description": "Operate Commentary Forms and design clear, accessible, adaptive form experiences.",
-      "version": "0.4.1",
+      "version": "0.4.2",
       "category": "forms",
       "tags": [
         "commentary",

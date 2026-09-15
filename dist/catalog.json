@@ -1,6 +1,6 @@
 {
   "name": "commentary-skills",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "repository": "https://github.com/commentary-dev/commentary-skills",
   "license": "MIT",
   "skills": [
@@ -309,10 +309,10 @@
         "claude-code",
         "openclaw"
       ],
-      "version": "0.1.0",
+      "version": "0.1.1",
       "summary": "Build rich Markdown, MDX, HTML, and custom renderer form experiences.",
       "slug": "commentary-form-design",
-      "description": "Route existing Commentary Form design requests to the focused rendering or form-practice workflow. Use this compatibility skill when a request mentions the former Commentary Form Design skill: choose commentary-form-rendering for Markdown, HTML, SDK, or custom-renderer mechanics, and design-effective-forms for questions, flow, accessibility, visual quality, or adaptive personalization.",
+      "description": "Route existing Commentary Form design requests to the focused rendering or form-practice workflow. Use this compatibility skill when a request mentions the former Commentary Form Design skill. Choose commentary-form-rendering for Markdown, HTML, SDK, or custom-renderer mechanics, and design-effective-forms for questions, flow, accessibility, visual quality, or adaptive personalization.",
       "interface": {
         "display_name": "Commentary Form Design",
         "short_description": "Design rich Commentary form pages",
@@ -515,7 +515,7 @@
         "copilot",
         "codex"
       ],
-      "version": "0.4.1",
+      "version": "0.4.2",
       "description": "Operate Commentary Forms and design clear, accessible, adaptive form experiences.",
       "category": "forms",
       "tags": [

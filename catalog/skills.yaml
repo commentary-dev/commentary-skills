@@ -116,7 +116,7 @@ skills:
     category: forms-compatibility
     source: skills/commentary-form-design
     targets: [codex, copilot, claude-code, openclaw]
-    version: 0.1.0
+    version: 0.1.1
     summary: Build rich Markdown, MDX, HTML, and custom renderer form experiences.
     slug: commentary-form-design
   - name: commentary-form-rendering
