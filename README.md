@@ -6,7 +6,7 @@ This repository is the canonical source for Commentary agent skills. Each plugin
 
 ## What Is Commentary?
 
-[Commentary](https://commentary.dev) is the human decision layer for AI agents. The `commentary-inbox` plugin handles durable questions, exact approvals, revisions, escalation, and honest Fulfillment; the established review plugins remain the deep-decision surface for documents, structured Forms, research, and opt-in live web app previews.
+[Commentary](https://commentary.dev) is the human decision layer for AI agents. The `commentary-inbox` plugin handles request design and triage, workspace discovery, durable questions, exact approvals, revisions, full Review handoffs, and honest Fulfillment; the established review plugins remain the deep-decision surface for documents, structured Forms, research, and opt-in live web app previews.
 
 ## Install
 
@@ -21,6 +21,10 @@ Then install or copy the desired folder from `skills/` into the skill directory 
 GitHub Copilot cloud agent users can install individual skills with GitHub CLI 2.90.0 or later:
 
 ```bash
+gh skill preview commentary-dev/commentary-skills commentary-inbox-triage
+gh skill install commentary-dev/commentary-skills commentary-inbox-triage
+gh skill install commentary-dev/commentary-skills commentary-workspace
+gh skill install commentary-dev/commentary-skills design-effective-interactions
 gh skill preview commentary-dev/commentary-skills commentary-draft-review
 gh skill install commentary-dev/commentary-skills commentary-draft-review
 gh skill preview commentary-dev/commentary-skills commentary-brainstorm-review
@@ -73,23 +77,25 @@ codex plugin add commentary-research@commentary-skills
 
 ### Technical skills
 
-- [Commentary Inbox](docs/commentary-inbox.md) provides Ask Human, Request Approval, Submit Revision, Escalate Review, and Async Workflow skills for durable human-in-the-loop work.
+- [Commentary Inbox](docs/commentary-inbox.md) provides Ask Human, Request Approval, Submit Revision, Escalate Review, Async Workflow, Inbox Triage, and Workspace technical skills for durable human-in-the-loop work.
 
-- [Commentary Draft Review](docs/commentary-draft-review.md), [Brainstorm Review](docs/commentary-brainstorm-review.md), [PR Review](docs/commentary-pr-review.md), and [Live Preview Review](docs/commentary-live-preview-review.md) choose and operate the correct CLI, MCP, or SDK workflow.
-- [Commentary Form Creation](docs/commentary-form-creation.md), [Form Rendering](docs/commentary-form-rendering.md), and [Form Results](docs/commentary-form-results.md) implement and operate source-backed Forms, including adaptive respondent instances.
-- [Commentary Research Workflow](docs/commentary-research-workflow.md) operates bounded, source-backed Research Studies while preserving human launch, consent, and publication authority.
+- [Commentary Draft Review](docs/commentary-draft-review.md), [Brainstorm Review](docs/commentary-brainstorm-review.md), [PR Review](skills/commentary-pr-review/SKILL.md), and [Live Preview Review](docs/commentary-live-preview-review.md) choose and operate the correct CLI, MCP, or SDK workflow.
+- [Commentary Form Creation](docs/commentary-form-creation.md), [Form Rendering](skills/commentary-form-rendering/SKILL.md), and [Form Results](docs/commentary-form-results.md) implement and operate source-backed Forms, including adaptive respondent instances.
+- [Commentary Research Workflow](skills/commentary-research-workflow/SKILL.md) operates bounded, source-backed Research Studies while preserving human launch, consent, and publication authority.
 
 ### Practice skills
 
-- [Review Agentic Plans](docs/review-agentic-plans.md) critiques intent, evidence, tradeoffs, risk, and decision completeness before execution.
-- [Design Effective Forms](docs/design-effective-forms.md) improves question quality, accessibility, visual hierarchy, and responsible per-respondent adaptation.
+- [Design Effective Interactions](docs/design-effective-interactions.md) improves durable questions, choices, notifications, consequences, and full Review handoffs.
+
+- [Review Agentic Plans](skills/review-agentic-plans/SKILL.md) critiques intent, evidence, tradeoffs, risk, and decision completeness before execution.
+- [Design Effective Forms](skills/design-effective-forms/SKILL.md) improves question quality, accessibility, visual hierarchy, and responsible per-respondent adaptation.
 - [Form Result Visualizations](docs/commentary-form-result-visualizations.md) turns permitted result data into accessible explanations.
-- [Design Product Research](docs/design-product-research.md) selects credible UX methods and maps them into Commentary's Consent, Content, Activity, Form, and Complete workflow.
+- [Design Product Research](skills/design-product-research/SKILL.md) selects credible UX methods and maps them into Commentary's Consent, Content, Activity, Form, and Complete workflow.
 - [Commentary Form Design](docs/commentary-form-design.md) remains as a compatibility router to the focused rendering and practice skills.
 
 ## Plugins
 
-- commentary-inbox: durable questions, exact approvals, feedback revisions, escalation, bounded polling, and honest fulfillment across supported hosts and generic MCP.
+- `commentary-inbox`: request design and triage, granted workspace discovery, durable answers, current-policy approvals, revisions, human-confirmed Review handoff, guidance, and honest Fulfillment across supported transports.
 
 - `commentary-review`: technical Draft, PR, Brainstorming, and Live Preview workflows plus agentic-plan review practice.
 - `commentary-forms`: technical Form creation, rendering, and results plus form-design and visualization practice.
@@ -138,4 +144,4 @@ npm install
 npm run verify
 ```
 
-`npm run verify` validates the skills, catalogs, generated artifacts, public-safety rules, forward-test catalog, and basic formatting. The maintained cases in `evals/forward-tests.json` cover plan critique, CLI/MCP routing, authorship-aware comment handling, accessible and adaptive Forms, typed NN/g-style study design, evidence-led synthesis, and refusal of human-only Research actions.
+`npm run verify` validates the skills, catalogs, generated artifacts, public-safety rules, forward-test catalog, and basic formatting. The maintained cases in `evals/forward-tests.json` cover plan critique, capability-aware CLI/MCP/HTTP routing, current-policy approvals, answers and guidance, workspace authority, attention proposals, authorship-aware comments, accessible/adaptive Forms, typed studies, and human-only actions. Catalog validation checks cases and coverage references; the deterministic Inbox tests execute transport and continuation behavior.

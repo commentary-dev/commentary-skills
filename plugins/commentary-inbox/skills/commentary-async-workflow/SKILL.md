@@ -1,21 +1,26 @@
 ---
 name: commentary-async-workflow
-description: Orchestrate a durable Commentary Inbox workflow across create, bounded polling, human Decision, feedback revision, external execution boundary, and fulfillment reporting. Use for work that must survive sessions or agents; do not use for ordinary chat questions or MCP Elicitation.
+description: Resume durable Commentary requests across messages, Decisions, immutable revisions, future guidance retrieval and acknowledgment, external execution handoff, and honest Fulfillment. Use for work spanning sessions; not ordinary chat or ephemeral MCP Elicitation.
 ---
 
 # Commentary Async Workflow
 
-Compose the other Inbox skills while keeping one stable Interaction handle across turns.
+Keep one stable handle and distinguish the requested human response, whole approval chain, global lifecycle, and external execution. Read [references/operating-surfaces.md](references/operating-surfaces.md) for discovery, scopes, polling, and retry contracts.
 
-## Safe workflow
+## Continue a durable request
 
-1. Discover consolidated MCP `interaction` and retained protocol compatibility, or use `/api/v1/interactions`. Use configured credentials scoped only to required create/read/update/cancel/fulfillment actions and the Resource. Never bundle, log, or solicit tokens. Define objective, correlation id, timeout, human role, proposal, exact consequence, and separately configured executor. Stop if authority or target is unclear.
-2. Create with MCP `action: "create"` or HTTP `POST /api/v1/interactions`, using stable correlation/idempotency keys. Exact retries reuse the key; changed requests do not. Store the handle and stop if status is terminal.
-3. Poll `decision_wait` with `decision_get` fallback, or HTTP `/decisions?after=...&waitMs=...`. Honor retry hints, cap waits at 10 seconds, bound total polling, and return the handle on timeout because the Interaction remains durable.
-4. Agents never write Decisions. Rejection stops. Feedback or `request_revision` reads durable messages then calls `revise` with `priorRevisionId`, feedback ids, exact expected version/ETag, and a new key. Wait for a new Decision.
-5. Before external work refetch status and require Decision revision id, action id, and 64-character proposal fingerprint to match current immutable content. A stale version, changed proposal, missing field, terminal state, or mismatch stops. Never reuse or retarget approval.
-6. Production, financial, destructive, security, publication, communication, and other high-impact work always stops here unless the exact action is separately authorized and its executor is configured.
-7. After separate execution use MCP `fulfillment_report` then `fulfillment_get`, or HTTP `POST /api/v1/interactions/{id}/fulfillment`, with the Decision tuple and stable key. Fulfillment is append-only, self-reported, and unverified. Partial/uncertain outcomes are `failed` or `unknown`, never verified completion.
-8. On interruption fetch current status/version before optional cancel. Retry only retryable errors with unchanged keys; on conflicts/access failures refetch and stop. Escalate only through server-authorized routing.
+1. Discover or resume existing authorized work before creating another request. Retain content-free handles, correlation, receipt/cursor, and operation identities in host-appropriate session state; never put secrets or copied customer context in repository memory.
+2. Refetch full context. When available, use `commentary-ask-human` for answers/choices, `commentary-request-approval` for execution gates, `commentary-submit-revision` for proposal changes, and `commentary-escalate-review` for human-confirmed deeper Review. These boundaries still apply without companion skills installed.
+3. Inspect messages and typed feedback as well as Decisions. Reply concerns this instance; requested actions capture exact Decisions; guidance concerns future work. Workspace conversation access does not grant creator authority to revise, read Decision receipts, acknowledge guidance, or report Fulfillment.
+4. Use CLI/HTTP messages to append an authorized agent reply against exact ETag and revision. It can resume human attention without changing the proposal. Do not edit human messages or invent a consolidated MCP message action. Use immutable revisions for proposal changes.
+5. Poll within the foreground budget, respecting retry hints and aborts. Individual approval may leave a team chain pending. Timeout/interruption returns the durable handle without inferred consent or automatic cancellation. Requested cancellation refetches the exact ETag and respects terminal state.
+6. Before external execution require established exact-action authorization, a configured executor, current revision/action/fingerprint, and server-confirmed current approval satisfaction where required. Answers and acknowledgments are input, not approval. Missing current-policy evidence prevents execution.
+7. Fulfillment first reports `received`, then `started`, followed by an honest permitted outcome. Reports are append-only and self-reported. Corrections follow server transitions; uncertain outcomes are `failed` or `unknown`.
 
-Durable Inbox is distinct from chat and Elicitation. Missing credentials, access denial, stale revisions, unclear consequences, conflicting feedback, timeout, and external boundaries are human stop conditions. Represented free-preview keys remain usable during no-billing preview; Commentary owns Pro notices.
+## Future-facing guidance
+
+CLI `interaction guidance list`, HTTP GET `/api/v1/interactions/{id}/guidance`, or MCP `guidance_list` retrieves bounded guidance only for the creating agent. Paginate opaque cursors and inspect scope (`similar_items`, `same_source`, `agent_behavior`, `general`), record id, revision, and purge state separately from current feedback.
+
+Acknowledge an exact readable record through CLI `interaction guidance acknowledge`, HTTP POST `/guidance/{guidanceId}/acknowledgment`, or MCP `guidance_ack` with a stable idempotency key. This proves delivery, not learning, application, approval, or task completion. Assess guidance against user intent and authorization before applying it. Persistent project-instruction, configuration, or memory changes need their own established scope; do not automatically rewrite them.
+
+Read [references/async-delivery.md](references/async-delivery.md) only for webhook continuation, delivery recovery, or SDK integration. Every wakeup rechecks source authorization; events never authorize execution.

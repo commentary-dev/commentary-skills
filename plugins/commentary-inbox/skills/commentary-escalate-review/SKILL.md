@@ -1,19 +1,33 @@
 ---
 name: commentary-escalate-review
-description: Escalate a blocked, overdue, disputed, or high-impact Commentary Inbox request to an authorized human role with durable context. Use when normal review cannot safely proceed; do not use escalation to invent authority, bypass a Decision, or pressure a reviewer.
+description: Prepare and follow a human-confirmed handoff from an exact Commentary Inbox revision to canonical Document, Form, Brain, or Live Preview Review. Use when a bounded response needs deeper review; not to appoint approvers or reroute them through proposal edits.
 ---
 
 # Commentary Escalate Review
 
-Escalation routes context; it never grants approval or changes a proposal.
+Escalation opens deeper human review while preserving the originating request. It is not approver appointment, execution authorization, or a lifecycle update. Read [references/operating-surfaces.md](references/operating-surfaces.md) first.
 
-## Safe workflow
+## Prepare the human handoff
 
-1. Use configured Commentary authentication limited to required Interaction actions and Resource access. Never request credentials in chat. Require an existing handle or authorized Resource and server-authorized escalation routing; agents cannot invent an approver.
-2. Fetch MCP `interaction` `status` or `GET /api/v1/interactions/{id}`. Confirm non-terminal state and capture current revision/version, Decision fingerprint, feedback ids, prior attempts, blocker, urgency, impact, neutral owner role, requested response, and deadline.
-3. Write a secret-free escalation with that evidence and the exact consequence if approval is requested. Reuse the correlation id and derive a stable escalation idempotency key. Use the server-supported update/revision path; if proposal or consequence changes, call MCP `revise` or `POST /api/v1/interactions/{id}/revisions` with prior revision, feedback ids, exact version/ETag, and a new key. Never reinterpret approved work.
-4. Poll bounded `status` plus `decision_wait`/`decision_get`, or HTTP status/decisions. Honor retry hints, cap waits at 10 seconds, and stop at the deadline with the durable handle. Silence is not consent.
-5. Agents cannot write Decisions. Require revision, action, and fingerprint to match. Rejection stops; feedback creates a new revision; any changed proposal invalidates old approval. Stop before production or other high-impact execution; a separate configured executor must revalidate the fingerprint.
-6. Any later fulfillment is append-only, self-reported, and unverified. Use `failed` or `unknown` for uncertainty.
+Fetch full context with CLI `interaction get`, HTTP GET, or MCP `get`. Identify current revision, exact action fingerprint, source Resource, blocker, evidence, consequence, and requested review outcome. If agent-readable context omits the action fingerprint, the human confirmation surface must obtain its exact server binding; do not substitute a revision content hash or invent a fingerprint.
 
-Stop for missing credentials/access, stale version, unclear owner, conflicting reviewers, terminal state, timeout, or expanded consequence. Referenced Core/free-preview keys remain usable during no-billing preview; Commentary owns Pro notices.
+Explain why a full Review helps and offer the relevant canonical destination:
+
+| Human selection | Resource | Supported handoff |
+| --- | --- | --- |
+| Document Review | Draft Review | Create or link an accessible Draft |
+| Form workflow | Form | Create through source-backed Forms or link |
+| Brain review | Knowledge Brain | Link the accessible originating Brain review |
+| Live Preview Review | Web App Review | Create through opt-in previews or link |
+
+The eligible signed-in human selects and confirms the destination in Commentary. `/api/v1/interactions/{id}/review-escalation` requires same-origin browser authentication; it is not a bearer-agent operation and no CLI or consolidated MCP escalation action is advertised. Never synthesize cookies or invoke it with an agent token. Confirmation binds exact revision/fingerprint and acknowledges that Review acceptance does not execute the external action.
+
+Approver routing is a separate team capability. Do not use `revise` or `update` as an invented routing/escalation operation.
+
+## Follow the linked Review
+
+After human confirmation, refetch authorized `reviewEscalation` provenance and the canonical destination. Operate that Resource through its available Draft, Form, Brain, or Preview tools. Keep app-native threads authoritative and preserve source permissions; do not create a second review on retry.
+
+Monitor bounded pending/in-review/outcome status. Deleted, inaccessible, canceled, purged, or provider-sync-failed destinations need honest recovery. Provider synchronization failure does not erase app-native history.
+
+Returned corrections create a new immutable Interaction revision, invalidating old action approvals. Accepted Review content means the artifact revision was accepted, not that its external consequence was approved or executed. Separately recheck current-policy action approval before established authorized external execution. Return stable request and Review handles on timeout.

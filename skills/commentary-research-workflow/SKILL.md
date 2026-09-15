@@ -7,6 +7,12 @@ description: Operate source-backed Commentary Research Studies through MCP and D
 
 Use Commentary MCP for an active Research Study. Use Draft Review or the CLI only to author or revise local protocol, Form, codebook, finding, or report source artifacts.
 
+## Workspace and Inbox handoff
+
+Select the initial authorized workspace before creating a Resource, using advertised creation support only. Browser selection and agent credential grants are separate; do not invent workspace fields or treat membership as source permission. Discover current server capabilities before using newer CLI/HTTP workspace reads.
+
+When work comes from Inbox, preserve its Interaction handle and canonical Resource/revision provenance. Reuse correlated attention requests rather than creating duplicates. Requested responses, ordinary replies and future guidance are distinct. Resource acceptance, consent, publication and provider writeback retain their existing domain authority; an Inbox receipt does not bypass them.
+
 ## Workflow model
 
 The participant sequence is always:

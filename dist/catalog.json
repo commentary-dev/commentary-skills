@@ -1,6 +1,6 @@
 {
   "name": "commentary-skills",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "repository": "https://github.com/commentary-dev/commentary-skills",
   "license": "MIT",
   "skills": [
@@ -15,10 +15,10 @@
         "claude-code",
         "openclaw"
       ],
-      "version": "0.1.0",
+      "version": "0.2.0",
       "summary": "Create a durable Inbox question when a response must survive the current chat.",
       "slug": "commentary-ask-human",
-      "description": "Create a durable Commentary Inbox question when the answer must survive the current chat, reach an authorized person asynchronously, or be resumed by another agent. Do not use for ordinary chat questions, immediate clarification, or ephemeral MCP Elicitation.",
+      "description": "Create and retrieve a durable Commentary Inbox question or choice when its answer must survive chat, reach the credential owner asynchronously, or be resumed later. Use chat for immediate clarification and MCP Elicitation for same-session prompts.",
       "interface": {
         "display_name": "Commentary Ask Human",
         "short_description": "Ask a durable asynchronous human question",
@@ -36,14 +36,14 @@
         "claude-code",
         "openclaw"
       ],
-      "version": "0.1.0",
+      "version": "0.2.0",
       "summary": "Request a human Decision bound to an exact proposal and consequence.",
       "slug": "commentary-request-approval",
-      "description": "Request an authorized human Decision in Commentary Inbox for a precisely described proposal and consequence. Use when execution must be gated by durable approval; do not use for opinions, self-approval, or vague permission unbound to an immutable revision.",
+      "description": "Request and validate a human Commentary Inbox approval for one exact immutable proposal, action, consequence, and current approval policy. Use for durable execution gates including team chains; not ordinary questions or agent-written Decisions.",
       "interface": {
         "display_name": "Commentary Request Approval",
         "short_description": "Bind human approval to an exact proposal",
-        "default_prompt": "Use $commentary-request-approval to request a durable Decision and stop before execution."
+        "default_prompt": "Use $commentary-request-approval to request exact human approval and validate the current policy before an authorized execution handoff."
       }
     },
     {
@@ -57,10 +57,10 @@
         "claude-code",
         "openclaw"
       ],
-      "version": "0.1.0",
+      "version": "0.2.0",
       "summary": "Address durable feedback with a new immutable Interaction revision.",
       "slug": "commentary-submit-revision",
-      "description": "Submit a new immutable Commentary Inbox revision after durable human feedback or a request-revision Decision. Use when feedback changes a proposal needing renewed review; do not edit an approved revision in place or carry an earlier approval fingerprint forward.",
+      "description": "Submit an immutable Commentary Interaction revision after revision-bound feedback or an explicit proposal change, preserving provenance and invalidating old action approvals. Do not revise for ordinary discussion or future-facing guidance alone.",
       "interface": {
         "display_name": "Commentary Submit Revision",
         "short_description": "Turn durable feedback into a new revision",
@@ -78,14 +78,14 @@
         "claude-code",
         "openclaw"
       ],
-      "version": "0.1.0",
-      "summary": "Escalate blocked or high-impact work to an authorized human reviewer.",
+      "version": "0.2.0",
+      "summary": "Prepare and follow a human-confirmed handoff to canonical full Review.",
       "slug": "commentary-escalate-review",
-      "description": "Escalate a blocked, overdue, disputed, or high-impact Commentary Inbox request to an authorized human role with durable context. Use when normal review cannot safely proceed; do not use escalation to invent authority, bypass a Decision, or pressure a reviewer.",
+      "description": "Prepare and follow a human-confirmed handoff from an exact Commentary Inbox revision to canonical Document, Form, Brain, or Live Preview Review. Use when a bounded response needs deeper review; not to appoint approvers or reroute them through proposal edits.",
       "interface": {
         "display_name": "Commentary Escalate Review",
-        "short_description": "Escalate review without granting authority",
-        "default_prompt": "Use $commentary-escalate-review to route this blocked review to an authorized human role."
+        "short_description": "Prepare a human-confirmed full Review handoff",
+        "default_prompt": "Use $commentary-escalate-review to prepare and follow this request's human-confirmed full Review handoff."
       }
     },
     {
@@ -99,14 +99,77 @@
         "claude-code",
         "openclaw"
       ],
-      "version": "0.1.0",
+      "version": "0.2.0",
       "summary": "Orchestrate a durable Interaction across polling, Decision, revision, and fulfillment.",
       "slug": "commentary-async-workflow",
-      "description": "Orchestrate a durable Commentary Inbox workflow across create, bounded polling, human Decision, feedback revision, external execution boundary, and fulfillment reporting. Use for work that must survive sessions or agents; do not use for ordinary chat questions or MCP Elicitation.",
+      "description": "Resume durable Commentary requests across messages, Decisions, immutable revisions, future guidance retrieval and acknowledgment, external execution handoff, and honest Fulfillment. Use for work spanning sessions; not ordinary chat or ephemeral MCP Elicitation.",
       "interface": {
         "display_name": "Commentary Async Workflow",
         "short_description": "Run a durable safe human-in-the-loop lifecycle",
         "default_prompt": "Use $commentary-async-workflow to run this durable workflow through Decision, revision, and honest fulfillment."
+      }
+    },
+    {
+      "name": "commentary-inbox-triage",
+      "displayName": "Commentary Inbox Triage",
+      "category": "inbox-technical",
+      "source": "skills/commentary-inbox-triage",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Inspect authorized Inbox attention and route work to canonical Resources.",
+      "slug": "commentary-inbox-triage",
+      "description": "Inspect and prioritize authorized Commentary Inbox requests and updates using active/history feeds, filters, ranking explanations, and bounded pagination; hand off to canonical workflows. Use for attention triage, not human Decision authoring or source edits.",
+      "interface": {
+        "display_name": "Commentary Inbox Triage",
+        "short_description": "Inspect and prioritize authorized Inbox work",
+        "default_prompt": "Use $commentary-inbox-triage to inspect my authorized Inbox and identify what needs attention."
+      }
+    },
+    {
+      "name": "commentary-workspace",
+      "displayName": "Commentary Workspace",
+      "category": "inbox-technical",
+      "source": "skills/commentary-workspace",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Discover granted workspace Resources and team queues; link and rename authorized reviews.",
+      "slug": "commentary-workspace",
+      "description": "Discover the credential-granted Commentary workspace, authorized Resource collections and team queue; link Resources or rename owned Draft and Web App Reviews when requested. Not browser workspace switching, member administration, or provider permission management.",
+      "interface": {
+        "display_name": "Commentary Workspace",
+        "short_description": "Discover workspace Resources and team queues",
+        "default_prompt": "Use $commentary-workspace to discover authorized work in the configured workspace."
+      }
+    },
+    {
+      "name": "design-effective-interactions",
+      "displayName": "Design Effective Interactions",
+      "category": "inbox-practice",
+      "source": "skills/design-effective-interactions",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Design clear notifications, durable questions, choices, and exact approval requests.",
+      "slug": "design-effective-interactions",
+      "description": "Design clear Commentary Inbox notifications, durable questions, choices, and exact approval requests with concise context, useful labels, proportional consequences, and deliberate full Review handoffs. Use for request quality, not API transport or human Decision authoring.",
+      "interface": {
+        "display_name": "Design Effective Interactions",
+        "short_description": "Design clear questions and exact approval requests",
+        "default_prompt": "Use $design-effective-interactions to make this Inbox request clear and easy to decide."
       }
     },
     {
@@ -120,7 +183,7 @@
         "claude-code",
         "openclaw"
       ],
-      "version": "0.1.0",
+      "version": "0.1.1",
       "summary": "Apply accepted consensus changes from Commentary Brainstorming Reviews.",
       "slug": "commentary-brainstorm-review",
       "description": "Use Commentary Brainstorming Reviews from an agent to monitor multi-user consensus, apply accepted changes to reviewed pages, and mark brainstorming threads addressed. Trigger this skill when a user mentions Commentary brainstorming, consensus review, voting on draft changes, accepted consensus, brainstorm status, brainstorm next, applying agreed changes, or when an agent must choose between a remote MCP-only Commentary review and a local file-backed Commentary review using the CLI.",
@@ -141,7 +204,7 @@
         "claude-code",
         "openclaw"
       ],
-      "version": "0.1.0",
+      "version": "0.1.1",
       "summary": "Use the Commentary CLI for live collaborative review of local text artifacts.",
       "slug": "commentary-draft-review",
       "description": "Use Commentary draft reviews from an agent via the Commentary CLI for live collaborative review of Markdown, MDX, HTML, and plain text artifacts. Trigger this skill when a user asks to create, draft, edit, revise, share, or review a blog post, spec, proposal, report, documentation page, or other text artifact with Commentary; when they mention Commentary draft reviews, live comments, watch-comment, review it with commentary, or using an agent and human reviewer together; and when the agent needs to set up authentication, create/sync/watch/share a review, read or wait for comments, reply to comments, resolve threads, manage comments by other reviewers, or decide whether to use the CLI or an already-installed Commentary MCP server.",
@@ -162,7 +225,7 @@
         "claude-code",
         "openclaw"
       ],
-      "version": "0.1.0",
+      "version": "0.1.1",
       "summary": "Set up Commentary Live Preview Reviews and address live web app comments.",
       "slug": "commentary-live-preview-review",
       "description": "Set up and use Commentary Live Preview Reviews for web apps through the Commentary review SDK and MCP. Trigger this skill when a user wants to add @commentary-dev/review-sdk or the Commentary CDN SDK to a React, Next.js, Vite, Vue, Svelte, Angular, Astro, static HTML, or other browser app; launch a localhost or deployed live preview review; listen for Web App Review comments through the Commentary MCP server; address selected-element comments; resolve review threads; handle localhost immediate feedback; or apply deployed-review rules based on review owner, current user, comment author, and agent alias tags.",
@@ -183,10 +246,10 @@
         "claude-code",
         "openclaw"
       ],
-      "version": "0.1.0",
-      "summary": "Operate rendered GitHub and Azure DevOps PR reviews through Commentary MCP.",
+      "version": "0.1.1",
+      "summary": "Operate rendered GitHub PR reviews with explicit provider and revision boundaries.",
       "slug": "commentary-pr-review",
-      "description": "Operate an existing GitHub or Azure DevOps pull-request or repository-document review through Commentary MCP. Use when an agent must inspect rendered files, list or address review threads, preserve provider permissions, check revision-specific approval gates, or continue PR work without duplicating the workflow through the Commentary CLI.",
+      "description": "Operate an existing GitHub pull-request or repository-document review through Commentary MCP, with explicit discovery of provider support. Use when an agent must inspect rendered files, list or address review threads, preserve provider permissions, check revision-specific approval gates, or continue PR work without duplicating the workflow through the Commentary CLI.",
       "interface": {
         "display_name": "Commentary PR Review",
         "short_description": "Operate rendered PR reviews through Commentary",
@@ -225,7 +288,7 @@
         "claude-code",
         "openclaw"
       ],
-      "version": "0.1.0",
+      "version": "0.1.1",
       "summary": "Design and create Commentary Form Contract v1 forms.",
       "slug": "commentary-form-creation",
       "description": "Create, validate, revise, and publish Commentary Form Contract v1 YAML or JSON through source-backed files, Draft Review, response links, and Commentary MCP. Use for contract mechanics and form operations after the questions and experience are designed; use design-effective-forms for question quality, flow, accessibility, appearance, and adaptive-form judgment.",
@@ -351,7 +414,7 @@
         "claude-code",
         "openclaw"
       ],
-      "version": "0.1.0",
+      "version": "0.1.1",
       "summary": "Operate source-backed Commentary Research Studies through MCP and Draft Review.",
       "slug": "commentary-research-workflow",
       "description": "Operate source-backed Commentary Research Studies through MCP and Draft Review. Use for capability discovery, typed workflow proposals, study and session inspection, participant-event observation, step-scoped comments, evidence and result reads, findings proposals, and review handoff while preserving human control over launch, consent, access, destinations, acceptance, and publication.",
@@ -392,12 +455,13 @@
         "copilot",
         "codex"
       ],
-      "version": "0.1.0",
-      "description": "Create durable human questions, approvals, revisions, escalations, and asynchronous workflows through Commentary Inbox.",
+      "version": "0.2.0",
+      "description": "Design and triage Inbox requests, validate exact approvals, follow human-confirmed Reviews, and discover authorized workspace work.",
       "category": "productivity",
       "tags": [
         "commentary",
         "inbox",
+        "workspace",
         "approval",
         "human-in-the-loop"
       ],
@@ -406,7 +470,10 @@
         "commentary-request-approval",
         "commentary-submit-revision",
         "commentary-escalate-review",
-        "commentary-async-workflow"
+        "commentary-async-workflow",
+        "commentary-inbox-triage",
+        "commentary-workspace",
+        "design-effective-interactions"
       ],
       "mcpServers": [
         "commentary"
@@ -420,7 +487,7 @@
         "copilot",
         "codex"
       ],
-      "version": "0.4.0",
+      "version": "0.4.1",
       "description": "Operate Commentary review workflows and improve agent-generated plans with evidence-based review practices.",
       "category": "review",
       "tags": [
@@ -448,7 +515,7 @@
         "copilot",
         "codex"
       ],
-      "version": "0.4.0",
+      "version": "0.4.1",
       "description": "Operate Commentary Forms and design clear, accessible, adaptive form experiences.",
       "category": "forms",
       "tags": [
@@ -477,7 +544,7 @@
         "copilot",
         "codex"
       ],
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Operate Commentary Research Studies and design ethical, evidence-centered product research.",
       "category": "research",
       "tags": [

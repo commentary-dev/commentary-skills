@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Inbox Triage"
+  short_description: "Inspect and prioritize authorized Inbox work"
+  default_prompt: "Use $commentary-inbox-triage to inspect my authorized Inbox and identify what needs attention."

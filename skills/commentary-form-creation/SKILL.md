@@ -7,6 +7,12 @@ description: Create, validate, revise, and publish Commentary Form Contract v1 Y
 
 Use this skill to create valid Commentary Form Contract v1 source artifacts and operate them through Commentary. For question, flow, visual, or personalization decisions, use `design-effective-forms` first.
 
+## Workspace and Inbox handoff
+
+Select the initial authorized workspace before creating a Resource, using advertised creation support only. Browser selection and agent credential grants are separate; do not invent workspace fields or treat membership as source permission. Discover current server capabilities before using newer CLI/HTTP workspace reads.
+
+When work comes from Inbox, preserve its Interaction handle and canonical Resource/revision provenance. Reuse correlated attention requests rather than creating duplicates. Requested responses, ordinary replies and future guidance are distinct. Resource acceptance, consent, publication and provider writeback retain their existing domain authority; an Inbox receipt does not bypass them.
+
 ## First Checks
 
 1. Inspect the current folder before choosing a creation path.

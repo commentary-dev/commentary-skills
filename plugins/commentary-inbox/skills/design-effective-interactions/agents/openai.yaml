@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Effective Interactions"
+  short_description: "Design clear questions and exact approval requests"
+  default_prompt: "Use $design-effective-interactions to make this Inbox request clear and easy to decide."

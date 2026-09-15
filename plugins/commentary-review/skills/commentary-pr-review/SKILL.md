@@ -1,11 +1,11 @@
 ---
 name: commentary-pr-review
-description: Operate an existing GitHub or Azure DevOps pull-request or repository-document review through Commentary MCP. Use when an agent must inspect rendered files, list or address review threads, preserve provider permissions, check revision-specific approval gates, or continue PR work without duplicating the workflow through the Commentary CLI.
+description: Operate an existing GitHub pull-request or repository-document review through Commentary MCP, with explicit discovery of provider support. Use when an agent must inspect rendered files, list or address review threads, preserve provider permissions, check revision-specific approval gates, or continue PR work without duplicating the workflow through the Commentary CLI.
 ---
 
 # Commentary PR Review
 
-Use Commentary MCP for provider-backed PR and repository-document reviews. The CLI owns local Draft and Brainstorming Review files; it does not manage provider PRs.
+Use discovered Commentary MCP tools for supported provider-backed PR and repository-document reviews. Current declarations support GitHub; Azure DevOps UI support does not establish MCP support. The CLI owns local Draft and Brainstorming Review files; it does not manage provider PRs.
 
 ## Workflow
 

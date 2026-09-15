@@ -1,18 +1,45 @@
 ---
 name: commentary-ask-human
-description: Create a durable Commentary Inbox question when the answer must survive the current chat, reach an authorized person asynchronously, or be resumed by another agent. Do not use for ordinary chat questions, immediate clarification, or ephemeral MCP Elicitation.
+description: Create and retrieve a durable Commentary Inbox question or choice when its answer must survive chat, reach the credential owner asynchronously, or be resumed later. Use chat for immediate clarification and MCP Elicitation for same-session prompts.
 ---
 
 # Commentary Ask Human
 
-Use this only for a durable response. Prefer chat for immediate clarification and MCP Elicitation for a same-session structured prompt; neither creates an Inbox record.
+Use Inbox for a durable answer, not implicit permission for another action. Read [references/operating-surfaces.md](references/operating-surfaces.md) to choose an available CLI, MCP, or HTTP operation and understand credential authority.
 
-## Safe workflow
+## Create a useful question
 
-1. Discover consolidated MCP `interaction` or the shipped `/api/v1/interactions` API. Use configured credentials limited to required Interaction actions and the selected Resource. Never ask for a token in chat, embed it in content, or broaden access. Confirm server-authorized recipient routing; agents do not appoint approvers.
-2. Write one bounded question with context, blocker, safe deadline, and response choices when helpful. Exclude secrets and unnecessary customer data. Derive stable correlation and idempotency keys; reuse them only for an exact retry.
-3. MCP: call `interaction` with `action: "create"`, Resource, content, `initialState: "active"`, and the keys. HTTP: `POST /api/v1/interactions` with `Idempotency-Key` and `X-Correlation-Id`. Retain the returned id/handle.
-4. Poll MCP `status` then bounded `decision_wait`, falling back to `decision_get`; HTTP uses `GET /api/v1/interactions/{id}` and `GET /api/v1/interactions/{id}/decisions?after=...&waitMs=...`. Honor `retryAfterMs`, cap waits at 10 seconds, and bound total polling. Timeout leaves the request durable: return its handle and never infer an answer.
-5. Rejection stops. Feedback or `request_revision` requires reading durable messages and creating a new immutable revision with the exact current version; never edit in place. Verify any Decision revision id and proposal fingerprint match current status.
+1. Identify the accessible Resource and the person addressed by the configured grant. External creation addresses the credential owner; do not invent recipient or team-routing fields. Discover an existing correlated request before creating another.
+2. Write one bounded question with necessary facts, why an answer is needed, and any meaningful deadline. Use an `answer` action for free text or `choose` for a finite choice. Use `design-effective-interactions` for request design when available.
+3. Create with stable correlation and an idempotency key for this exact request. CLI `--file` contains the content object; HTTP receives the Resource/content envelope. MCP receives `idempotencyKey`; correlation belongs in transport metadata, not an invented tool argument.
 
-An answer is input, not authority for unstated consequences. Fulfillment, if later reported, is append-only, self-reported, and unverified. On interruption fetch current version before optional idempotent cancel. Stop for missing credentials, Resource access, recipient authority, unclear scope or consequence, stale state, timeout, or external action. Referenced Core/free-preview Interaction, Decision, Feedback, Fulfillment, Escalation, and MCP keys are usable during no-billing preview; Commentary owns Pro notices.
+Example content file:
+
+```json
+{
+  "title": "Which release should we document first?",
+  "summary": "Your selection changes the writing order only.",
+  "blocks": [{ "version": 1, "type": "choices", "choices": [
+    { "id": "stable", "label": "Stable release" },
+    { "id": "preview", "label": "Preview release" }
+  ] }],
+  "actions": [{ "type": "choose", "label": "Choose a release", "payload": {
+    "choices": ["stable", "preview"], "consequence": "Record a writing priority only."
+  } }]
+}
+```
+
+```bash
+commentary --json interaction create --resource-type draft_review --resource-id draft_123 --file question.json --idempotency-key question-42 --correlation-id writing-42
+commentary --json decision wait ixn_123 --timeout 60 --poll-interval 2000
+```
+
+## Receive and continue
+
+Poll for the requested response with bounded Decision reads. MCP `status` is only a lifecycle/version read; use `get` for revision, action, and message context. A nonblocking MCP poll is `decision_wait` with `waitMs: 0`; `decision_get` requires a known Decision id.
+
+Refetch after waiting and check the receipt's revision and server-assigned action id. `answer`, `choose`, and `acknowledge` are informational outcomes, not execution approval. Privacy-safe agent receipts may omit response values; retrieve permitted revision-bound messages/context and report unavailable or purged answer content rather than guessing it.
+
+An ordinary Reply can discuss the request without completing its requested response. Read typed feedback before deciding whether an immutable revision is needed; use `commentary-submit-revision` for a proposal change. Rejection stops that proposal. Timeout returns the durable handle without inferring an answer or canceling the request.
+
+Future guidance is separate from the current answer. Creating-agent-only acknowledgment proves receipt, not learning or application. Later external execution needs established exact-action authorization and current approval evidence where approval is required. Fulfillment remains self-reported and unverified.

@@ -1,4 +1,4 @@
 interface:
   display_name: "Commentary Escalate Review"
-  short_description: "Escalate review without granting authority"
-  default_prompt: "Use $commentary-escalate-review to route this blocked review to an authorized human role."
+  short_description: "Prepare a human-confirmed full Review handoff"
+  default_prompt: "Use $commentary-escalate-review to prepare and follow this request's human-confirmed full Review handoff."
