@@ -1,6 +1,6 @@
 {
   "name": "@commentary-dev/commentary-skills",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Marketplace and canonical source for Commentary agent skills.",
   "license": "MIT",
   "private": true,
@@ -16,7 +16,9 @@
     "public:check": "node scripts/public-readiness-check.mjs",
     "format:check": "node scripts/check-format.mjs",
     "evals:check": "node scripts/check-forward-evals.mjs",
-    "verify": "npm run generate && npm run validate && npm run check:generated && npm run public:check && npm run evals:check && npm run examples:agent-inbox && npm run format:check"
+    "release:build": "node scripts/build-release.mjs",
+    "release:check": "node scripts/check-release.mjs",
+    "verify": "npm run generate && npm run validate && npm run check:generated && npm run public:check && npm run evals:check && npm run examples:agent-inbox && npm run format:check && npm run release:build && npm run release:check"
   },
   "repository": {
     "type": "git",

@@ -18,6 +18,8 @@ git clone https://github.com/commentary-dev/commentary-skills.git
 
 Then install or copy the desired folder from `skills/` into the skill directory for your agent.
 
+Microsoft Copilot Cowork users can download the plugin ZIPs from GitHub Releases and upload them from Cowork's **Customize > Plugins** page. See [Cowork installation and release instructions](docs/copilot-cowork.md). This direct-upload path is separate from a public Microsoft 365 marketplace listing.
+
 GitHub Copilot cloud agent users can install individual skills with GitHub CLI 2.90.0 or later:
 
 ```bash
@@ -123,6 +125,8 @@ Generated files are committed because they are required for direct installation 
 ```bash
 npm run generate
 ```
+
+GitHub Release ZIPs are built into the ignored `release-assets/` directory by `npm run release:build` (also run by `npm run verify`); they are not committed.
 
 Generated install files include:
 

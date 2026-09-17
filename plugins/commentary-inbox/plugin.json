@@ -1,7 +1,7 @@
 {
   "name": "commentary-inbox",
   "description": "Design and triage Inbox requests, validate exact approvals, follow human-confirmed Reviews, and discover authorized workspace work.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": {
     "name": "Commentary"
   },

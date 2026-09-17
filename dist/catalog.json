@@ -1,6 +1,6 @@
 {
   "name": "commentary-skills",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "repository": "https://github.com/commentary-dev/commentary-skills",
   "license": "MIT",
   "skills": [
@@ -455,7 +455,7 @@
         "copilot",
         "codex"
       ],
-      "version": "0.2.0",
+      "version": "0.2.1",
       "description": "Design and triage Inbox requests, validate exact approvals, follow human-confirmed Reviews, and discover authorized workspace work.",
       "category": "productivity",
       "tags": [
@@ -487,7 +487,7 @@
         "copilot",
         "codex"
       ],
-      "version": "0.4.1",
+      "version": "0.4.2",
       "description": "Operate Commentary review workflows and improve agent-generated plans with evidence-based review practices.",
       "category": "review",
       "tags": [
@@ -515,7 +515,7 @@
         "copilot",
         "codex"
       ],
-      "version": "0.4.2",
+      "version": "0.4.3",
       "description": "Operate Commentary Forms and design clear, accessible, adaptive form experiences.",
       "category": "forms",
       "tags": [
@@ -544,7 +544,7 @@
         "copilot",
         "codex"
       ],
-      "version": "0.1.1",
+      "version": "0.1.2",
       "description": "Operate Commentary Research Studies and design ethical, evidence-centered product research.",
       "category": "research",
       "tags": [

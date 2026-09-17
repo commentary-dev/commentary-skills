@@ -2,7 +2,7 @@ plugins:
   - name: commentary-inbox
     displayName: Commentary Inbox
     targets: [claude-code, copilot, codex]
-    version: 0.2.0
+    version: 0.2.1
     description: Design and triage Inbox requests, validate exact approvals, follow human-confirmed Reviews, and discover authorized workspace work.
     category: productivity
     tags: [commentary, inbox, workspace, approval, human-in-the-loop]
@@ -11,7 +11,7 @@ plugins:
   - name: commentary-review
     displayName: Commentary Review
     targets: [claude-code, copilot, codex]
-    version: 0.4.1
+    version: 0.4.2
     description: Operate Commentary review workflows and improve agent-generated plans with evidence-based review practices.
     category: review
     tags: [commentary, review, markdown, web]
@@ -20,7 +20,7 @@ plugins:
   - name: commentary-forms
     displayName: Commentary Forms
     targets: [claude-code, copilot, codex]
-    version: 0.4.2
+    version: 0.4.3
     description: Operate Commentary Forms and design clear, accessible, adaptive form experiences.
     category: forms
     tags: [commentary, forms, data, visualization]
@@ -29,7 +29,7 @@ plugins:
   - name: commentary-research
     displayName: Commentary Research
     targets: [claude-code, copilot, codex]
-    version: 0.1.1
+    version: 0.1.2
     description: Operate Commentary Research Studies and design ethical, evidence-centered product research.
     category: research
     tags: [commentary, research, usability, evidence]
