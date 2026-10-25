@@ -5,7 +5,7 @@ description: Operate an existing GitHub pull-request or repository-document revi
 
 # Commentary PR Review
 
-Use discovered Commentary MCP tools for supported provider-backed PR and repository-document reviews. Current declarations support GitHub; Azure DevOps UI support does not establish MCP support. The CLI owns local Draft and Brainstorming Review files; it does not manage provider PRs.
+Use discovered Commentary MCP tools for supported provider-backed PR and repository-document reviews. Discover provider-specific capabilities; shared collaboration operations support GitHub and Azure DevOps ReviewRef identities. The CLI owns local Draft review files; it does not manage provider PR content.
 
 ## Workflow
 
@@ -19,3 +19,11 @@ Use discovered Commentary MCP tools for supported provider-backed PR and reposit
 Always pass a stable `agentAlias` on state-changing MCP actions. Provider permissions remain authoritative, and app-native Commentary threads remain the durable review record.
 
 Read [references/operating-surfaces.md](references/operating-surfaces.md) when choosing between CLI and MCP or combining them in one user workflow.
+
+## Optional Project association
+
+When Project association is requested, use `commentary-project-management` if installed; discover the destination Project and original Resource independently and link only through an advertised authorized operation. For requested package or Review guide revisions, use `commentary-project-feedback-loop` if installed; preserve exact targets and keep human acceptance separate. Without those skills, inspect available operation schemas or return the prepared artifact and missing capability. A Project is optional, and linking never grants source access.
+
+## Polls and Consensus on any review
+
+Read [the collaboration workflow](references/review-collaboration.md) before using polls, decisions, blockers or review readiness. These are optional review features, not content-source types. New reviews default both off; never reset an existing review's settings when opening it.

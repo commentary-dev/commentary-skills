@@ -1,0 +1,1021 @@
+{
+  "task": "CP-036",
+  "implementation": "complete",
+  "acceptance": "local_evaluations_verified_native_and_live_boundaries_unverified",
+  "changes": "uncommitted_orchestrator_owned_including_retained_CP035_sibling_work",
+  "branches": {
+    "commentary": "projects",
+    "skills": "codex/commentary-projects"
+  },
+  "baselines": {
+    "commentary": "ea81ebe9def0455e1b8356073ba12951a345007c",
+    "skills": "6903701f26de9076dc47823adca92037be3edd1e",
+    "cli": "3e33728adbab8e24efdfbb326da667f3abde140c"
+  },
+  "versions": {
+    "catalog": "0.7.0",
+    "technicalSkills": "0.1.0",
+    "practiceSkills": "0.1.0",
+    "newPlugins": "0.1.0",
+    "minimumTestedCli": "0.2.0",
+    "agentSdkBaseline": "0.2.0",
+    "trackerSdkBaseline": "0.1.0",
+    "node": "v24.14.0",
+    "testedServer": {
+      "packageVersion": "0.1.0",
+      "contractVersion": "1",
+      "contractDigest": "646209cdcf54bf467326cce80750a20a5d085334996ab7ac66cec7b9b50191c8",
+      "evidence": "current_app_canonical_request_validator_not_deployed_server_semver"
+    }
+  },
+  "canonicalSkills": [
+    {
+      "name": "commentary-project-management",
+      "displayName": "Commentary Project Management",
+      "category": "projects-technical",
+      "source": "skills/commentary-project-management",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Organize Projects and linked Resources.",
+      "slug": "commentary-project-management",
+      "description": "Organize authorized Projects and original Resource associations without granting source access or changing human governance.",
+      "interface": {
+        "display_name": "Commentary Project Management",
+        "short_description": "Organize Projects and linked Resources",
+        "default_prompt": "Use $commentary-project-management to organize Projects and linked Resources within the authorized workspace and exact current versions."
+      }
+    },
+    {
+      "name": "commentary-tracker-creation",
+      "displayName": "Commentary Tracker Creation",
+      "category": "projects-technical",
+      "source": "skills/commentary-tracker-creation",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Create portable Trackers and native views.",
+      "slug": "commentary-tracker-creation",
+      "description": "Create and validate portable Commentary Tracker schemas, initial records and native view mappings; not Forms submissions or human approval records.",
+      "interface": {
+        "display_name": "Commentary Tracker Creation",
+        "short_description": "Create portable Trackers and native views",
+        "default_prompt": "Use $commentary-tracker-creation to create portable Trackers and native views within the authorized workspace and exact current versions."
+      }
+    },
+    {
+      "name": "commentary-tracker-operations",
+      "displayName": "Commentary Tracker Operations",
+      "category": "projects-technical",
+      "source": "skills/commentary-tracker-operations",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Edit Trackers with explicit conflict recovery.",
+      "slug": "commentary-tracker-operations",
+      "description": "Query and conditionally edit Commentary Tracker records, views and schemas, or reconcile portable Git proposals; not provider authority migration or human Decisions.",
+      "interface": {
+        "display_name": "Commentary Tracker Operations",
+        "short_description": "Edit Trackers with explicit conflict recovery",
+        "default_prompt": "Use $commentary-tracker-operations to edit Trackers with explicit conflict recovery within the authorized workspace and exact current versions."
+      }
+    },
+    {
+      "name": "commentary-custom-renderer-development",
+      "displayName": "Commentary Custom Renderer Development",
+      "category": "projects-technical",
+      "source": "skills/commentary-custom-renderer-development",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Build isolated capability-bound renderers.",
+      "slug": "commentary-custom-renderer-development",
+      "description": "Develop an isolated Commentary Tracker renderer using the capability-broker SDK when native or declarative views are insufficient; not privileged application scripts.",
+      "interface": {
+        "display_name": "Commentary Custom Renderer Development",
+        "short_description": "Build isolated capability-bound renderers",
+        "default_prompt": "Use $commentary-custom-renderer-development to build isolated capability-bound renderers within the authorized workspace and exact current versions."
+      }
+    },
+    {
+      "name": "commentary-review-package-creation",
+      "displayName": "Commentary Review Package Creation",
+      "category": "projects-technical",
+      "source": "skills/commentary-review-package-creation",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Publish immutable document walkthroughs.",
+      "slug": "commentary-review-package-creation",
+      "description": "Publish and revise immutable Commentary document packages with manifests, assets and semantic anchors, preferring CLI directory collection; not server-side customer builds.",
+      "interface": {
+        "display_name": "Commentary Review Package Creation",
+        "short_description": "Publish immutable document walkthroughs",
+        "default_prompt": "Use $commentary-review-package-creation to publish immutable document walkthroughs within the authorized workspace and exact current versions."
+      }
+    },
+    {
+      "name": "commentary-engineering-project-review",
+      "displayName": "Commentary Engineering Project Review",
+      "category": "projects-technical",
+      "source": "skills/commentary-engineering-project-review",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Review pinned source and honest evidence.",
+      "slug": "commentary-engineering-project-review",
+      "description": "Prepare or inspect a rendered engineering Review Session with pinned source, multiple PRs, requirements and truthful test evidence; not agent acceptance or CI proof by report.",
+      "interface": {
+        "display_name": "Commentary Engineering Project Review",
+        "short_description": "Review pinned source and honest evidence",
+        "default_prompt": "Use $commentary-engineering-project-review to review pinned source and honest evidence within the authorized workspace and exact current versions."
+      }
+    },
+    {
+      "name": "commentary-project-feedback-loop",
+      "displayName": "Commentary Project Feedback Loop",
+      "category": "projects-technical",
+      "source": "skills/commentary-project-feedback-loop",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Revise feedback without carrying acceptance.",
+      "slug": "commentary-project-feedback-loop",
+      "description": "Address contextual Commentary Project review feedback with immutable revisions and exact human acceptance requests; not ordinary conversation, future guidance or self-approval.",
+      "interface": {
+        "display_name": "Commentary Project Feedback Loop",
+        "short_description": "Revise feedback without carrying acceptance",
+        "default_prompt": "Use $commentary-project-feedback-loop to revise feedback without carrying acceptance within the authorized workspace and exact current versions."
+      }
+    },
+    {
+      "name": "design-effective-project-reviews",
+      "displayName": "Design Effective Project Reviews",
+      "category": "projects-practice",
+      "source": "skills/design-effective-project-reviews",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Make project reviews useful to each audience.",
+      "slug": "design-effective-project-reviews",
+      "description": "Design purpose-led Project reviews that help PMs and engineers understand changes, inspect evidence selectively, and make scoped human decisions without exhaustive code review.",
+      "interface": {
+        "display_name": "Design Effective Project Reviews",
+        "short_description": "Make project reviews useful to each audience",
+        "default_prompt": "Use $design-effective-project-reviews to prepare a readable, evidence-backed project review."
+      }
+    },
+    {
+      "name": "explain-and-defend-an-implementation",
+      "displayName": "Explain and Defend an Implementation",
+      "category": "projects-practice",
+      "source": "skills/explain-and-defend-an-implementation",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Explain tradeoffs with bounded source evidence.",
+      "slug": "explain-and-defend-an-implementation",
+      "description": "Explain an implementation to reviewers with source-backed tradeoffs, test provenance, explicit uncertainties, security and operational boundaries, and honest responses to objections.",
+      "interface": {
+        "display_name": "Explain and Defend an Implementation",
+        "short_description": "Explain tradeoffs with bounded source evidence",
+        "default_prompt": "Use $explain-and-defend-an-implementation to prepare a readable, evidence-backed project review."
+      }
+    },
+    {
+      "name": "design-effective-project-trackers",
+      "displayName": "Design Effective Project Trackers",
+      "category": "projects-practice",
+      "source": "skills/design-effective-project-trackers",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Choose useful records, fields and native views.",
+      "slug": "design-effective-project-trackers",
+      "description": "Design Project Trackers with meaningful record granularity, minimal useful fields, clear lifecycle and native view mappings, choosing custom renderers only for a demonstrated comprehension need.",
+      "interface": {
+        "display_name": "Design Effective Project Trackers",
+        "short_description": "Choose useful records, fields and native views",
+        "default_prompt": "Use $design-effective-project-trackers to prepare a readable, evidence-backed project review."
+      }
+    },
+    {
+      "name": "build-reviewable-architecture-walkthroughs",
+      "displayName": "Build Reviewable Architecture Walkthroughs",
+      "category": "projects-practice",
+      "source": "skills/build-reviewable-architecture-walkthroughs",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Build navigable diagrams backed by exact source.",
+      "slug": "build-reviewable-architecture-walkthroughs",
+      "description": "Build readable architecture and API walkthroughs grounded in exact source snapshots, selective code inspection, accessible diagrams and explicit evidence gaps for human engineering review.",
+      "interface": {
+        "display_name": "Build Reviewable Architecture Walkthroughs",
+        "short_description": "Build navigable diagrams backed by exact source",
+        "default_prompt": "Use $build-reviewable-architecture-walkthroughs to prepare a readable, evidence-backed project review."
+      }
+    }
+  ],
+  "plugins": [
+    {
+      "name": "commentary-projects",
+      "displayName": "Commentary Projects",
+      "targets": [
+        "claude-code",
+        "copilot",
+        "codex"
+      ],
+      "version": "0.1.0",
+      "description": "Organize optional Projects, create and operate portable Trackers, and build scoped custom renderers with effective native-first tracking practice.",
+      "category": "productivity",
+      "tags": [
+        "commentary",
+        "projects",
+        "trackers",
+        "renderers",
+        "collaboration"
+      ],
+      "skills": [
+        "commentary-project-management",
+        "commentary-tracker-creation",
+        "commentary-tracker-operations",
+        "commentary-custom-renderer-development",
+        "design-effective-project-trackers",
+        "commentary-workspace"
+      ],
+      "mcpServers": [
+        "commentary"
+      ]
+    },
+    {
+      "name": "commentary-engineering-review",
+      "displayName": "Commentary Engineering Review",
+      "targets": [
+        "claude-code",
+        "copilot",
+        "codex"
+      ],
+      "version": "0.1.0",
+      "description": "Publish rendered walkthroughs, review exact source and honest evidence, explain tradeoffs, and recover native feedback with eligible human acceptance.",
+      "category": "review",
+      "tags": [
+        "commentary",
+        "projects",
+        "engineering",
+        "evidence",
+        "human-in-the-loop"
+      ],
+      "skills": [
+        "commentary-review-package-creation",
+        "commentary-engineering-project-review",
+        "commentary-project-feedback-loop",
+        "design-effective-project-reviews",
+        "explain-and-defend-an-implementation",
+        "build-reviewable-architecture-walkthroughs",
+        "commentary-request-approval",
+        "commentary-submit-revision",
+        "review-agentic-plans"
+      ],
+      "mcpServers": [
+        "commentary"
+      ]
+    }
+  ],
+  "inventory": [
+    {
+      "path": ".agents/plugins/marketplace.json",
+      "sha256": "3fefa34cb196ff430bb9fd6935ce478a0097598a1af68434da93d9073d7a8bc9"
+    },
+    {
+      "path": ".claude-plugin/marketplace.json",
+      "sha256": "8e1bce3922119890e291193fe2139e7e9206618e2365067d51f871cc2f665eeb"
+    },
+    {
+      "path": ".github/plugin/marketplace.json",
+      "sha256": "f5eaa982833bb1195de5f6dda2862930523ee19254a1fa7b7a211566634209ea"
+    },
+    {
+      "path": "catalog/plugins.yaml",
+      "sha256": "96778730ec658b07a98a17524ae13ee27cd13eed9b64db0c9da09b97dd53652a"
+    },
+    {
+      "path": "catalog/skills.yaml",
+      "sha256": "a1fe6f84bc152323650fa5332e0fee7d1e919f3cccccb72e1ddb4f07718bc13b"
+    },
+    {
+      "path": "contracts/projects-agent-v1.json",
+      "sha256": "640e5391240336eb28ce87000b84b99dc08ede62a88d0f2b8066e44672a94f0c"
+    },
+    {
+      "path": "contracts/README.md",
+      "sha256": "d57968feeca2a777c2a8bfcefbb65e072ce2b7ade48c236d0a183e1b31265ae5"
+    },
+    {
+      "path": "dist/catalog.json",
+      "sha256": "37bd2157e6f12ccb62790e7071b7d86b3520761bd1fc0645f86c1e890ba0faec"
+    },
+    {
+      "path": "dist/skills-index.md",
+      "sha256": "ab2fb2efdfdf4de7e587358c1b2f4fd9fb76c0520f51ce0ce1555846fad97fdc"
+    },
+    {
+      "path": "docs/projects-plugins.md",
+      "sha256": "54f5614c59129dc34ddf154be10e816d0112e15bb1f73e449f5a67d3dcf23914"
+    },
+    {
+      "path": "evals/forward-tests.json",
+      "sha256": "5123e6d6279009452d504d842a243e5715f9e68cfd76459c30ce37d7c1eaaef1"
+    },
+    {
+      "path": "evals/projects-practice-forward.md",
+      "sha256": "faf2fb7eaf953811f796e1bc43f82025f2f596861cc8dea4a7573f1b7e041986"
+    },
+    {
+      "path": "examples/projects/adapters.mjs",
+      "sha256": "c6ab52cd404406c08f1529fc9a9b8e7d888faced125b4c0e135f388c9246e573"
+    },
+    {
+      "path": "examples/projects/checklist.json",
+      "sha256": "6a75b49e87a0052be79a1cbc8893676472db6be565f97e2058e396eb10138e7e"
+    },
+    {
+      "path": "examples/projects/checklist.yaml",
+      "sha256": "e6cff1b8e2ed0e90846220f74ed386722d36b263670f7440200fcd7bfa28007c"
+    },
+    {
+      "path": "examples/projects/feedback.mjs",
+      "sha256": "aba87ad52bbcd709e11eff69609f7d5d7846a4714ad8c8637f42d86497144222"
+    },
+    {
+      "path": "examples/projects/fixture-server.mjs",
+      "sha256": "1c614ace436f06b9f4be7570c866c0c0c9731c059e35a0f23f68d1ba793bc77d"
+    },
+    {
+      "path": "examples/projects/README.md",
+      "sha256": "f46317dbf9f26d374c4cfacc34d375996ac7d0bbee2fe08f89a590768e462bb7"
+    },
+    {
+      "path": "examples/projects/renderer.mjs",
+      "sha256": "5e47035119d19416db2ac14361feb749ca26987445f17830891a6527bd8c8697"
+    },
+    {
+      "path": "examples/projects/run.mjs",
+      "sha256": "ec6f725fd96076bb3126bab4ced96aa88072959e3aa3541c923f8f75885ce2e6"
+    },
+    {
+      "path": "examples/projects/test/feedback.test.mjs",
+      "sha256": "b7fd2557053e715332f920ead882139298346c6f374bf1384e8a67299daef7ac"
+    },
+    {
+      "path": "examples/projects/test/workflows.test.mjs",
+      "sha256": "72509c842c34fa1521c3cce51b42bdbcf4d6806e3bc8509f2f0ff8b1a1e17704"
+    },
+    {
+      "path": "examples/projects/walkthrough/commentary.package.json",
+      "sha256": "35d27f1948e3ca9367797d75031c41b6ffdae7b920f69632f5f2cf60d661f10b"
+    },
+    {
+      "path": "examples/projects/walkthrough/details.md",
+      "sha256": "cfed87df5888469a4ca69c0eef9f8f20178d1c1afd84c7f91838ddd9db10576b"
+    },
+    {
+      "path": "examples/projects/walkthrough/README.md",
+      "sha256": "461b4c153581fdae10df8c5048c1258542ad5813d070c3a20f21062c5af09c81"
+    },
+    {
+      "path": "examples/projects/workflows.json",
+      "sha256": "51fb64eee6405e45fad418392b86d936470fc6d39716fe6e525f6e1f0f225e27"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/.claude-plugin/plugin.json",
+      "sha256": "0b7fc3674a69a9594f4bbe9038d086d293be3b4235192193b657ff66288131b1"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/.codex-plugin/plugin.json",
+      "sha256": "1b54a9fb8095a7dfa913cec7cd00c0511c0d1600e6f1cee334cdf42a4b2d6c43"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/.mcp.json",
+      "sha256": "44212f8a14f8f0153fe6e3d58626854a4c6c82a36ecf225509c399b2bf569c5a"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/plugin.json",
+      "sha256": "c5a97f445455dc66836485c9c74988bdf9c5876852ee014b1489f1db2ba73f0e"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/build-reviewable-architecture-walkthroughs/agents/openai.yaml",
+      "sha256": "b9721e20f7e8e959a268118a461c8418dd33b70545f7b905ba2c0290451bc113"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/build-reviewable-architecture-walkthroughs/references/source-mapping.md",
+      "sha256": "42e3b43a632693c143fe9c60387b4fa8f8ab946b1781bf66ee3d99643b7c7470"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/build-reviewable-architecture-walkthroughs/references/worked-example.md",
+      "sha256": "532f4278dc7f2269aae4e301f1f5d13b0045a8a525a722a2836e2e3241c34c9f"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/build-reviewable-architecture-walkthroughs/SKILL.md",
+      "sha256": "ce37be39afc588d33b707ef43afd58875e9b09731f075e617d86fe443798254d"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/commentary-engineering-project-review/agents/openai.yaml",
+      "sha256": "16109430e56a370bf3674f8418e554f3125ce50e5c93ae059cde8832bf866f07"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/commentary-engineering-project-review/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/commentary-engineering-project-review/references/worked-example.md",
+      "sha256": "37f57ec2888033bf3e041b7a1f3182865073154686a0e2a30f55c907e11e0915"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/commentary-engineering-project-review/SKILL.md",
+      "sha256": "85e6b2c470e3c446eb718a7c4e6ed3d5652e6b5171b201ea9358f6d0b21138ea"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/commentary-project-feedback-loop/agents/openai.yaml",
+      "sha256": "78b7b2c83e1794266b32c6be615811f2b1c3e4e0e35bd8a0fb8509fd95571733"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/commentary-project-feedback-loop/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/commentary-project-feedback-loop/references/worked-example.md",
+      "sha256": "907d73eb50c078ab48f68f3355b88457570787bd76ecf36d6d6db60fb4a79c77"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/commentary-project-feedback-loop/SKILL.md",
+      "sha256": "d61cd06895370068a52edd685154451525cfd378df5f2002c945fb50ed176729"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/commentary-request-approval/agents/openai.yaml",
+      "sha256": "e0ac18ddb4f3931499f76a317ccbcdd8e5600e8d93b5f2fd7f60104ed3653b8e"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/commentary-request-approval/references/operating-surfaces.md",
+      "sha256": "11befe30761ba39e65638de594a662201a1bce8b7efcdb380015455b1e3c7ba3"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/commentary-request-approval/SKILL.md",
+      "sha256": "4f512346d1738ff0355bced1cdbd51c2cf55dda4b5b8a8090bdcd6047dfe54e5"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/commentary-review-package-creation/agents/openai.yaml",
+      "sha256": "56c4ac21560cd2bfe7b92e8c0b07bece239dd72d2c6c5b0d96375f212169df83"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/commentary-review-package-creation/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/commentary-review-package-creation/references/worked-example.md",
+      "sha256": "6b33c23a801eec3c20c1941fe6b803983a33fa792fee2cb8851963bce90db7b4"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/commentary-review-package-creation/SKILL.md",
+      "sha256": "2444b5eb0da65a0d8f3d2a41896f986e0030b6030d2fef3088cb9b9309876068"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/commentary-submit-revision/agents/openai.yaml",
+      "sha256": "c91bd7137bf482a39526cbdb124519f962341d3d11658c4b2079bbccfcd879d3"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/commentary-submit-revision/references/operating-surfaces.md",
+      "sha256": "11befe30761ba39e65638de594a662201a1bce8b7efcdb380015455b1e3c7ba3"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/commentary-submit-revision/SKILL.md",
+      "sha256": "914719a020d8616d41b3f720b97fa4f42b144c312e49d7d27a4ac2dc9e167ec8"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/design-effective-project-reviews/agents/openai.yaml",
+      "sha256": "fe85a4009f46f7a4ee98f311a453eead0a7b9214fca5e78fb95fca8ea68e88fa"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/design-effective-project-reviews/references/review-design.md",
+      "sha256": "93ab9cbeebe0a98789957d05d33e9900e8e229861d1b3ae1727363f2ece8f6b6"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/design-effective-project-reviews/references/worked-example.md",
+      "sha256": "ac78fc435dbe850790e39ad3c886d78a8b6ade5750da517d36804797983cf2ea"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/design-effective-project-reviews/SKILL.md",
+      "sha256": "7f7c328217f66808c0fc3424e2b7a842fc0333782a73e1dc538914a951009ff9"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/explain-and-defend-an-implementation/agents/openai.yaml",
+      "sha256": "e2a30daa0aacc3b8312ecfee53c2da6b9ef534346bcc8078b8c9356d911d2777"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/explain-and-defend-an-implementation/references/evidence-and-tradeoffs.md",
+      "sha256": "8404de02b6a09da0013e49d74b1ba169a75886fc6b26decabe1c54ad615e5ca9"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/explain-and-defend-an-implementation/references/worked-example.md",
+      "sha256": "65df957fc61458a5c521309fb4dcea4002cbccf330fcbbb0d49650f117cb6e56"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/explain-and-defend-an-implementation/SKILL.md",
+      "sha256": "f999fbaf7aa77ca4c7b5907e76be8c0027955e69cb73b854f464b568c33d3485"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/review-agentic-plans/agents/openai.yaml",
+      "sha256": "4944225009ce4a6c3776305cbba499b2408041037e438b76568630a51ab6f6b4"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/review-agentic-plans/references/review-framework.md",
+      "sha256": "527c7905283dd7a4c8cedba990e38da6de66c0492a11f4107c7f39e0c3ba0793"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/review-agentic-plans/references/source-notes.md",
+      "sha256": "d249b83975ef758336a55e310f02fe599acb7334a7ee2b0cb10ebc251746b574"
+    },
+    {
+      "path": "plugins/commentary-engineering-review/skills/review-agentic-plans/SKILL.md",
+      "sha256": "ea78a8c6c94cf4c41c9c856b965d6f85cefaebcbe4720fd01f7e2d11d0d9c2dd"
+    },
+    {
+      "path": "plugins/commentary-projects/.claude-plugin/plugin.json",
+      "sha256": "2a3b10706b22e557b0e00f27f8ec9eb7cb01bff2ad29599330366f6cdda42f10"
+    },
+    {
+      "path": "plugins/commentary-projects/.codex-plugin/plugin.json",
+      "sha256": "fd95695955eede48e234d974c6a91069194e02247023f8d5f8b93377fb7c8ffa"
+    },
+    {
+      "path": "plugins/commentary-projects/.mcp.json",
+      "sha256": "44212f8a14f8f0153fe6e3d58626854a4c6c82a36ecf225509c399b2bf569c5a"
+    },
+    {
+      "path": "plugins/commentary-projects/plugin.json",
+      "sha256": "541891ff019b2682ee16597d5f9412a7e4aa6d5e4318b136ea45e909e6e41217"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-custom-renderer-development/agents/openai.yaml",
+      "sha256": "68eb08924c0d4e7e73e4dfb257c69eeec974e552b46177f79bbea713e546a7e7"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-custom-renderer-development/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-custom-renderer-development/references/renderer-protocol.md",
+      "sha256": "0c023e2dc79cd6a6d7a71f4ade3a68085986e85afed1ef55a843dc1846a0394f"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-custom-renderer-development/references/worked-example.md",
+      "sha256": "71f47d4807cf8c770454e75e8366dea6f4346f79c445902cdecbb9e52f3342bd"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-custom-renderer-development/SKILL.md",
+      "sha256": "925b7db81e8589eff6ced4fba0ec5d6289af5e790b67cb20fd88361efa4213ff"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-project-management/agents/openai.yaml",
+      "sha256": "1b28c6e0cacca0d2307baf615955c32b1bee1261d4b26e4310d5fcd0d4fe4bad"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-project-management/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-project-management/references/worked-example.md",
+      "sha256": "62634c05b446e223cbb50967efabf6036cdfaf51056204b2a627e72d0baee60a"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-project-management/SKILL.md",
+      "sha256": "2c40c238112ebdc8c9f3e5cac32b0cad31611d52afef16cae0af642cee7cf308"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-tracker-creation/agents/openai.yaml",
+      "sha256": "464392aa70d182ed38c72818792c05598c2b68f0ac3bd3d2fe961c2b7f8fd31e"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-tracker-creation/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-tracker-creation/references/worked-example.md",
+      "sha256": "03023ce22bf6b3126048b4759427d6673b37c9b3b0c43e9ddbf82656d7222642"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-tracker-creation/SKILL.md",
+      "sha256": "78d482eaa55127cd0f638abdae44088b73c1dd3641b659ecba0a6a3af164191b"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-tracker-operations/agents/openai.yaml",
+      "sha256": "d15b873538bff1ead3591c1cf708146abfcbb5bb1349a557e39c69ed8a23465f"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-tracker-operations/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-tracker-operations/references/worked-example.md",
+      "sha256": "abc1885b56dfe58a37dfa0bf7256637ec2ee4e99e7d75d73763de39449389dc1"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-tracker-operations/SKILL.md",
+      "sha256": "86732d64e0aab88867c303a1c2e3237bfeef62ae1d504e3991d4058cb13a75f7"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-workspace/agents/openai.yaml",
+      "sha256": "bb862e4eabbc6522a8563cd8d5a2ff821eec8ba6e9c2247957241553b88c25af"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-workspace/references/operating-surfaces.md",
+      "sha256": "11befe30761ba39e65638de594a662201a1bce8b7efcdb380015455b1e3c7ba3"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/commentary-workspace/SKILL.md",
+      "sha256": "b90f976be01221c9252d39a639c9c65f320159f1355aee46590bcdc5e4f2b15d"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/design-effective-project-trackers/agents/openai.yaml",
+      "sha256": "d65455617a154ef40fcc0ff008c197462b11a56d1482cafcbc5c80648b57f54b"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/design-effective-project-trackers/references/schema-and-views.md",
+      "sha256": "65512b8a2ab6962685fbb1302937755167b293b2d35e284435589eadb8d02c84"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/design-effective-project-trackers/references/worked-example.md",
+      "sha256": "e846b465766e4fe180c3561ab5de881c8e03b7561aaa824fc2a3287f943f1e2d"
+    },
+    {
+      "path": "plugins/commentary-projects/skills/design-effective-project-trackers/SKILL.md",
+      "sha256": "02c737fb2d61cb9794b3af660238e472c80218fb75fb479f19515df8d8dd998a"
+    },
+    {
+      "path": "README.md",
+      "sha256": "c932709d47c2f474b9dc7c9ab4f2b35e815b618f2e82b93c5aa945a5e43a3977"
+    },
+    {
+      "path": "scripts/check-forward-evals.mjs",
+      "sha256": "f52ec72ffda2f65feb00f36a3383e56068e221bcf9622162b006257fc0d348e7"
+    },
+    {
+      "path": "scripts/check-project-packages.mjs",
+      "sha256": "455d260a56921892ccf7c31f11c647c5191bf2003c04f9d1aa6a5dac9621f5ca"
+    },
+    {
+      "path": "skills/build-reviewable-architecture-walkthroughs/agents/openai.yaml",
+      "sha256": "b9721e20f7e8e959a268118a461c8418dd33b70545f7b905ba2c0290451bc113"
+    },
+    {
+      "path": "skills/build-reviewable-architecture-walkthroughs/references/source-mapping.md",
+      "sha256": "42e3b43a632693c143fe9c60387b4fa8f8ab946b1781bf66ee3d99643b7c7470"
+    },
+    {
+      "path": "skills/build-reviewable-architecture-walkthroughs/references/worked-example.md",
+      "sha256": "532f4278dc7f2269aae4e301f1f5d13b0045a8a525a722a2836e2e3241c34c9f"
+    },
+    {
+      "path": "skills/build-reviewable-architecture-walkthroughs/SKILL.md",
+      "sha256": "ce37be39afc588d33b707ef43afd58875e9b09731f075e617d86fe443798254d"
+    },
+    {
+      "path": "skills/commentary-custom-renderer-development/agents/openai.yaml",
+      "sha256": "68eb08924c0d4e7e73e4dfb257c69eeec974e552b46177f79bbea713e546a7e7"
+    },
+    {
+      "path": "skills/commentary-custom-renderer-development/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "skills/commentary-custom-renderer-development/references/renderer-protocol.md",
+      "sha256": "0c023e2dc79cd6a6d7a71f4ade3a68085986e85afed1ef55a843dc1846a0394f"
+    },
+    {
+      "path": "skills/commentary-custom-renderer-development/references/worked-example.md",
+      "sha256": "71f47d4807cf8c770454e75e8366dea6f4346f79c445902cdecbb9e52f3342bd"
+    },
+    {
+      "path": "skills/commentary-custom-renderer-development/SKILL.md",
+      "sha256": "925b7db81e8589eff6ced4fba0ec5d6289af5e790b67cb20fd88361efa4213ff"
+    },
+    {
+      "path": "skills/commentary-engineering-project-review/agents/openai.yaml",
+      "sha256": "16109430e56a370bf3674f8418e554f3125ce50e5c93ae059cde8832bf866f07"
+    },
+    {
+      "path": "skills/commentary-engineering-project-review/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "skills/commentary-engineering-project-review/references/worked-example.md",
+      "sha256": "37f57ec2888033bf3e041b7a1f3182865073154686a0e2a30f55c907e11e0915"
+    },
+    {
+      "path": "skills/commentary-engineering-project-review/SKILL.md",
+      "sha256": "85e6b2c470e3c446eb718a7c4e6ed3d5652e6b5171b201ea9358f6d0b21138ea"
+    },
+    {
+      "path": "skills/commentary-project-feedback-loop/agents/openai.yaml",
+      "sha256": "78b7b2c83e1794266b32c6be615811f2b1c3e4e0e35bd8a0fb8509fd95571733"
+    },
+    {
+      "path": "skills/commentary-project-feedback-loop/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "skills/commentary-project-feedback-loop/references/worked-example.md",
+      "sha256": "907d73eb50c078ab48f68f3355b88457570787bd76ecf36d6d6db60fb4a79c77"
+    },
+    {
+      "path": "skills/commentary-project-feedback-loop/SKILL.md",
+      "sha256": "d61cd06895370068a52edd685154451525cfd378df5f2002c945fb50ed176729"
+    },
+    {
+      "path": "skills/commentary-project-management/agents/openai.yaml",
+      "sha256": "1b28c6e0cacca0d2307baf615955c32b1bee1261d4b26e4310d5fcd0d4fe4bad"
+    },
+    {
+      "path": "skills/commentary-project-management/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "skills/commentary-project-management/references/worked-example.md",
+      "sha256": "62634c05b446e223cbb50967efabf6036cdfaf51056204b2a627e72d0baee60a"
+    },
+    {
+      "path": "skills/commentary-project-management/SKILL.md",
+      "sha256": "2c40c238112ebdc8c9f3e5cac32b0cad31611d52afef16cae0af642cee7cf308"
+    },
+    {
+      "path": "skills/commentary-review-package-creation/agents/openai.yaml",
+      "sha256": "56c4ac21560cd2bfe7b92e8c0b07bece239dd72d2c6c5b0d96375f212169df83"
+    },
+    {
+      "path": "skills/commentary-review-package-creation/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "skills/commentary-review-package-creation/references/worked-example.md",
+      "sha256": "6b33c23a801eec3c20c1941fe6b803983a33fa792fee2cb8851963bce90db7b4"
+    },
+    {
+      "path": "skills/commentary-review-package-creation/SKILL.md",
+      "sha256": "2444b5eb0da65a0d8f3d2a41896f986e0030b6030d2fef3088cb9b9309876068"
+    },
+    {
+      "path": "skills/commentary-tracker-creation/agents/openai.yaml",
+      "sha256": "464392aa70d182ed38c72818792c05598c2b68f0ac3bd3d2fe961c2b7f8fd31e"
+    },
+    {
+      "path": "skills/commentary-tracker-creation/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "skills/commentary-tracker-creation/references/worked-example.md",
+      "sha256": "03023ce22bf6b3126048b4759427d6673b37c9b3b0c43e9ddbf82656d7222642"
+    },
+    {
+      "path": "skills/commentary-tracker-creation/SKILL.md",
+      "sha256": "78d482eaa55127cd0f638abdae44088b73c1dd3641b659ecba0a6a3af164191b"
+    },
+    {
+      "path": "skills/commentary-tracker-operations/agents/openai.yaml",
+      "sha256": "d15b873538bff1ead3591c1cf708146abfcbb5bb1349a557e39c69ed8a23465f"
+    },
+    {
+      "path": "skills/commentary-tracker-operations/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "skills/commentary-tracker-operations/references/worked-example.md",
+      "sha256": "abc1885b56dfe58a37dfa0bf7256637ec2ee4e99e7d75d73763de39449389dc1"
+    },
+    {
+      "path": "skills/commentary-tracker-operations/SKILL.md",
+      "sha256": "86732d64e0aab88867c303a1c2e3237bfeef62ae1d504e3991d4058cb13a75f7"
+    },
+    {
+      "path": "skills/design-effective-project-reviews/agents/openai.yaml",
+      "sha256": "fe85a4009f46f7a4ee98f311a453eead0a7b9214fca5e78fb95fca8ea68e88fa"
+    },
+    {
+      "path": "skills/design-effective-project-reviews/references/review-design.md",
+      "sha256": "93ab9cbeebe0a98789957d05d33e9900e8e229861d1b3ae1727363f2ece8f6b6"
+    },
+    {
+      "path": "skills/design-effective-project-reviews/references/worked-example.md",
+      "sha256": "ac78fc435dbe850790e39ad3c886d78a8b6ade5750da517d36804797983cf2ea"
+    },
+    {
+      "path": "skills/design-effective-project-reviews/SKILL.md",
+      "sha256": "7f7c328217f66808c0fc3424e2b7a842fc0333782a73e1dc538914a951009ff9"
+    },
+    {
+      "path": "skills/design-effective-project-trackers/agents/openai.yaml",
+      "sha256": "d65455617a154ef40fcc0ff008c197462b11a56d1482cafcbc5c80648b57f54b"
+    },
+    {
+      "path": "skills/design-effective-project-trackers/references/schema-and-views.md",
+      "sha256": "65512b8a2ab6962685fbb1302937755167b293b2d35e284435589eadb8d02c84"
+    },
+    {
+      "path": "skills/design-effective-project-trackers/references/worked-example.md",
+      "sha256": "e846b465766e4fe180c3561ab5de881c8e03b7561aaa824fc2a3287f943f1e2d"
+    },
+    {
+      "path": "skills/design-effective-project-trackers/SKILL.md",
+      "sha256": "02c737fb2d61cb9794b3af660238e472c80218fb75fb479f19515df8d8dd998a"
+    },
+    {
+      "path": "skills/explain-and-defend-an-implementation/agents/openai.yaml",
+      "sha256": "e2a30daa0aacc3b8312ecfee53c2da6b9ef534346bcc8078b8c9356d911d2777"
+    },
+    {
+      "path": "skills/explain-and-defend-an-implementation/references/evidence-and-tradeoffs.md",
+      "sha256": "8404de02b6a09da0013e49d74b1ba169a75886fc6b26decabe1c54ad615e5ca9"
+    },
+    {
+      "path": "skills/explain-and-defend-an-implementation/references/worked-example.md",
+      "sha256": "65df957fc61458a5c521309fb4dcea4002cbccf330fcbbb0d49650f117cb6e56"
+    },
+    {
+      "path": "skills/explain-and-defend-an-implementation/SKILL.md",
+      "sha256": "f999fbaf7aa77ca4c7b5907e76be8c0027955e69cb73b854f464b568c33d3485"
+    }
+  ],
+  "checksums": [
+    {
+      "name": "commentary-inbox-cowork.zip",
+      "sha256": "daa14847d3be60bb4f2e180642870b228b95158c7513662614ee7cd4b5cfd478"
+    },
+    {
+      "name": "commentary-review-cowork.zip",
+      "sha256": "1d6b9f1a9e7d2be79793724a8f464c90d18a68a3af85ed492cc491df356490f3"
+    },
+    {
+      "name": "commentary-forms-cowork.zip",
+      "sha256": "f2fa449f589398f43a77d459b7396bf8ca73188b51f68fcdff9f25bc8a40ded0"
+    },
+    {
+      "name": "commentary-research-cowork.zip",
+      "sha256": "c33489e4f41427f3cad81986085ca33006529db96278338509a7711dc32d487d"
+    },
+    {
+      "name": "commentary-projects-cowork.zip",
+      "sha256": "a80aedf12aac5527f274951f7b22b737588dc9d60f70b79bc905c03b5f3a31b4"
+    },
+    {
+      "name": "commentary-engineering-review-cowork.zip",
+      "sha256": "254f24b24bc442b38aed16116a14d503fb596db791de9690116503ce56f30aa7"
+    }
+  ],
+  "verification": [
+    {
+      "command": "npm run verify:quality",
+      "repository": "commentary",
+      "passed": true,
+      "coverageTests": 1899,
+      "coverage": {
+        "lines": 92.04,
+        "branches": 83.05,
+        "functions": 94.2
+      }
+    },
+    {
+      "command": "npm run verify:agent",
+      "repository": "commentary",
+      "passed": true,
+      "postgres": "explicitly_skipped_no_persistence_changes",
+      "sandboxRetry": "reviewed_elevated_after_spawn_EPERM"
+    },
+    {
+      "command": "git diff --check HEAD",
+      "repository": "commentary",
+      "passed": true
+    },
+    {
+      "command": "npm run verify",
+      "repository": "commentary-skills",
+      "passed": true,
+      "tests": {
+        "inbox": 32,
+        "projects": 60
+      },
+      "generatedEquality": true,
+      "deterministicZipPackages": 6,
+      "portableWrapperCopies": 6,
+      "nativeClientInstall": false
+    },
+    {
+      "command": "node --import ./scripts/register-path-aliases.mjs --experimental-strip-types scripts/project-skills-smoke.ts --skills-root ../commentary-skills --cli-entrypoint ./tmp/cp032-release-installed/node_modules/@commentary-dev/cli/dist/index.js",
+      "repository": "commentary",
+      "passed": true,
+      "portableInstalledSkills": 11,
+      "canonicalValidatedWorkflows": 15,
+      "wireFeedbackLoops": 6,
+      "cliConsumer": "installed_CP032_release_tarball_0.2.0",
+      "collector": true,
+      "hostedMutation": false
+    },
+    {
+      "command": "npm run test:scenario -- PROJECTSKILL-001",
+      "repository": "commentary",
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "harness": "independent Codex agent",
+      "passed": true,
+      "artifact": "evals/projects-practice-forward.md",
+      "evidence": "actual_skill_guided_text_response_using_all_four_practices_and_eight_references",
+      "toolsExecuted": false,
+      "defects": []
+    }
+  ],
+  "metadataValidation": "forward-test catalog validation is not behavioral execution; fixture responses do not prove full response schema or persistence parity",
+  "scenarios": [
+    "PROJECTSKILL-001",
+    "PROJECTAGENT-001",
+    "INTERACTION-005",
+    "INTERACTION-008",
+    "WORKSPACE-003"
+  ],
+  "appChanges": [
+    "scripts/project-skills-smoke.ts",
+    "docs/engineering/project-practice-skills.md",
+    "docs/engineering/project-technical-skills.md",
+    "docs/engineering/README.md",
+    "quality/scenario-matrix.json",
+    "quality/scenario-matrix.md"
+  ],
+  "scope": {
+    "routes": "none changed",
+    "persistence": "none changed",
+    "license": "existing Free/Pro-preview server keys; no skill entitlements",
+    "review": "rendered artifacts and native threads remain primary",
+    "externalGit": "no commits, pushes, PRs or workflow dispatches",
+    "marketplacePublication": "not performed"
+  },
+  "humanAcceptance": "awaiting_human",
+  "unverified": [
+    "Native Codex plugin installation",
+    "Native Copilot CLI/cloud client installation",
+    "Native Claude Code client installation",
+    "Native OpenClaw client installation",
+    "Actual hosted authenticated PM/engineering mutations",
+    "Live provider authorization/Git writeback/independently observed CI",
+    "Deployed cross-origin renderer isolation",
+    "Genuine exact eligible human acceptance"
+  ],
+  "nextOwners": {
+    "CP-037": "Public installation/authentication/version troubleshooting",
+    "CP-038": "Use locally installed tested candidate skills with qualified demo claims",
+    "CP-039": "Independent native client/live boundary convergence",
+    "CP-040": "Integrated real dogfood and genuine human Decision"
+  }
+}

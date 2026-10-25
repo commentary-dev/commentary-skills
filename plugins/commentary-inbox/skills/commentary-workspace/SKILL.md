@@ -19,7 +19,7 @@ commentary --profile team --workspace ws_123 --json workspace queue list --assig
 
 The list exposes the granted workspace, not every browser-accessible workspace. `--workspace` must match the grant and does not change browser selection. Another workspace requires an appropriately granted credential/profile; a missing named profile must not fall back to default credentials.
 
-Collections cover Reviews, Forms, Research, Brain, and Sources with section-specific filters/sorts and 25-item pages. Pass opaque cursors unchanged under the same query and bound pages. Team queues require a team workspace and support `any`, `me`, or `unassigned` reads; reading cannot claim, assign, or delegate.
+Collections cover Reviews, Forms, Research, Knowledge (the existing Brain API identity), and Sources with section-specific filters/sorts and 25-item pages. Projects and Trackers have dedicated discovery operations; do not invent a collection section or rename an API enum from its UI label. Pass opaque cursors unchanged under the same query and bound pages. Team queues require a team workspace and support `any`, `me`, or `unassigned` reads; reading cannot claim, assign, or delegate.
 
 Sources represent connected/linked content, not workspace identity. Membership, Resource links, source access, administrative roles, and approval roles remain independent. Open canonical Resources with dedicated tools; do not infer authoring APIs from a collection read.
 
@@ -46,3 +46,7 @@ commentary --profile team --workspace ws_123 --json workspace resources rename d
 Use the actual returned timestamp, not the example value. On conflict or revoked authority refetch and reconcile rather than overwriting.
 
 Writes require `commentary.workspaces.resources.write`, current membership/source access, and owner authority where applicable; auditors cannot perform them. Credential administration, invitations, member management, human assignment, governance publication, and notification consent are outside this agent workflow.
+
+## Optional Project association
+
+When Project association is requested, use `commentary-project-management` if installed; discover the destination Project and original Resource independently and link only through an advertised authorized operation. For requested package or Review guide revisions, use `commentary-project-feedback-loop` if installed; preserve exact targets and keep human acceptance separate. Without those skills, inspect available operation schemas or return the prepared artifact and missing capability. A Project is optional, and linking never grants source access.

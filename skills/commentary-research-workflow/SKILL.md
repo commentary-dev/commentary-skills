@@ -33,3 +33,7 @@ Consent and Complete are locked gates. Position defines sequencing; do not inven
 External agents cannot launch a study, issue participant access, change consent or recording policy, reorder a running workflow, select or expand destinations, manage incentives or identity, override evidence sensitivity, accept findings, publish reports, or perform provider writeback without the existing authorized human path.
 
 Read [references/mcp-workflow.md](references/mcp-workflow.md) for action routing and failure handling. Use `design-product-research` before authoring the method and participant experience.
+
+## Optional Project association
+
+When Project association is requested, use `commentary-project-management` if installed; discover the destination Project and original Resource independently and link only through an advertised authorized operation. For requested package or Review guide revisions, use `commentary-project-feedback-loop` if installed; preserve exact targets and keep human acceptance separate. Without those skills, inspect available operation schemas or return the prepared artifact and missing capability. A Project is optional, and linking never grants source access.

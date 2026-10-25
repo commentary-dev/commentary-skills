@@ -1,0 +1,29 @@
+{
+  "kind": "commentary_tracker",
+  "contractVersion": 1,
+  "name": "Checklist",
+  "fields": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Work",
+      "required": true
+    },
+    {
+      "id": "done",
+      "type": "boolean",
+      "label": "Done",
+      "default": false
+    }
+  ],
+  "views": [
+    {
+      "key": "checklist",
+      "renderer": "checklist",
+      "mappings": {
+        "title": "title",
+        "completed": "done"
+      }
+    }
+  ]
+}

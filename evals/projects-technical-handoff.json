@@ -1,0 +1,329 @@
+{
+  "task": "CP-035",
+  "implementation": "complete",
+  "acceptance": "deterministic_workflows_verified_live_boundaries_retained",
+  "branch": "codex/commentary-projects",
+  "changes": "uncommitted_orchestrator_owned",
+  "baselines": {
+    "commentary": "5f491b807f848791967ed839452267976c9ea7a4",
+    "cli": "3e33728adbab8e24efdfbb326da667f3abde140c",
+    "skills": "6903701f26de9076dc47823adca92037be3edd1e"
+  },
+  "versions": {
+    "canonicalSkills": "0.1.0",
+    "skillsRepository": "0.6.2",
+    "cli": "0.2.0",
+    "agentSdk": "0.2.0",
+    "trackerSdk": "0.1.0",
+    "projectContract": "1",
+    "contractDigest": "646209cdcf54bf467326cce80750a20a5d085334996ab7ac66cec7b9b50191c8"
+  },
+  "canonicalSkills": [
+    {
+      "name": "commentary-project-management",
+      "path": "skills/commentary-project-management",
+      "version": "0.1.0",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ]
+    },
+    {
+      "name": "commentary-tracker-creation",
+      "path": "skills/commentary-tracker-creation",
+      "version": "0.1.0",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ]
+    },
+    {
+      "name": "commentary-tracker-operations",
+      "path": "skills/commentary-tracker-operations",
+      "version": "0.1.0",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ]
+    },
+    {
+      "name": "commentary-custom-renderer-development",
+      "path": "skills/commentary-custom-renderer-development",
+      "version": "0.1.0",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ]
+    },
+    {
+      "name": "commentary-review-package-creation",
+      "path": "skills/commentary-review-package-creation",
+      "version": "0.1.0",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ]
+    },
+    {
+      "name": "commentary-engineering-project-review",
+      "path": "skills/commentary-engineering-project-review",
+      "version": "0.1.0",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ]
+    },
+    {
+      "name": "commentary-project-feedback-loop",
+      "path": "skills/commentary-project-feedback-loop",
+      "version": "0.1.0",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ]
+    }
+  ],
+  "inventory": [
+    {
+      "path": "examples/projects/adapters.mjs",
+      "sha256": "c6ab52cd404406c08f1529fc9a9b8e7d888faced125b4c0e135f388c9246e573"
+    },
+    {
+      "path": "examples/projects/checklist.json",
+      "sha256": "6a75b49e87a0052be79a1cbc8893676472db6be565f97e2058e396eb10138e7e"
+    },
+    {
+      "path": "examples/projects/checklist.yaml",
+      "sha256": "e6cff1b8e2ed0e90846220f74ed386722d36b263670f7440200fcd7bfa28007c"
+    },
+    {
+      "path": "examples/projects/README.md",
+      "sha256": "83cc174237f483be61530ffef7d735697ea2379b52d87113acdc57d7e5d785fe"
+    },
+    {
+      "path": "examples/projects/renderer.mjs",
+      "sha256": "5e47035119d19416db2ac14361feb749ca26987445f17830891a6527bd8c8697"
+    },
+    {
+      "path": "examples/projects/run.mjs",
+      "sha256": "ec6f725fd96076bb3126bab4ced96aa88072959e3aa3541c923f8f75885ce2e6"
+    },
+    {
+      "path": "examples/projects/test/workflows.test.mjs",
+      "sha256": "72509c842c34fa1521c3cce51b42bdbcf4d6806e3bc8509f2f0ff8b1a1e17704"
+    },
+    {
+      "path": "examples/projects/walkthrough/commentary.package.json",
+      "sha256": "35d27f1948e3ca9367797d75031c41b6ffdae7b920f69632f5f2cf60d661f10b"
+    },
+    {
+      "path": "examples/projects/walkthrough/details.md",
+      "sha256": "cfed87df5888469a4ca69c0eef9f8f20178d1c1afd84c7f91838ddd9db10576b"
+    },
+    {
+      "path": "examples/projects/walkthrough/README.md",
+      "sha256": "461b4c153581fdae10df8c5048c1258542ad5813d070c3a20f21062c5af09c81"
+    },
+    {
+      "path": "examples/projects/workflows.json",
+      "sha256": "51fb64eee6405e45fad418392b86d936470fc6d39716fe6e525f6e1f0f225e27"
+    },
+    {
+      "path": "skills/commentary-custom-renderer-development/agents/openai.yaml",
+      "sha256": "68eb08924c0d4e7e73e4dfb257c69eeec974e552b46177f79bbea713e546a7e7"
+    },
+    {
+      "path": "skills/commentary-custom-renderer-development/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "skills/commentary-custom-renderer-development/references/renderer-protocol.md",
+      "sha256": "0c023e2dc79cd6a6d7a71f4ade3a68085986e85afed1ef55a843dc1846a0394f"
+    },
+    {
+      "path": "skills/commentary-custom-renderer-development/references/worked-example.md",
+      "sha256": "71f47d4807cf8c770454e75e8366dea6f4346f79c445902cdecbb9e52f3342bd"
+    },
+    {
+      "path": "skills/commentary-custom-renderer-development/SKILL.md",
+      "sha256": "925b7db81e8589eff6ced4fba0ec5d6289af5e790b67cb20fd88361efa4213ff"
+    },
+    {
+      "path": "skills/commentary-engineering-project-review/agents/openai.yaml",
+      "sha256": "16109430e56a370bf3674f8418e554f3125ce50e5c93ae059cde8832bf866f07"
+    },
+    {
+      "path": "skills/commentary-engineering-project-review/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "skills/commentary-engineering-project-review/references/worked-example.md",
+      "sha256": "37f57ec2888033bf3e041b7a1f3182865073154686a0e2a30f55c907e11e0915"
+    },
+    {
+      "path": "skills/commentary-engineering-project-review/SKILL.md",
+      "sha256": "85e6b2c470e3c446eb718a7c4e6ed3d5652e6b5171b201ea9358f6d0b21138ea"
+    },
+    {
+      "path": "skills/commentary-project-feedback-loop/agents/openai.yaml",
+      "sha256": "78b7b2c83e1794266b32c6be615811f2b1c3e4e0e35bd8a0fb8509fd95571733"
+    },
+    {
+      "path": "skills/commentary-project-feedback-loop/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "skills/commentary-project-feedback-loop/references/worked-example.md",
+      "sha256": "907d73eb50c078ab48f68f3355b88457570787bd76ecf36d6d6db60fb4a79c77"
+    },
+    {
+      "path": "skills/commentary-project-feedback-loop/SKILL.md",
+      "sha256": "d61cd06895370068a52edd685154451525cfd378df5f2002c945fb50ed176729"
+    },
+    {
+      "path": "skills/commentary-project-management/agents/openai.yaml",
+      "sha256": "1b28c6e0cacca0d2307baf615955c32b1bee1261d4b26e4310d5fcd0d4fe4bad"
+    },
+    {
+      "path": "skills/commentary-project-management/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "skills/commentary-project-management/references/worked-example.md",
+      "sha256": "62634c05b446e223cbb50967efabf6036cdfaf51056204b2a627e72d0baee60a"
+    },
+    {
+      "path": "skills/commentary-project-management/SKILL.md",
+      "sha256": "2c40c238112ebdc8c9f3e5cac32b0cad31611d52afef16cae0af642cee7cf308"
+    },
+    {
+      "path": "skills/commentary-review-package-creation/agents/openai.yaml",
+      "sha256": "56c4ac21560cd2bfe7b92e8c0b07bece239dd72d2c6c5b0d96375f212169df83"
+    },
+    {
+      "path": "skills/commentary-review-package-creation/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "skills/commentary-review-package-creation/references/worked-example.md",
+      "sha256": "6b33c23a801eec3c20c1941fe6b803983a33fa792fee2cb8851963bce90db7b4"
+    },
+    {
+      "path": "skills/commentary-review-package-creation/SKILL.md",
+      "sha256": "2444b5eb0da65a0d8f3d2a41896f986e0030b6030d2fef3088cb9b9309876068"
+    },
+    {
+      "path": "skills/commentary-tracker-creation/agents/openai.yaml",
+      "sha256": "464392aa70d182ed38c72818792c05598c2b68f0ac3bd3d2fe961c2b7f8fd31e"
+    },
+    {
+      "path": "skills/commentary-tracker-creation/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "skills/commentary-tracker-creation/references/worked-example.md",
+      "sha256": "03023ce22bf6b3126048b4759427d6673b37c9b3b0c43e9ddbf82656d7222642"
+    },
+    {
+      "path": "skills/commentary-tracker-creation/SKILL.md",
+      "sha256": "78d482eaa55127cd0f638abdae44088b73c1dd3641b659ecba0a6a3af164191b"
+    },
+    {
+      "path": "skills/commentary-tracker-operations/agents/openai.yaml",
+      "sha256": "d15b873538bff1ead3591c1cf708146abfcbb5bb1349a557e39c69ed8a23465f"
+    },
+    {
+      "path": "skills/commentary-tracker-operations/references/operating-contracts.md",
+      "sha256": "aaf85ed9c5222ed88c8f4802803d92910208ae04da8c3d42e9525cfdc9aaf70e"
+    },
+    {
+      "path": "skills/commentary-tracker-operations/references/worked-example.md",
+      "sha256": "abc1885b56dfe58a37dfa0bf7256637ec2ee4e99e7d75d73763de39449389dc1"
+    },
+    {
+      "path": "skills/commentary-tracker-operations/SKILL.md",
+      "sha256": "86732d64e0aab88867c303a1c2e3237bfeef62ae1d504e3991d4058cb13a75f7"
+    }
+  ],
+  "scenarios": [
+    "PROJECTSKILL-001",
+    "PROJECTAGENT-001",
+    "INTERACTION-005",
+    "INTERACTION-008",
+    "WORKSPACE-003"
+  ],
+  "evaluations": [
+    {
+      "command": "npm run verify",
+      "repository": "commentary-skills",
+      "passed": true,
+      "interactionTests": 32,
+      "projectTests": 26,
+      "deterministicExistingCoworkPackages": 4,
+      "note": "Required generators ran; CP-036 owns the two new plugin compositions."
+    },
+    {
+      "command": "npm run examples:projects",
+      "transport": [
+        "cli",
+        "mcp",
+        "http"
+      ],
+      "passed": true,
+      "tests": 26,
+      "evidence": "injected deterministic adapter boundaries; canonical request validation separately runs in app"
+    },
+    {
+      "command": "npm run test:scenario -- PROJECTSKILL-001",
+      "repository": "commentary",
+      "passed": true,
+      "tests": 5
+    },
+    {
+      "command": "node --import ./scripts/register-path-aliases.mjs --experimental-strip-types scripts/project-skills-smoke.ts --skills-root ../commentary-skills --cli-entrypoint ../commentary-cli/dist/index.js",
+      "repository": "commentary",
+      "passed": true,
+      "installedPortableCopies": 7,
+      "validatedTransportWorkflows": 15,
+      "realCliDirectoryCollector": true,
+      "cliConsumer": "built entrypoint, not tarball install"
+    },
+    {
+      "harness": "independent Codex agent forward evaluation",
+      "passed": true,
+      "request": "Existing Project PM checklist, reviewer rollback correction, attempted self-approval; Tracker SDK declaration review",
+      "repair": "Explicit CLI sync package/ETag; required validator; live binding disclosure; conditional renderer diagnostics and bounded changes"
+    }
+  ],
+  "humanAcceptance": "awaiting_human",
+  "nextOwner": {
+    "task": "CP-036",
+    "obligations": [
+      "Four practice skills",
+      "Two new plugin compositions and generated releases",
+      "Full eleven-skill/two-plugin evaluation convergence",
+      "Retain existing approval/resource authority"
+    ]
+  },
+  "unverified": [
+    "Native Codex/Copilot/Claude/OpenClaw client installation",
+    "Actual hosted mutations through these skills",
+    "Live provider access/writeback/CI observation",
+    "Deployed renderer origin isolation",
+    "Genuine human acceptance"
+  ]
+}

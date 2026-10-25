@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Tracker Operations"
+  short_description: "Edit Trackers with explicit conflict recovery"
+  default_prompt: "Use $commentary-tracker-operations to edit Trackers with explicit conflict recovery within the authorized workspace and exact current versions."

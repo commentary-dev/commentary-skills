@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Review Package Creation"
+  short_description: "Publish immutable document walkthroughs"
+  default_prompt: "Use $commentary-review-package-creation to publish immutable document walkthroughs within the authorized workspace and exact current versions."

@@ -29,8 +29,6 @@ gh skill install commentary-dev/commentary-skills commentary-workspace
 gh skill install commentary-dev/commentary-skills design-effective-interactions
 gh skill preview commentary-dev/commentary-skills commentary-draft-review
 gh skill install commentary-dev/commentary-skills commentary-draft-review
-gh skill preview commentary-dev/commentary-skills commentary-brainstorm-review
-gh skill install commentary-dev/commentary-skills commentary-brainstorm-review
 gh skill preview commentary-dev/commentary-skills commentary-live-preview-review
 gh skill install commentary-dev/commentary-skills commentary-live-preview-review
 gh skill preview commentary-dev/commentary-skills commentary-form-creation
@@ -81,7 +79,7 @@ codex plugin add commentary-research@commentary-skills
 
 - [Commentary Inbox](docs/commentary-inbox.md) provides Ask Human, Request Approval, Submit Revision, Escalate Review, Async Workflow, Inbox Triage, and Workspace technical skills for durable human-in-the-loop work.
 
-- [Commentary Draft Review](docs/commentary-draft-review.md), [Brainstorm Review](docs/commentary-brainstorm-review.md), [PR Review](skills/commentary-pr-review/SKILL.md), and [Live Preview Review](docs/commentary-live-preview-review.md) choose and operate the correct CLI, MCP, or SDK workflow.
+- [Commentary Draft Review](docs/commentary-draft-review.md), [PR Review](skills/commentary-pr-review/SKILL.md), and [Live Preview Review](docs/commentary-live-preview-review.md) choose and operate the correct CLI, MCP, or SDK workflow.
 - [Commentary Form Creation](docs/commentary-form-creation.md), [Form Rendering](skills/commentary-form-rendering/SKILL.md), and [Form Results](docs/commentary-form-results.md) implement and operate source-backed Forms, including adaptive respondent instances.
 - [Commentary Research Workflow](skills/commentary-research-workflow/SKILL.md) operates bounded, source-backed Research Studies while preserving human launch, consent, and publication authority.
 
@@ -94,6 +92,10 @@ codex plugin add commentary-research@commentary-skills
 - [Form Result Visualizations](docs/commentary-form-result-visualizations.md) turns permitted result data into accessible explanations.
 - [Design Product Research](skills/design-product-research/SKILL.md) selects credible UX methods and maps them into Commentary's Consent, Content, Activity, Form, and Complete workflow.
 - [Commentary Form Design](docs/commentary-form-design.md) remains as a compatibility router to the focused rendering and practice skills.
+
+## Projects and engineering review
+
+[Projects plugins and verification](docs/projects-plugins.md) cover eleven technical/practice skills, the generated `commentary-projects` and `commentary-engineering-review` bundles, portable installation and native harness boundaries. Use these names with the marketplace install commands above.
 
 ## Plugins
 
@@ -108,7 +110,6 @@ codex plugin add commentary-research@commentary-skills
 ```text
 catalog/                              Human-edited skill and plugin metadata
 docs/                                 Human-facing skill documentation
-skills/commentary-brainstorm-review/  Canonical portable brainstorming skill
 skills/commentary-draft-review/       Canonical portable draft review skill
 skills/commentary-live-preview-review/ Canonical portable live preview review skill
 skills/commentary-form-*/             Canonical portable Forms skills

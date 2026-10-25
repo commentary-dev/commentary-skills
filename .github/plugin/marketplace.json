@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Commentary agent skills and platform plugins.",
-    "version": "0.6.2"
+    "version": "0.7.0"
   },
   "plugins": [
     {
@@ -77,6 +77,46 @@
         "research",
         "usability",
         "evidence"
+      ],
+      "author": {
+        "name": "Commentary"
+      },
+      "homepage": "https://github.com/commentary-dev/commentary-skills",
+      "repository": "https://github.com/commentary-dev/commentary-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "commentary-projects",
+      "source": "./plugins/commentary-projects",
+      "description": "Organize optional Projects, create and operate portable Trackers, and build scoped custom renderers with effective native-first tracking practice.",
+      "version": "0.1.0",
+      "category": "productivity",
+      "tags": [
+        "commentary",
+        "projects",
+        "trackers",
+        "renderers",
+        "collaboration"
+      ],
+      "author": {
+        "name": "Commentary"
+      },
+      "homepage": "https://github.com/commentary-dev/commentary-skills",
+      "repository": "https://github.com/commentary-dev/commentary-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "commentary-engineering-review",
+      "source": "./plugins/commentary-engineering-review",
+      "description": "Publish rendered walkthroughs, review exact source and honest evidence, explain tradeoffs, and recover native feedback with eligible human acceptance.",
+      "version": "0.1.0",
+      "category": "review",
+      "tags": [
+        "commentary",
+        "projects",
+        "engineering",
+        "evidence",
+        "human-in-the-loop"
       ],
       "author": {
         "name": "Commentary"

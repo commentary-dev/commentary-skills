@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Submit Revision"
+  short_description: "Turn durable feedback into a new revision"
+  default_prompt: "Use $commentary-submit-revision to create a new immutable revision and request a new Decision."

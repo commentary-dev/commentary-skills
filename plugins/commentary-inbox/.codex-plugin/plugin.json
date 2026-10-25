@@ -39,7 +39,7 @@
     "privacyPolicyURL": "https://commentary.dev/legal/privacy",
     "termsOfServiceURL": "https://commentary.dev/legal/terms",
     "defaultPrompt": [
-      "Use $commentary-ask-human for this Commentary workflow."
+      "Choose the installed skill that matches my requested outcome from commentary-ask-human, commentary-request-approval, commentary-submit-revision, commentary-escalate-review, commentary-async-workflow, commentary-inbox-triage, commentary-workspace, design-effective-interactions. Preserve the requested scope; a Project or publication is optional."
     ],
     "brandColor": "#2563EB"
   }

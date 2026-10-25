@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Custom Renderer Development"
+  short_description: "Build isolated capability-bound renderers"
+  default_prompt: "Use $commentary-custom-renderer-development to build isolated capability-bound renderers within the authorized workspace and exact current versions."

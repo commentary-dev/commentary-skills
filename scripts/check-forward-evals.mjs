@@ -2,6 +2,28 @@ import fs from "node:fs";
 import { readCatalogs, repoPath } from "./lib.mjs";
 
 const expectedIds = new Set([
+  "projects-guide-investigation",
+  "projects-guide-saved-visit",
+  "projects-guide-collaboration",
+  "projects-tracker-review-progress",
+  "inbox-built-in-notice",
+  "projects-discovery",
+  "projects-useful-views",
+  "projects-native-or-custom",
+  "projects-directory-publication",
+  "projects-source-provenance",
+  "projects-evidence-claims",
+  "projects-human-authority",
+  "projects-exact-staleness",
+  "projects-private-resource",
+  "projects-git-conflict",
+  "projects-feedback-recovery",
+  "projects-pm-tracker",
+  "projects-schema-recovery",
+  "projects-directory-package",
+  "projects-engineering-evidence",
+  "projects-feedback-revision",
+  "projects-renderer-isolation",
   "plan-review-before-commentary",
   "local-plan-cli-comments",
   "remote-pr-mcp",
@@ -37,6 +59,10 @@ const expectedIds = new Set([
 ]);
 const skillNames = new Set(readCatalogs().skills.map((skill) => skill.name));
 const scenarioIds = new Set([
+  "PROJECTREVIEW-002", "PROJECT-004", "CONSENSUS-005",
+  "PROJECTSKILL-001", "PROJECTAGENT-001",
+  "PROJECT-001", "PROJECT-003", "TRACKER-001", "TRACKER-003", "TRACKER-007",
+  "PACKAGE-001", "PROJECTREVIEW-003", "SOURCE-003", "EVIDENCE-001", "TRACKERSDK-002", "PROJECTIMPACT-001",
   ...Array.from({ length: 12 }, (_, i) => `INTERACTION-${String(i + 1).padStart(3, "0")}`),
   ...Array.from({ length: 9 }, (_, i) => `INBOX-${String(i + 1).padStart(3, "0")}`),
   ...Array.from({ length: 4 }, (_, i) => `WORKSPACE-${String(i + 1).padStart(3, "0")}`),
@@ -54,7 +80,7 @@ for (const testCase of catalog.cases) {
     }
   }
   for (const name of testCase.skills) if (!skillNames.has(name)) throw new Error(`${testCase.id}: unknown skill ${name}.`);
-  if (/^(?:inbox|workspace)-/u.test(testCase.id)
+  if (/^(?:inbox|workspace|projects)-/u.test(testCase.id)
     && (!Array.isArray(testCase.scenarios) || !testCase.scenarios.length || testCase.scenarios.some((id) => !scenarioIds.has(id)))) {
     throw new Error(`${testCase.id}: scenarios must use maintained Inbox, Interaction, Workspace, Team, or related API/Draft coverage ids.`);
   }

@@ -1,0 +1,176 @@
+{
+  "date": "2026-10-25",
+  "task": "Audit and update existing skills for the current Projects branch",
+  "baselines": {
+    "appBranch": "projects",
+    "appCommit": "4d800b4e0a1e48059d24197ce9c91859c75d3122",
+    "skillsBranch": "codex/commentary-projects",
+    "skillsCommit": "6903701f26de9076dc47823adca92037be3edd1e",
+    "workingTree": "Existing uncommitted skills changes retained; no commit or publication performed."
+  },
+  "contractDigest": "170274ef0b8b94d4be51d238ba42259edb9d4da188aa09e40fc8730ace7e53ee",
+  "decisions": [
+    {
+      "problem": "Interaction skills prohibited an implemented MCP message action.",
+      "repair": "Discover message support and use exact revision, integer version and idempotency key; preserve CLI/HTTP fallback for older deployments.",
+      "files": [
+        "skills/commentary-async-workflow/SKILL.md",
+        "skills/commentary-ask-human/references/operating-surfaces.md"
+      ],
+      "scenarios": [
+        "INTERACTION-008",
+        "INTERACTION-011"
+      ]
+    },
+    {
+      "problem": "Project skills omitted current Review guide terminology, assigned Questions and exact original context.",
+      "repair": "Use guide terminology for discovery; explain shared v2/private v1 investigations, original-source authorization and the scoped response envelope. Explanations do not require package publication.",
+      "files": [
+        "skills/commentary-engineering-project-review/SKILL.md",
+        "skills/commentary-engineering-project-review/references/guide-review.md",
+        "skills/commentary-project-feedback-loop/SKILL.md",
+        "skills/commentary-project-feedback-loop/references/assigned-investigations.md"
+      ],
+      "scenarios": [
+        "PROJECTREVIEW-001",
+        "PROJECTREVIEW-002"
+      ]
+    },
+    {
+      "problem": "Guide comparison, collaboration and acceptance instructions lacked important scope distinctions.",
+      "repair": "Keep saved visit endpoints exact, preserve unavailable comparisons, separate preparation/downstream gates and select one deliverable or explicit subset for human acceptance.",
+      "files": [
+        "skills/design-effective-project-reviews/references/review-design.md",
+        "skills/commentary-engineering-project-review/references/guide-review.md"
+      ],
+      "scenarios": [
+        "PROJECTIMPACT-001",
+        "PROJECTREVIEW-003",
+        "CONSENSUS-005"
+      ]
+    },
+    {
+      "problem": "Tracker progress and built-in Inbox notices could be mistaken for approval or generic Interactions.",
+      "repair": "Read exact review relations and independent progress dimensions; navigate notices through their canonical domain action without inventing an Interaction.",
+      "files": [
+        "skills/commentary-tracker-operations/SKILL.md",
+        "skills/commentary-inbox-triage/SKILL.md",
+        "skills/commentary-workspace/SKILL.md"
+      ],
+      "scenarios": [
+        "PROJECT-004",
+        "INBOX-001",
+        "INTERACTION-002"
+      ]
+    },
+    {
+      "problem": "21 companion-skill links broke when the six plugins were installed separately; default prompts selected the first skill.",
+      "repair": "Make companions optional with usable fallbacks, use task-based bundle discovery and validate all packaged file bytes/local links in 18 wrapper installations.",
+      "files": [
+        "scripts/generate-claude-plugins.mjs",
+        "scripts/check-project-packages.mjs",
+        "scripts/check-packaged-links.mjs",
+        "examples/projects/test/package-links.test.mjs"
+      ],
+      "scenarios": [
+        "PROJECTSKILL-001"
+      ]
+    },
+    {
+      "problem": "Copied Projects contracts had drifted from current app schemas.",
+      "repair": "Copy canonical contract and workflow fixtures exactly, then exercise the app validator and installed CLI.",
+      "files": [
+        "contracts/projects-agent-v1.json",
+        "examples/projects/workflows.json"
+      ],
+      "scenarios": [
+        "PROJECTSKILL-001",
+        "PROJECTAGENT-001"
+      ]
+    }
+  ],
+  "retained": [
+    "No new skills added.",
+    "Research linear typed workflow and Form source-authoring guidance already match current behavior.",
+    "Existing collaboration CLI examples confirmed against the implemented CLI; historical notes were not used to remove valid commands.",
+    "No app behavior or scenario matrix coverage changed by this audit. Historical evaluation receipts retain their original hashes and results."
+  ],
+  "validation": [
+    {
+      "command": "npm run verify",
+      "result": "passed",
+      "details": {
+        "inboxTests": 32,
+        "projectTests": 61,
+        "plugins": 6,
+        "wrapperInstallations": 18,
+        "deterministicReleaseZips": 6
+      }
+    },
+    {
+      "command": "skill-creator quick_validate.py on every canonical skill, Python UTF-8 mode",
+      "result": "passed",
+      "skills": 31
+    },
+    {
+      "command": "node --import ./scripts/register-path-aliases.mjs --experimental-strip-types --test test/project-technical-skills-contract.test.ts",
+      "repository": "commentary",
+      "result": "passed",
+      "tests": 5
+    },
+    {
+      "command": "node --import ./scripts/register-path-aliases.mjs --experimental-strip-types scripts/project-skills-smoke.ts --skills-root ../commentary-skills --cli-entrypoint ../commentary-cli/dist/index.js",
+      "repository": "commentary",
+      "result": "passed",
+      "details": {
+        "installedSkillFolders": 11,
+        "workflows": 15,
+        "feedbackLoops": 6,
+        "cliCollector": true,
+        "hostedWrites": false
+      }
+    },
+    {
+      "check": "Skill response example and independent planned MCP reply validated against current Interaction input schema and investigation response parser",
+      "result": "passed",
+      "liveDispatch": false
+    }
+  ],
+  "behavioralEvaluation": {
+    "model": "gpt-6-luna",
+    "mode": "Independent simulated execution with raw cases and installed skill instructions; no prior findings or expected answers supplied.",
+    "cases": [
+      {
+        "case": "Assigned shared investigation after guide revision changed",
+        "result": "Used original source context and current Interaction revision/version; selected MCP message and structured response, no revised targets; did not invent rationale unsupported by source."
+      },
+      {
+        "case": "Unavailable saved-visit endpoint, wording correction and historical acceptance",
+        "result": "Kept comparison unavailable and acceptance historical; allowed local preparation while blocking downstream continuation; identified missing exact wording rather than fabricating it."
+      },
+      {
+        "case": "Built-in Inbox notice without Interaction handle and without companion plugins",
+        "result": "Read canonical review through its domain action; did not invent a handle or duplicate request."
+      }
+    ],
+    "limitation": "Simulated decisions establish useful behavioral evidence but are not native client installations or hosted end-to-end execution."
+  },
+  "recovery": [
+    "Cross-repository smoke initially detected stale contract digest; canonical synchronization repaired it.",
+    "Local sandbox could not complete the CLI loopback fixture; the same smoke passed with permitted localhost process access."
+  ],
+  "deferred": [
+    "Native Codex/Copilot/Claude/OpenClaw application installs",
+    "Live provider authorization, synchronization, writeback and CI",
+    "Deployed renderer isolation",
+    "Genuine human acceptance",
+    "Marketplace publication"
+  ],
+  "newForwardCases": [
+    "projects-guide-investigation",
+    "projects-guide-saved-visit",
+    "projects-guide-collaboration",
+    "projects-tracker-review-progress",
+    "inbox-built-in-notice"
+  ]
+}

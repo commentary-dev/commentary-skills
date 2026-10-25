@@ -34,3 +34,7 @@ Rejection stops. Requested changes use `commentary-submit-revision`. Existing ex
 ## Report what happened
 
 Fulfillment uses the exact Decision/revision/action/fingerprint tuple and append-only idempotent reports. First report `received`, then `started` before doing work, then an honest permitted outcome: `completed`, `failed`, or `unknown`. Corrections follow server transition rules. Bound evidence and exclude secrets. Report acceptance is not successful execution or independent verification.
+
+## Optional Project association
+
+When Project association is requested, use `commentary-project-management` if installed; discover the destination Project and original Resource independently and link only through an advertised authorized operation. For requested package or Review guide revisions, use `commentary-project-feedback-loop` if installed; preserve exact targets and keep human acceptance separate. Without those skills, inspect available operation schemas or return the prepared artifact and missing capability. A Project is optional, and linking never grants source access.

@@ -1,0 +1,370 @@
+{
+  "version": 1,
+  "contractDigest": "170274ef0b8b94d4be51d238ba42259edb9d4da188aa09e40fc8730ace7e53ee",
+  "workflows": {
+    "pm-tracker": [
+      {
+        "operationId": "createProject",
+        "input": {
+          "workspaceId": "workspace-1",
+          "name": "Feature readiness",
+          "visibility": "workspace"
+        },
+        "idempotencyKey": "createProject-fixture-1"
+      },
+      {
+        "operationId": "validateTrackerContract",
+        "input": {
+          "contract": {
+            "kind": "commentary_tracker",
+            "contractVersion": 1,
+            "name": "Checklist",
+            "fields": [
+              {
+                "id": "title",
+                "type": "text",
+                "label": "Work",
+                "required": true
+              },
+              {
+                "id": "done",
+                "type": "boolean",
+                "label": "Done",
+                "default": false
+              }
+            ],
+            "views": [
+              {
+                "key": "checklist",
+                "renderer": "checklist",
+                "mappings": {
+                  "title": "title",
+                  "completed": "done"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "operationId": "createTracker",
+        "input": {
+          "workspaceId": "workspace-1",
+          "contract": {
+            "kind": "commentary_tracker",
+            "contractVersion": 1,
+            "name": "Checklist",
+            "fields": [
+              {
+                "id": "title",
+                "type": "text",
+                "label": "Work",
+                "required": true
+              },
+              {
+                "id": "done",
+                "type": "boolean",
+                "label": "Done",
+                "default": false
+              }
+            ],
+            "views": [
+              {
+                "key": "checklist",
+                "renderer": "checklist",
+                "mappings": {
+                  "title": "title",
+                  "completed": "done"
+                }
+              }
+            ]
+          }
+        },
+        "idempotencyKey": "createTracker-fixture-1"
+      },
+      {
+        "operationId": "createTrackerRecord",
+        "input": {
+          "trackerId": "tracker-1",
+          "schemaRevisionId": "schema-1",
+          "values": {
+            "title": "Review walkthrough",
+            "done": false
+          }
+        },
+        "idempotencyKey": "createTrackerRecord-fixture-1"
+      },
+      {
+        "operationId": "linkProjectResource",
+        "input": {
+          "projectId": "project-1",
+          "target": {
+            "type": "tracker",
+            "id": "tracker-1"
+          }
+        },
+        "etag": "\"fixture:v1\"",
+        "idempotencyKey": "fixture-edit-1"
+      }
+    ],
+    "tracker-edit": [
+      {
+        "operationId": "patchTrackerRecord",
+        "input": {
+          "trackerId": "tracker-1",
+          "recordId": "record-1",
+          "schemaRevisionId": "schema-1",
+          "patch": {
+            "values": {
+              "enabled": false,
+              "count": 0
+            },
+            "unset": []
+          }
+        },
+        "etag": "\"fixture:v1\"",
+        "idempotencyKey": "fixture-edit-1"
+      }
+    ],
+    "package": [
+      {
+        "operationId": "preparePackageUpload",
+        "input": {
+          "workspaceId": "workspace-1",
+          "bytes": 39,
+          "sha256": "af726093d0639f97a3b9ed96ca045550e96a72864ca40615dde7928aa45b9531",
+          "manifest": {
+            "files": [
+              {
+                "path": "README.md",
+                "bytes": 39,
+                "sha256": "af726093d0639f97a3b9ed96ca045550e96a72864ca40615dde7928aa45b9531",
+                "mime": "text/markdown"
+              }
+            ]
+          }
+        },
+        "idempotencyKey": "preparePackageUpload-fixture-1"
+      },
+      {
+        "operationId": "getPackageUpload",
+        "input": {
+          "uploadId": "upload-1"
+        }
+      },
+      {
+        "operationId": "transferPackageChunk",
+        "input": {
+          "uploadId": "upload-1",
+          "offset": 0,
+          "sha256": "af726093d0639f97a3b9ed96ca045550e96a72864ca40615dde7928aa45b9531",
+          "contentBase64": "IyBPdmVydmlldwoKUmV2aWV3IHRoZSBleGFjdCBiZWhhdmlvci4K"
+        },
+        "idempotencyKey": "transferPackageChunk-fixture-1"
+      },
+      {
+        "operationId": "finalizePackageUpload",
+        "input": {
+          "uploadId": "upload-1"
+        },
+        "idempotencyKey": "finalizePackageUpload-fixture-1"
+      },
+      {
+        "operationId": "publishReviewPackage",
+        "input": {
+          "workspaceId": "workspace-1",
+          "uploadId": "upload-1"
+        },
+        "idempotencyKey": "publishReviewPackage-fixture-1"
+      }
+    ],
+    "evidence": [
+      {
+        "operationId": "publishSourceSnapshot",
+        "input": {
+          "workspaceId": "workspace-1",
+          "reference": {
+            "provider": "azure_devops",
+            "resource": {
+              "type": "repository",
+              "id": "repository-1"
+            },
+            "commitSha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          },
+          "capturePolicy": "selected",
+          "selectedPaths": [
+            "src/main.ts"
+          ]
+        },
+        "idempotencyKey": "publishSourceSnapshot-fixture-1"
+      },
+      {
+        "operationId": "createProjectReviewSession",
+        "input": {
+          "workspaceId": "workspace-1",
+          "title": "Walkthrough",
+          "targets": [
+            {
+              "resource": {
+                "type": "review_package",
+                "id": "package-1"
+              },
+              "revisionId": "revision-1",
+              "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ]
+        },
+        "idempotencyKey": "createProjectReviewSession-fixture-1"
+      },
+      {
+        "operationId": "createProjectRequirement",
+        "input": {
+          "context": {
+            "type": "project_review_session",
+            "id": "session-1"
+          },
+          "expectedOutcomeMarkdown": "The walkthrough explains the exact source change.",
+          "acceptanceScope": [
+            {
+              "resource": {
+                "type": "review_package",
+                "id": "package-1"
+              },
+              "revisionId": "revision-1",
+              "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ]
+        },
+        "idempotencyKey": "createProjectRequirement-fixture-1"
+      },
+      {
+        "operationId": "attachProjectEvidence",
+        "input": {
+          "context": {
+            "type": "project_review_session",
+            "id": "session-1"
+          },
+          "targets": [
+            {
+              "resource": {
+                "type": "review_package",
+                "id": "package-1"
+              },
+              "revisionId": "revision-1",
+              "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ],
+          "result": "passed",
+          "report": {
+            "format": "log",
+            "content": "Agent supplied test report: passed."
+          }
+        },
+        "idempotencyKey": "attachProjectEvidence-fixture-1"
+      }
+    ],
+    "feedback": [
+      {
+        "operationId": "publishPackageRevision",
+        "input": {
+          "packageId": "package-1",
+          "uploadId": "upload-2"
+        },
+        "etag": "\"fixture:v1\"",
+        "idempotencyKey": "fixture-edit-1"
+      },
+      {
+        "operationId": "reviseProjectReviewSession",
+        "input": {
+          "sessionId": "session-1",
+          "targets": [
+            {
+              "resource": {
+                "type": "review_package",
+                "id": "package-1"
+              },
+              "revisionId": "revision-2",
+              "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ]
+        },
+        "etag": "\"fixture:v1\"",
+        "idempotencyKey": "fixture-edit-1"
+      },
+      {
+        "operationId": "requestProjectAcceptance",
+        "input": {
+          "sessionId": "session-1",
+          "target": {
+            "version": 1,
+            "sessionId": "session-1",
+            "sessionRevisionId": "session-revision-2",
+            "revisionSetFingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "manifestSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "scope": "session",
+            "targets": [
+              {
+                "resource": {
+                  "type": "review_package",
+                  "id": "package-1"
+                },
+                "revisionId": "revision-2",
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              }
+            ],
+            "supportingRevisions": []
+          },
+          "consequence": "Record acceptance of this exact walkthrough; no deployment is authorized."
+        },
+        "etag": "\"fixture:v1\"",
+        "idempotencyKey": "fixture-edit-1"
+      }
+    ]
+  },
+  "invalid": [
+    {
+      "operationId": "createTracker",
+      "input": {
+        "workspaceId": "workspace-1",
+        "contract": {
+          "kind": "commentary_tracker",
+          "contractVersion": 1,
+          "name": "Checklist",
+          "fields": [
+            {
+              "id": "title",
+              "type": "invented",
+              "label": "Title"
+            }
+          ],
+          "views": [
+            {
+              "key": "checklist",
+              "renderer": "checklist",
+              "mappings": {
+                "title": "title",
+                "completed": "done"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "operationId": "patchTrackerRecord",
+      "input": {
+        "trackerId": "tracker-1",
+        "recordId": "record-1",
+        "schemaRevisionId": "schema-1",
+        "patch": {
+          "values": {
+            "enabled": false,
+            "count": 0
+          },
+          "unset": []
+        },
+        "acceptance": "approved"
+      }
+    }
+  ]
+}

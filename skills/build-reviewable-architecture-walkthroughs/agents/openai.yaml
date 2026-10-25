@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Reviewable Architecture Walkthroughs"
+  short_description: "Build navigable diagrams backed by exact source"
+  default_prompt: "Use $build-reviewable-architecture-walkthroughs to prepare a readable, evidence-backed project review."

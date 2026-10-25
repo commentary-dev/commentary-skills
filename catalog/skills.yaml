@@ -63,14 +63,6 @@ skills:
     version: 0.1.0
     summary: Design clear notifications, durable questions, choices, and exact approval requests.
     slug: design-effective-interactions
-  - name: commentary-brainstorm-review
-    displayName: Commentary Brainstorm Review
-    category: review-technical
-    source: skills/commentary-brainstorm-review
-    targets: [codex, copilot, claude-code, openclaw]
-    version: 0.1.1
-    summary: Apply accepted consensus changes from Commentary Brainstorming Reviews.
-    slug: commentary-brainstorm-review
   - name: commentary-draft-review
     displayName: Commentary Draft Review
     category: review-technical
@@ -167,3 +159,91 @@ skills:
     version: 0.1.0
     summary: Design ethical, decision-focused product research using established UX methods.
     slug: design-product-research
+  - name: commentary-project-management
+    displayName: Commentary Project Management
+    category: projects-technical
+    source: skills/commentary-project-management
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Organize Projects and linked Resources.
+    slug: commentary-project-management
+  - name: commentary-tracker-creation
+    displayName: Commentary Tracker Creation
+    category: projects-technical
+    source: skills/commentary-tracker-creation
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Create portable Trackers and native views.
+    slug: commentary-tracker-creation
+  - name: commentary-tracker-operations
+    displayName: Commentary Tracker Operations
+    category: projects-technical
+    source: skills/commentary-tracker-operations
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Edit Trackers with explicit conflict recovery.
+    slug: commentary-tracker-operations
+  - name: commentary-custom-renderer-development
+    displayName: Commentary Custom Renderer Development
+    category: projects-technical
+    source: skills/commentary-custom-renderer-development
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Build isolated capability-bound renderers.
+    slug: commentary-custom-renderer-development
+  - name: commentary-review-package-creation
+    displayName: Commentary Review Package Creation
+    category: projects-technical
+    source: skills/commentary-review-package-creation
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Publish immutable document walkthroughs.
+    slug: commentary-review-package-creation
+  - name: commentary-engineering-project-review
+    displayName: Commentary Engineering Project Review
+    category: projects-technical
+    source: skills/commentary-engineering-project-review
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Prepare Review guides with pinned source and honest evidence.
+    slug: commentary-engineering-project-review
+  - name: commentary-project-feedback-loop
+    displayName: Commentary Project Feedback Loop
+    category: projects-technical
+    source: skills/commentary-project-feedback-loop
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Revise feedback without carrying acceptance.
+    slug: commentary-project-feedback-loop
+  - name: design-effective-project-reviews
+    displayName: Design Effective Project Reviews
+    category: projects-practice
+    source: skills/design-effective-project-reviews
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Make project reviews useful to each audience.
+    slug: design-effective-project-reviews
+  - name: explain-and-defend-an-implementation
+    displayName: Explain and Defend an Implementation
+    category: projects-practice
+    source: skills/explain-and-defend-an-implementation
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Explain tradeoffs with bounded source evidence.
+    slug: explain-and-defend-an-implementation
+  - name: design-effective-project-trackers
+    displayName: Design Effective Project Trackers
+    category: projects-practice
+    source: skills/design-effective-project-trackers
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Choose useful records, fields and native views.
+    slug: design-effective-project-trackers
+  - name: build-reviewable-architecture-walkthroughs
+    displayName: Build Reviewable Architecture Walkthroughs
+    category: projects-practice
+    source: skills/build-reviewable-architecture-walkthroughs
+    targets: [codex, copilot, claude-code, openclaw]
+    version: 0.1.0
+    summary: Build navigable diagrams backed by exact source.
+    slug: build-reviewable-architecture-walkthroughs

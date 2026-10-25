@@ -15,7 +15,7 @@ plugins:
     description: Operate Commentary review workflows and improve agent-generated plans with evidence-based review practices.
     category: review
     tags: [commentary, review, markdown, web]
-    skills: [commentary-brainstorm-review, commentary-draft-review, commentary-live-preview-review, commentary-pr-review, review-agentic-plans]
+    skills: [commentary-draft-review, commentary-live-preview-review, commentary-pr-review, review-agentic-plans]
     mcpServers: [commentary]
   - name: commentary-forms
     displayName: Commentary Forms
@@ -34,4 +34,22 @@ plugins:
     category: research
     tags: [commentary, research, usability, evidence]
     skills: [commentary-research-workflow, design-product-research]
+    mcpServers: [commentary]
+  - name: commentary-projects
+    displayName: Commentary Projects
+    targets: [claude-code, copilot, codex]
+    version: 0.1.0
+    description: Organize optional Projects, create and operate portable Trackers, and build scoped custom renderers with effective native-first tracking practice.
+    category: productivity
+    tags: [commentary, projects, trackers, renderers, collaboration]
+    skills: [commentary-project-management, commentary-tracker-creation, commentary-tracker-operations, commentary-custom-renderer-development, design-effective-project-trackers, commentary-workspace]
+    mcpServers: [commentary]
+  - name: commentary-engineering-review
+    displayName: Commentary Engineering Review
+    targets: [claude-code, copilot, codex]
+    version: 0.1.0
+    description: Publish rendered walkthroughs, review exact source and honest evidence, explain tradeoffs, and recover native feedback with eligible human acceptance.
+    category: review
+    tags: [commentary, projects, engineering, evidence, human-in-the-loop]
+    skills: [commentary-review-package-creation, commentary-engineering-project-review, commentary-project-feedback-loop, design-effective-project-reviews, explain-and-defend-an-implementation, build-reviewable-architecture-walkthroughs, commentary-request-approval, commentary-submit-revision, review-agentic-plans]
     mcpServers: [commentary]

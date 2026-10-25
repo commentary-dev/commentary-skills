@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Project Management"
+  short_description: "Organize Projects and linked Resources"
+  default_prompt: "Use $commentary-project-management to organize Projects and linked Resources within the authorized workspace and exact current versions."

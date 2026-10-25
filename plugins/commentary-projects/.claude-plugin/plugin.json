@@ -1,0 +1,20 @@
+{
+  "name": "commentary-projects",
+  "description": "Organize optional Projects, create and operate portable Trackers, and build scoped custom renderers with effective native-first tracking practice.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Commentary"
+  },
+  "homepage": "https://github.com/commentary-dev/commentary-skills",
+  "repository": "https://github.com/commentary-dev/commentary-skills",
+  "license": "MIT",
+  "keywords": [
+    "commentary",
+    "projects",
+    "trackers",
+    "renderers",
+    "collaboration"
+  ],
+  "skills": "./skills",
+  "mcpServers": "./.mcp.json"
+}
