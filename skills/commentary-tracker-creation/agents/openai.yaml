@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Tracker Creation"
+  short_description: "Create portable Trackers and native views"
+  default_prompt: "Use $commentary-tracker-creation to create portable Trackers and native views within the authorized workspace and exact current versions."

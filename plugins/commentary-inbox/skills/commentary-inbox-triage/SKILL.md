@@ -23,7 +23,7 @@ Summarize requested response, sender/reason, consequence, due context, and next 
 
 - Questions and choices use durable answers. Exact approvals use current-policy validation, not attention rank.
 - Revision requests need revision-bound feedback and creator authority. Ordinary replies and future guidance are separate.
-- Review, Form, Research, Brain, or Preview updates lead back to canonical Resources and dedicated tools. Reuse correlated requests instead of creating duplicate attention posts.
+- Built-in notifications may provide a `notification` object and navigation action without a generic Interaction to answer. Follow the authorized canonical Resource and its domain action; do not synthesize a Decision or duplicate request. Review, Form, Research, Knowledge, or Preview updates lead back to their dedicated tools. Reuse correlated requests.
 - Queue assignment is attention ownership, not approval eligibility or provider permission. Use `commentary-workspace` for Resource discovery when available.
 
 Active includes accessible requests, updates, and waiting items. History includes completed and recipient-dismissed items. Dismissal/restore, snooze, pin, and read state are recipient presentation controls, not rejection or cancellation. These discovery reads do not mark items read, dismiss them, or write human Decisions. Do not substitute a browser mutation for an unavailable agent operation.

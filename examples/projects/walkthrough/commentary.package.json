@@ -1,0 +1,17 @@
+{
+  "kind": "commentary_review_package",
+  "manifestVersion": 1,
+  "title": "Engineering walkthrough",
+  "entryPageId": "overview",
+  "pages": [
+    {
+      "id": "overview",
+      "path": "README.md"
+    },
+    {
+      "id": "details",
+      "path": "details.md"
+    }
+  ],
+  "trustTier": "static"
+}

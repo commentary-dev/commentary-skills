@@ -2,7 +2,7 @@
 
 | Situation | Use | Source of truth |
 | --- | --- | --- |
-| Local file-backed Draft or Brainstorming Review | Commentary CLI | Local files |
+| Local file-backed Draft review | Commentary CLI | Local files |
 | Existing remote Review, comments, Forms, Research or gate state | Discovered MCP or supported API | Source artifact plus app-native records |
 | Durable Inbox request, conversation or approval | Supported CLI/HTTP or discovered Interaction MCP actions | Immutable request and human Decision records |
 | Inbox/workspace discovery and team queue | Advertised CLI/HTTP agent operations | Credential-granted workspace and authorized Resource metadata |
@@ -18,4 +18,4 @@ Check configured-server OpenAPI/OAuth scopes, MCP input schemas and installed CL
 
 Use OAuth by default and PAT only as advanced recovery. Keep configured tokens outside repository content. Pass a stable `agentAlias` only on authored operations that advertise it. App-native threads remain authoritative; check authorship and exact revision gate state before resolving/continuing.
 
-Current provider-backed MCP declarations support GitHub. Commentary UI support for Azure DevOps does not imply Azure MCP support; discover provider capability rather than sending unsupported parameters or bypassing source permissions.
+Discover provider-specific capabilities before operating on a PR or branch. Shared collaboration operations use a provider-neutral ReviewRef for GitHub and Azure DevOps and recheck source access. Registered identities, rather than arbitrary aliases, determine independent agent stances and delegated decisions.

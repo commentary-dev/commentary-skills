@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Agentic Plans"
+  short_description: "Find plan risks before an agent executes"
+  default_prompt: "Use $review-agentic-plans to critique this plan for evidence, risk, and missing decisions."

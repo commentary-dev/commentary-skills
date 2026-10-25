@@ -31,3 +31,7 @@ HTTP POSTs the envelope to `/api/v1/interactions/{id}/revisions` with `If-Match`
 Confirm the new revision and inspect its bounded semantic diff, addressed feedback, and target/consequence changes. A purged diff is unavailable context, not proof of no change. Revisions resurface the same request without duplicate posts.
 
 For a revised question, wait for its new answer. For execution approval, use `commentary-request-approval` to require current-policy satisfaction and the new action fingerprint. Full Review corrections return through linked immutable revisions; artifact acceptance is not execution approval. Timeout returns the durable handle. Terminal requests, lost creator authority, stale ETags, and conflicting intent need explicit recovery.
+
+## Optional Project association
+
+When Project association is requested, use `commentary-project-management` if installed; discover the destination Project and original Resource independently and link only through an advertised authorized operation. For requested package or Review guide revisions, use `commentary-project-feedback-loop` if installed; preserve exact targets and keep human acceptance separate. Without those skills, inspect available operation schemas or return the prepared artifact and missing capability. A Project is optional, and linking never grants source access.

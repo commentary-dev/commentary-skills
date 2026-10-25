@@ -288,3 +288,11 @@ After applying deployed-review changes:
 - Do not use direct API calls when the MCP tool is available.
 - Do not proxy, scrape, rewrite, or inject into arbitrary third-party websites.
 - Do not store tokens, private review URLs, local machine paths, reviewer emails, or customer content in repo files or skill memory.
+
+## Optional Project association
+
+When Project association is requested, use `commentary-project-management` if installed; discover the destination Project and original Resource independently and link only through an advertised authorized operation. For requested package or Review guide revisions, use `commentary-project-feedback-loop` if installed; preserve exact targets and keep human acceptance separate. Without those skills, inspect available operation schemas or return the prepared artifact and missing capability. A Project is optional, and linking never grants source access.
+
+## Polls and Consensus on any review
+
+Read [the collaboration workflow](references/review-collaboration.md) before using polls, decisions, blockers or review readiness. These are optional review features, not content-source types. New reviews default both off; never reset an existing review's settings when opening it.

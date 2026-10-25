@@ -1,0 +1,10 @@
+import { readFileSync } from 'node:fs';
+import { makeAdapter, runWorkflow } from './adapters.mjs';
+const catalog = JSON.parse(readFileSync(new URL('../../contracts/projects-agent-v1.json', import.meta.url)));
+const cases = JSON.parse(readFileSync(new URL('./workflows.json', import.meta.url)));
+const transport = process.argv[2] ?? 'mcp';
+const name = process.argv[3] ?? 'pm-tracker';
+const calls = [];
+const adapter = makeAdapter({ transport, catalog, workspaceId: 'workspace-1', validate: () => [], discover: async () => ({ operations: catalog.operations.filter(o => o.status === 'implemented').map(o => o.operationId) }), invoke: async call => { calls.push(call); return { data: { fixture: true }, etag: '"fixture:v1"' }; } });
+const result = await runWorkflow(adapter, name, cases);
+console.log(JSON.stringify({ evidence: 'deterministic_adapter_fixture', calls, result }, null, 2));

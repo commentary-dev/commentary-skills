@@ -15,7 +15,7 @@ Download the ZIP for the capability you want from the latest GitHub Release. The
 | Plugin | Contents | Direct download |
 | --- | --- | --- |
 | Commentary Inbox | Durable questions, approvals, revisions, triage, and workspace workflows | `https://github.com/commentary-dev/commentary-skills/releases/latest/download/commentary-inbox-cowork.zip` |
-| Commentary Review | Draft, brainstorming, PR, and live-preview review workflows | `https://github.com/commentary-dev/commentary-skills/releases/latest/download/commentary-review-cowork.zip` |
+| Commentary Review | Draft, PR, and live-preview reviews with optional Polls and Consensus | `https://github.com/commentary-dev/commentary-skills/releases/latest/download/commentary-review-cowork.zip` |
 | Commentary Forms | Form creation, rendering, results, and design practice | `https://github.com/commentary-dev/commentary-skills/releases/latest/download/commentary-forms-cowork.zip` |
 | Commentary Research | Research study operations and product-research practice | `https://github.com/commentary-dev/commentary-skills/releases/latest/download/commentary-research-cowork.zip` |
 

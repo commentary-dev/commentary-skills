@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Effective Project Trackers"
+  short_description: "Choose useful records, fields and native views"
+  default_prompt: "Use $design-effective-project-trackers to prepare a readable, evidence-backed project review."

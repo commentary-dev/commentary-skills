@@ -1,0 +1,4 @@
+interface:
+  display_name: "Explain and Defend an Implementation"
+  short_description: "Explain tradeoffs with bounded source evidence"
+  default_prompt: "Use $explain-and-defend-an-implementation to prepare a readable, evidence-backed project review."

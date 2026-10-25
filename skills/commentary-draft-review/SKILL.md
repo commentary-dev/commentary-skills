@@ -217,3 +217,11 @@ If a Commentary MCP server is already installed, use it only for a distinct type
 - Preserve `.commentary/session.json`; it stores review metadata but must never contain secrets.
 - Do not persist share links, recipients, access grants, or reviewer instructions in local repo files unless the user explicitly asks to document them.
 - Respect draft-review limits: at most 20 files, 512 KiB per file, and 2 MiB total per revision.
+
+## Optional Project association
+
+When Project association is requested, use `commentary-project-management` if installed; discover the destination Project and original Resource independently and link only through an advertised authorized operation. For requested package or Review guide revisions, use `commentary-project-feedback-loop` if installed; preserve exact targets and keep human acceptance separate. Without those skills, inspect available operation schemas or return the prepared artifact and missing capability. A Project is optional, and linking never grants source access.
+
+## Polls and Consensus on any review
+
+Read [the collaboration workflow](references/review-collaboration.md) before using polls, decisions, blockers or review readiness. These are optional review features, not content-source types. New reviews default both off; never reset an existing review's settings when opening it.

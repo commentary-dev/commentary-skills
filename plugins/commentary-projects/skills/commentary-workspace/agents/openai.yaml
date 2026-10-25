@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Workspace"
+  short_description: "Discover workspace Resources and team queues"
+  default_prompt: "Use $commentary-workspace to discover authorized work in the configured workspace."

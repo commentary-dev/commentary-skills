@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Engineering Project Review"
+  short_description: "Prepare Review guides with exact evidence"
+  default_prompt: "Use $commentary-engineering-project-review to prepare or inspect a Review guide with pinned source and honest evidence within the authorized workspace and exact current versions."

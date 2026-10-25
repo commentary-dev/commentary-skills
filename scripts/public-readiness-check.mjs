@@ -26,10 +26,13 @@ function trackedAndUntrackedFiles() {
     return listFiles();
   }
 
+  const deletedResult = spawnSync("git", ["ls-files", "--deleted"], { cwd: repoPath("."), encoding: "utf8" });
+  if (deletedResult.status !== 0) throw new Error("Unable to inspect deleted files.");
+  const deleted = new Set(deletedResult.stdout.split(/\r?\n/).filter(Boolean));
   return result.stdout
     .split(/\r?\n/)
     .map((line) => line.trim())
-    .filter(Boolean)
+    .filter((file) => file && !deleted.has(file))
     .sort();
 }
 

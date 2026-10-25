@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Effective Project Reviews"
+  short_description: "Make project reviews useful to each audience"
+  default_prompt: "Use $design-effective-project-reviews to prepare a readable, evidence-backed project review."

@@ -1,6 +1,6 @@
 {
   "name": "commentary-skills",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "repository": "https://github.com/commentary-dev/commentary-skills",
   "license": "MIT",
   "skills": [
@@ -170,27 +170,6 @@
         "display_name": "Design Effective Interactions",
         "short_description": "Design clear questions and exact approval requests",
         "default_prompt": "Use $design-effective-interactions to make this Inbox request clear and easy to decide."
-      }
-    },
-    {
-      "name": "commentary-brainstorm-review",
-      "displayName": "Commentary Brainstorm Review",
-      "category": "review-technical",
-      "source": "skills/commentary-brainstorm-review",
-      "targets": [
-        "codex",
-        "copilot",
-        "claude-code",
-        "openclaw"
-      ],
-      "version": "0.1.1",
-      "summary": "Apply accepted consensus changes from Commentary Brainstorming Reviews.",
-      "slug": "commentary-brainstorm-review",
-      "description": "Use Commentary Brainstorming Reviews from an agent to monitor multi-user consensus, apply accepted changes to reviewed pages, and mark brainstorming threads addressed. Trigger this skill when a user mentions Commentary brainstorming, consensus review, voting on draft changes, accepted consensus, brainstorm status, brainstorm next, applying agreed changes, or when an agent must choose between a remote MCP-only Commentary review and a local file-backed Commentary review using the CLI.",
-      "interface": {
-        "display_name": "Commentary Brainstorm Review",
-        "short_description": "Apply accepted Commentary consensus changes",
-        "default_prompt": "Use $commentary-brainstorm-review to apply accepted consensus changes from a Commentary Brainstorming Review."
       }
     },
     {
@@ -444,6 +423,237 @@
         "short_description": "Plan ethical, evidence-centered product research",
         "default_prompt": "Use $design-product-research to turn these assumptions into a credible product research study."
       }
+    },
+    {
+      "name": "commentary-project-management",
+      "displayName": "Commentary Project Management",
+      "category": "projects-technical",
+      "source": "skills/commentary-project-management",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Organize Projects and linked Resources.",
+      "slug": "commentary-project-management",
+      "description": "Organize authorized Projects and original Resource associations without granting source access or changing human governance.",
+      "interface": {
+        "display_name": "Commentary Project Management",
+        "short_description": "Organize Projects and linked Resources",
+        "default_prompt": "Use $commentary-project-management to organize Projects and linked Resources within the authorized workspace and exact current versions."
+      }
+    },
+    {
+      "name": "commentary-tracker-creation",
+      "displayName": "Commentary Tracker Creation",
+      "category": "projects-technical",
+      "source": "skills/commentary-tracker-creation",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Create portable Trackers and native views.",
+      "slug": "commentary-tracker-creation",
+      "description": "Create and validate portable Commentary Tracker schemas, initial records and native view mappings; not Forms submissions or human approval records.",
+      "interface": {
+        "display_name": "Commentary Tracker Creation",
+        "short_description": "Create portable Trackers and native views",
+        "default_prompt": "Use $commentary-tracker-creation to create portable Trackers and native views within the authorized workspace and exact current versions."
+      }
+    },
+    {
+      "name": "commentary-tracker-operations",
+      "displayName": "Commentary Tracker Operations",
+      "category": "projects-technical",
+      "source": "skills/commentary-tracker-operations",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Edit Trackers with explicit conflict recovery.",
+      "slug": "commentary-tracker-operations",
+      "description": "Query and conditionally edit Commentary Tracker records, views and schemas, or reconcile portable Git proposals; not provider authority migration or human Decisions.",
+      "interface": {
+        "display_name": "Commentary Tracker Operations",
+        "short_description": "Edit Trackers with explicit conflict recovery",
+        "default_prompt": "Use $commentary-tracker-operations to edit Trackers with explicit conflict recovery within the authorized workspace and exact current versions."
+      }
+    },
+    {
+      "name": "commentary-custom-renderer-development",
+      "displayName": "Commentary Custom Renderer Development",
+      "category": "projects-technical",
+      "source": "skills/commentary-custom-renderer-development",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Build isolated capability-bound renderers.",
+      "slug": "commentary-custom-renderer-development",
+      "description": "Develop an isolated Commentary Tracker renderer using the capability-broker SDK when native or declarative views are insufficient; not privileged application scripts.",
+      "interface": {
+        "display_name": "Commentary Custom Renderer Development",
+        "short_description": "Build isolated capability-bound renderers",
+        "default_prompt": "Use $commentary-custom-renderer-development to build isolated capability-bound renderers within the authorized workspace and exact current versions."
+      }
+    },
+    {
+      "name": "commentary-review-package-creation",
+      "displayName": "Commentary Review Package Creation",
+      "category": "projects-technical",
+      "source": "skills/commentary-review-package-creation",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Publish immutable document walkthroughs.",
+      "slug": "commentary-review-package-creation",
+      "description": "Publish and revise immutable Commentary document packages with manifests, assets and semantic anchors, preferring CLI directory collection; not server-side customer builds.",
+      "interface": {
+        "display_name": "Commentary Review Package Creation",
+        "short_description": "Publish immutable document walkthroughs",
+        "default_prompt": "Use $commentary-review-package-creation to publish immutable document walkthroughs within the authorized workspace and exact current versions."
+      }
+    },
+    {
+      "name": "commentary-engineering-project-review",
+      "displayName": "Commentary Engineering Project Review",
+      "category": "projects-technical",
+      "source": "skills/commentary-engineering-project-review",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Prepare Review guides with pinned source and honest evidence.",
+      "slug": "commentary-engineering-project-review",
+      "description": "Prepare or inspect an engineering Review guide (Project Review Session) with pinned source, multiple PRs, requirements and truthful evidence; compare exact revisions and request scoped human acceptance.",
+      "interface": {
+        "display_name": "Commentary Engineering Project Review",
+        "short_description": "Prepare Review guides with exact evidence",
+        "default_prompt": "Use $commentary-engineering-project-review to prepare or inspect a Review guide with pinned source and honest evidence within the authorized workspace and exact current versions."
+      }
+    },
+    {
+      "name": "commentary-project-feedback-loop",
+      "displayName": "Commentary Project Feedback Loop",
+      "category": "projects-technical",
+      "source": "skills/commentary-project-feedback-loop",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Revise feedback without carrying acceptance.",
+      "slug": "commentary-project-feedback-loop",
+      "description": "Respond to assigned Review guide investigations or address Commentary Project feedback with exact context, immutable corrections and scoped human acceptance requests; not self-approval.",
+      "interface": {
+        "display_name": "Commentary Project Feedback Loop",
+        "short_description": "Revise feedback without carrying acceptance",
+        "default_prompt": "Use $commentary-project-feedback-loop to revise feedback without carrying acceptance within the authorized workspace and exact current versions."
+      }
+    },
+    {
+      "name": "design-effective-project-reviews",
+      "displayName": "Design Effective Project Reviews",
+      "category": "projects-practice",
+      "source": "skills/design-effective-project-reviews",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Make project reviews useful to each audience.",
+      "slug": "design-effective-project-reviews",
+      "description": "Design purpose-led Project Review guides that help PMs and engineers understand changes, inspect evidence selectively, and make scoped human decisions without exhaustive code review.",
+      "interface": {
+        "display_name": "Design Effective Project Reviews",
+        "short_description": "Make project reviews useful to each audience",
+        "default_prompt": "Use $design-effective-project-reviews to prepare a readable, evidence-backed project review."
+      }
+    },
+    {
+      "name": "explain-and-defend-an-implementation",
+      "displayName": "Explain and Defend an Implementation",
+      "category": "projects-practice",
+      "source": "skills/explain-and-defend-an-implementation",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Explain tradeoffs with bounded source evidence.",
+      "slug": "explain-and-defend-an-implementation",
+      "description": "Explain an implementation to reviewers with source-backed tradeoffs, test provenance, explicit uncertainties, security and operational boundaries, and honest responses to objections.",
+      "interface": {
+        "display_name": "Explain and Defend an Implementation",
+        "short_description": "Explain tradeoffs with bounded source evidence",
+        "default_prompt": "Use $explain-and-defend-an-implementation to prepare a readable, evidence-backed project review."
+      }
+    },
+    {
+      "name": "design-effective-project-trackers",
+      "displayName": "Design Effective Project Trackers",
+      "category": "projects-practice",
+      "source": "skills/design-effective-project-trackers",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Choose useful records, fields and native views.",
+      "slug": "design-effective-project-trackers",
+      "description": "Design Project Trackers with meaningful record granularity, minimal useful fields, clear lifecycle and native view mappings, choosing custom renderers only for a demonstrated comprehension need.",
+      "interface": {
+        "display_name": "Design Effective Project Trackers",
+        "short_description": "Choose useful records, fields and native views",
+        "default_prompt": "Use $design-effective-project-trackers to prepare a readable, evidence-backed project review."
+      }
+    },
+    {
+      "name": "build-reviewable-architecture-walkthroughs",
+      "displayName": "Build Reviewable Architecture Walkthroughs",
+      "category": "projects-practice",
+      "source": "skills/build-reviewable-architecture-walkthroughs",
+      "targets": [
+        "codex",
+        "copilot",
+        "claude-code",
+        "openclaw"
+      ],
+      "version": "0.1.0",
+      "summary": "Build navigable diagrams backed by exact source.",
+      "slug": "build-reviewable-architecture-walkthroughs",
+      "description": "Build readable architecture and API walkthroughs grounded in exact source snapshots, selective code inspection, accessible diagrams and explicit evidence gaps for human engineering review.",
+      "interface": {
+        "display_name": "Build Reviewable Architecture Walkthroughs",
+        "short_description": "Build navigable diagrams backed by exact source",
+        "default_prompt": "Use $build-reviewable-architecture-walkthroughs to prepare a readable, evidence-backed project review."
+      }
     }
   ],
   "plugins": [
@@ -497,7 +707,6 @@
         "web"
       ],
       "skills": [
-        "commentary-brainstorm-review",
         "commentary-draft-review",
         "commentary-live-preview-review",
         "commentary-pr-review",
@@ -556,6 +765,69 @@
       "skills": [
         "commentary-research-workflow",
         "design-product-research"
+      ],
+      "mcpServers": [
+        "commentary"
+      ]
+    },
+    {
+      "name": "commentary-projects",
+      "displayName": "Commentary Projects",
+      "targets": [
+        "claude-code",
+        "copilot",
+        "codex"
+      ],
+      "version": "0.1.0",
+      "description": "Organize optional Projects, create and operate portable Trackers, and build scoped custom renderers with effective native-first tracking practice.",
+      "category": "productivity",
+      "tags": [
+        "commentary",
+        "projects",
+        "trackers",
+        "renderers",
+        "collaboration"
+      ],
+      "skills": [
+        "commentary-project-management",
+        "commentary-tracker-creation",
+        "commentary-tracker-operations",
+        "commentary-custom-renderer-development",
+        "design-effective-project-trackers",
+        "commentary-workspace"
+      ],
+      "mcpServers": [
+        "commentary"
+      ]
+    },
+    {
+      "name": "commentary-engineering-review",
+      "displayName": "Commentary Engineering Review",
+      "targets": [
+        "claude-code",
+        "copilot",
+        "codex"
+      ],
+      "version": "0.1.0",
+      "description": "Publish rendered walkthroughs, review exact source and honest evidence, explain tradeoffs, and recover native feedback with eligible human acceptance.",
+      "category": "review",
+      "tags": [
+        "commentary",
+        "projects",
+        "engineering",
+        "evidence",
+        "human-in-the-loop"
+      ],
+      "skills": [
+        "commentary-review-package-creation",
+        "commentary-engineering-project-review",
+        "commentary-project-feedback-loop",
+        "design-effective-project-reviews",
+        "explain-and-defend-an-implementation",
+        "build-reviewable-architecture-walkthroughs",
+        "commentary-request-approval",
+        "commentary-submit-revision",
+        "review-agentic-plans"
       ],
       "mcpServers": [
         "commentary"

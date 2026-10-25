@@ -68,7 +68,7 @@ function codexDefaultPrompt(plugin) {
   if (plugin.name === "commentary-research") {
     return "Use $design-product-research, then $commentary-research-workflow, to prepare this study.";
   }
-  return `Use $${plugin.skills[0]} for this Commentary workflow.`;
+  return `Choose the installed skill that matches my requested outcome from ${plugin.skills.join(", ")}. Preserve the requested scope; a Project or publication is optional.`;
 }
 
 function codexManifest(plugin, packageJson) {

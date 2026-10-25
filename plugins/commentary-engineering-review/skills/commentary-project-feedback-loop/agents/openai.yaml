@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commentary Project Feedback Loop"
+  short_description: "Revise feedback without carrying acceptance"
+  default_prompt: "Use $commentary-project-feedback-loop to revise feedback without carrying acceptance within the authorized workspace and exact current versions."

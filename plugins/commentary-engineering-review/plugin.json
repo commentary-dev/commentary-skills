@@ -1,0 +1,28 @@
+{
+  "name": "commentary-engineering-review",
+  "description": "Publish rendered walkthroughs, review exact source and honest evidence, explain tradeoffs, and recover native feedback with eligible human acceptance.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Commentary"
+  },
+  "homepage": "https://github.com/commentary-dev/commentary-skills",
+  "repository": "https://github.com/commentary-dev/commentary-skills",
+  "license": "MIT",
+  "keywords": [
+    "commentary",
+    "projects",
+    "engineering",
+    "evidence",
+    "human-in-the-loop"
+  ],
+  "category": "review",
+  "tags": [
+    "commentary",
+    "projects",
+    "engineering",
+    "evidence",
+    "human-in-the-loop"
+  ],
+  "skills": "./skills",
+  "mcpServers": "./.mcp.json"
+}

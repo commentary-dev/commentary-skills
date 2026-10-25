@@ -30,7 +30,7 @@ Browser Inbox spans authorized workspaces; agent reads are credential-workspace-
 
 ## Transport contracts
 
-MCP `interaction` supports advertised create/get/list/revise/cancel/status, Decision reads/waits, Fulfillment, and guidance. It does not advertise agent message writes, lifecycle updates, human Decisions, or Review escalation. Use supported CLI/HTTP agent operations; browser-only actions stay human-controlled. Send declared arguments only, even if a handler supports more.
+MCP `interaction` supports advertised create/get/list/revise/message/cancel/status, Decision reads/waits, Fulfillment, and guidance. For an authorized reply, discover `message`, then send `handle`, `body`, the current `revisionId`, integer `expectedVersion`, and a stable `idempotencyKey`. Use CLI/HTTP messages if the deployed MCP lacks this action; never send the same write through both. General lifecycle updates, human Decisions and Review escalation are not MCP message operations. Send declared arguments only.
 
 MCP wraps domain output in `structuredContent.result`, with separate `data` and `polling`. `status` omits actions/feedback/fingerprints; `get` supplies full context. `decision_get` needs a known id; immediate next-receipt reads use `decision_wait` with `waitMs: 0`.
 
